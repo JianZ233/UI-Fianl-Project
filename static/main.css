@@ -1,0 +1,4 @@
+.welcome-message h1 {
+    color: #007bff; /* Bootstrap primary blue */
+    margin-bottom: 15px;
+}
