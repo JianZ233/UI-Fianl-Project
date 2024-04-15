@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Home - My Website{% endblock %}
+{% block content %}
+
+<style>
+    .title {
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    body {
+        background-color: rgb(224, 211, 172); /* light red background */
+    }
+
+    .text {
+        color: rgb(66, 67, 64);
+    }
+
+    .quiz-item {
+        margin-top: 30px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+
+    .quiz-item img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .start-quiz-btn {
+        background-color: rgb(102, 41, 49);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+    .start-quiz-btn:hover {
+        background-color: rgb(232, 179, 188);
+        color: rgb(102, 41, 49);
+    }
+</style>
+
+<div class="container text-center">
+    <h1 class="title text" style="font-size: 3em; color: rgb(102, 41, 49);">Welcome to Wine and Dine Quiz</h1>
+    <p style="font-size: 1.2em; color: darkr;">Test your knowledge of wine and food pairings!</p>
+</div>
+
+<div class="container text-center">
+    <div class="quiz-item">
+        <img src="https://www.winetourism.com/files/2022/10/food_and_wine_pairing_2_.png" alt="Placeholder Image">
+        <a href="{{ url_for('quiz') }}" class="btn btn-primary mt-3 start-quiz-btn">Start Quiz</a>
+    </div>
+</div>
+
+{% endblock %}
