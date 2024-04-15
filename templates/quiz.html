@@ -12,16 +12,23 @@
         background-color: rgb(224, 211, 172); /* light red background */
     }
 
-    .text {
-        color: rgb(66, 67, 64);
+    .quiz-container {
+        /* Flexbox layout to center elements */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center; /* Center text within container */
     }
 
     .quiz-item {
-        margin-top: 30px;
         padding: 20px;
+        color: rgb(102, 41, 49);
         border: 1px solid #ddd;
         border-radius: 5px;
+        max-width: 30%;
         background-color: #fff;
+        margin-bottom: 20px; /* add some bottom margin for space */
     }
 
     .quiz-item img {
@@ -64,50 +71,105 @@
         background-color: rgb(232, 179, 188);
         color: rgb(102, 41, 49);
     }
+    /* Existing CSS styles */
+    .quiz-container {
+        /* Add styles for button centering */
+        text-align: center;
+    }
+
+    .start-learning-btn {
+        /* Button styles */
+        background-color: rgb(102, 41, 49);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    .start-learning-btn:hover {
+        /* Button hover styles */
+        background-color: rgb(232, 179, 188);
+        color: rgb(102, 41, 49);
+    }
+
+    /* Gray out the button when disabled */
+    .start-learning-btn:disabled {
+        background-color: #ccc;
+        color: #666;
+        cursor: not-allowed;
+    }
+    .submit-container {
+        /* Flexbox layout to center submit button */
+        display: flex;
+        justify-content: center;
+        margin-top: 20px; /* Adjust margin as needed */
+    }
+
 </style>
 
-<div class="container text-center">
-    <h1 class="title text" style="font-size: 3em; color: rgb(102, 41, 49);">Welcome to Wine and Dine Quiz</h1>
-    <p style="font-size: 1.2em; color: darkr;">Test your knowledge of wine and food pairings!</p>
-</div>
-
-<div class="container">
-    <div class="quiz-item">
-        <img src="{{ current_question.image }}" alt="{{ current_question.title }}">
-        <h2>{{ current_question.title }}</h2>
-        <div class="options">
-            {% for option in current_options %}
-            <div class="option">{{ option }}</div>
-            {% endfor %}
+<body>
+    <div class="quiz-container">
+        <h1>Quiz</h1>
+        <div class="quiz-item">
+            <h2>{{ current_question["question"] }}</h2>
+            <img src="{{ url_for('static', filename='pic/' + current_question['image']) }}" alt="Question Image">
+            <form id="answer-form" action="/check-answer" method="POST">
+                <input type="hidden" id="correct-answer" name="correct_answer" value="{{ current_question['answer'] }}">
+                <input type="hidden" id="explanation" name="explanation" value="{{ current_question['explanation'] }}">
+                {% for option in current_options %}
+                <button type="button" class="option" name="answer" value="{{ option }}">{{ option }}</button>
+                {% endfor %}
+                <div class="submit-container">
+                    <button type="submit" id="submit-btn" class="start-learning-btn">Submit</button>
+                </div>
+            </form>
         </div>
     </div>
-
-    <div class="text-center">
-        <button onclick="nextQuestion()" class="next-question-btn">Next Question</button>
-    </div>
-</div>
+</body>
 
 <script>
-    const options = document.querySelectorAll('.option');
-    options.forEach(option => {
-        option.addEventListener('click', () => {
-            if (option.textContent === '{{ correct_answer }}') {
-                option.classList.add('correct');
-            } else {
-                option.classList.add('incorrect');
-            }
+    const answerButtons = document.querySelectorAll('.option');
+    const submitButton = document.getElementById('submit-btn');
 
-            // Disable clicking on options after an option is selected
-            options.forEach(option => {
-                option.style.pointerEvents = 'none';
+    answerButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            answerButtons.forEach(btn => {
+                btn.classList.remove('selected');
             });
+            button.classList.add('selected');
+            submitButton.style.display = 'block';
+            submitButton.disabled = false; // Enable the button
         });
     });
 
-    function nextQuestion() {
-        // Redirect to the next question page
-        window.location.href = "{{ url_for('quiz') }}";
-    }
+    submitButton.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent form submission
+        const selectedButton = document.querySelector('.option.selected');
+        if (selectedButton) {
+            const userAnswer = selectedButton.textContent.trim();
+            const correctAnswer = document.getElementById('correct-answer').value.trim();
+            const isCorrect = userAnswer === correctAnswer;
+
+            if (isCorrect) {
+                selectedButton.classList.add('correct');
+            } else {
+                selectedButton.classList.add('incorrect');
+                answerButtons.forEach(btn => {
+                    if (btn !== selectedButton) {
+                        btn.style.display = 'none';
+                    }
+                });
+            }
+            setTimeout(() => {
+                answerButtons.forEach(btn => {
+                    btn.classList.remove('selected', 'correct', 'incorrect');
+                    btn.style.display = 'block';
+                });
+                submitButton.style.display = 'none';
+            }, 3000); // 3 seconds timeout
+        }
+    });
 </script>
+
 
 {% endblock %}
