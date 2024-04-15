@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Home - My Website{% endblock %}
+{% block content %}
+
+<style>
+    .title {
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    body {
+        background-color: rgb(224, 211, 172); /* light red background */
+    }
+
+    .text {
+        color: rgb(66, 67, 64);
+    }
+    .view-details {
+    font-weight: bold;
+    background-color: transparent;
+    border: 1px solid rgb(145, 255, 27);
+    color: rgb(69, 124, 10);
+    transition: all 0.3s ease-in-out;
+}
+
+.view-details:hover {
+    background-color: rgb(145, 255, 27);
+    color: white;
+}
+
+.start-learning-btn {
+    background-color: rgb(102, 41, 49);
+    color: white;
+    border: none;
+}
+
+.start-learning-btn:hover {
+    background-color: rgb(232, 179, 188);
+    color: rgb(102, 41, 49);
+}
+</style>
+
+<div class="container text-center">
+    <h1 class="title text" style="font-size: 3em; color: rgb(102, 41, 49);">Welcome to Wine and Dine</h1>
+    <p style="font-size: 1.2em; color: darkr;">Always feeling intimidated by the art of pairing wine and food? Wondering how anyone ever figures it out?</p>
+    <p style="font-size: 1.2em; color: darkr;">You've come to the right spot!</p>
+</div>
+
+<div class="container text-center">
+    <h1 style="font-weight: bold; font-size: 35px;">Implement Randomly Displaying Fact Card</h1>
+    <div id="popularItems" class="row"></div>
+    <a href="/wine-terms" class="btn btn-primary mt-3 start-learning-btn">Start Learning</a>
+</div>
+
+<script src="{{ url_for('static', filename='actions.js') }}"></script>
+
+{% endblock %}
