@@ -1,0 +1,63 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-6 col1">
+      <div id="-xy1"></div>
+      <div id="-xy2"></div>
+    </div>
+    <div class="col-6 col2">
+      <div class="label1" id="y">Column 1</div>
+      <div id="xy1"></div>
+      <div id="xy2"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 col3">
+      <div class="label2" id="-x">Column 2</div>
+      <div id="-x-y1"></div>
+      <div id="-x-y2"></div>
+    </div>
+    <div class="col-6 col4 position-relative">
+        <div id="x-y1"></div>
+      <div id="x-y2"></div>
+      <div class="label3 position-absolute end-0" id="x">Column 3</div>
+      <div class="label4 position-absolute bottom-0" id="-y">Column 4</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .col-6 {
+    height: 350px;
+  }
+
+  /* Only show left and bottom borders for the first column */
+  .col1 {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+  }
+  .col3 {
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+  }
+  .col4 {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+  }
+  .col2 {
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+  }
+  .label4 {
+    position: absolute;
+    bottom: 0;
+    left: 3;
+  }
+
+  /* Add some padding for better visibility */
+  .highlight-border {
+    padding: 10px;
+  }
+</style>
+
+{% endblock %}

@@ -7,34 +7,31 @@ app.secret_key = 'nXK8vpGjZXPr9rAz5qY-1w'
 
 current_id = 0
 quiz_data = {
-    "question1": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
-    "question2": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
-    "question3": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
-    "question4": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
-    "question5": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
-    "question6": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
-    "question7": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
-    "question8": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
-    "question9": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
-    "question10": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "because red wine"}
+    "question1": {"question": "Halibut with creamy sauce", "answer": "Sauvignon Blanc", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
+    "question2": {"question": "Beef lasagna", "answer": "Chianti", "image": "Beef_lasagna.jpg", "explanation": "Explanation for question 2."},
+    "question3": {"question": "Pear goat cheese salad", "answer": "Sauvignon Blanc", "image": "Pear_goat_cheese_salad.jpg", "explanation": "Explanation for question 3."},
+    "question4": {"question": "Parmesan cheese and crackers", "answer": "Chianti Classico", "image": "Cheese_and_crackers.jpg", "explanation": "Explanation for question 4."},
+    "question5": {"question": "salted caramel toffee bark", "answer": "Ruby Port", "image": "Salted_caramel_toffee_bark.jpg", "explanation": "Explanation for question 5."},
     # Add more questions and answers here
 }
 
 # Define additional options, each will be a wine and descriptor
 # descriptor should have dry, full body, etc.
-additional_options = [
-    "option1",
-    "option2",
-    "option3",
-    "option4",
-    "option5",
-    "option6",
-    "option7",
-    "option8",
-    "option9",
-    "option10"
+additional_options = {
+    "Chianiti": {"explanation": "This pairs well with tomato-based sauces and the richness of beef in the lasagna."},
+    "Cabernet Sauvignon": {"explanation": "Its bold flavors and tannins complement the savory richness."},
+    "Pinot Grigio": {"explanation": "This lighter-bodied white wine can provide a refreshing contrast to the richness."},
+    "Sauvignon Blanc": {"explanation": " Its crisp acidity and citrus notes can complement the fresh flavors of the salad, especially the pear."},
+    "Pinot Noir": {"explanation": "Its light to medium body and red fruit flavors can complement the sweetness and creaminess."},
+    "Rosé": {"explanation": "A dry rosé with fruity and floral notes can provide a refreshing contrast to the creaminess and sweetness."},
+    "Chardonnay": {"explanation": "A full-bodied Chardonnay with oak aging can complement the nutty and salty flavors."},
+    "Prosecco": {"explanation": "The crisp acidity and effervescence of Prosecco can contrast with the richness."},
+    "Chianti Classico": {"explanation": "The acidity and fruitiness of Chianti Classico can cut through the richness."},
+    "Ruby Port": {"explanation": "The rich, fruity flavors of Ruby Port can complement the sweetness of the toffee and caramel while contrasting with the saltiness."},
+    "Moscato d'Asti": {"explanation": "The light, sweet, and slightly effervescent character of Moscato d'Asti can provide a delightful contrast to the richness and saltiness of the bark."},
+    "Late Harvest Riesling": {"explanation": "The intense sweetness and honeyed notes of Late Harvest Riesling can complement the caramel and toffee flavors while balancing the saltiness."}
     # Add more options here
-]
+}
 
 @app.route('/')
 def index():
@@ -58,14 +55,21 @@ def quiz():
         return redirect(url_for('quiz_results'))
     
     current_question = session['selected_questions'][session['current_index']]
-    options = [current_question['answer']]  # Start with the correct answer
-    while len(options) < 3:  #3 options total
-        potential_option = random.choice(additional_options)
+    correct_option = current_question['answer']
+    options = [correct_option]  # Start with the correct answer
+
+    # Fix the selection of additional options
+    while len(options) < 3:  # Ensure three options
+        potential_option = random.choice(list(additional_options.keys()))
         if potential_option not in options:
             options.append(potential_option)
     random.shuffle(options)
 
-    return render_template('quiz.html', question=current_question, options=options)
+    # Get explanations for each option
+    options_with_explanations = [{'option': opt, 'explanation': additional_options[opt]['explanation']} for opt in options]
+
+    return render_template('quiz.html', question=current_question, options=options_with_explanations)
+
 
     # questions = list(quiz_data.keys())
 
@@ -127,6 +131,10 @@ def quiz_results():
 @app.route('/wine-terms')
 def wine_terms():
     return render_template('wine_terms.html')
+
+@app.route('/spectrum')
+def spectrum():
+    return render_template('spectrum.html')
 # # check navbar in examples from lecture
 # @app.route('/terms')
 # def terms():
