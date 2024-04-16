@@ -1,175 +1,108 @@
 {% extends "base.html" %}
-{% block title %}Home - My Website{% endblock %}
+{% block title %}Quiz - My Website{% endblock %}
 {% block content %}
-
 <style>
-    .title {
-        font-weight: bold;
-        margin-top: 20px;
-    }
-
     body {
-        background-color: rgb(224, 211, 172); /* light red background */
+        background-color: rgb(224, 211, 172); /* light beige background */
     }
-
     .quiz-container {
-        /* Flexbox layout to center elements */
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        text-align: center; /* Center text within container */
+        text-align: center;
+        width: 100%;
     }
-
     .quiz-item {
         padding: 20px;
-        color: rgb(102, 41, 49);
+        color: rgb(102, 41, 49); /* deep red color for text */
         border: 1px solid #ddd;
         border-radius: 5px;
-        max-width: 30%;
         background-color: #fff;
-        margin-bottom: 20px; /* add some bottom margin for space */
+        width: 80%; /* Wider quiz item for better mobile experience */
+        margin: 20px auto; /* Centering */
     }
-
-    .quiz-item img {
-        max-width: 100%;
-        height: auto;
-        margin-bottom: 20px;
-    }
-
     .option {
-        padding: 10px 20px;
-        margin: 10px;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background-color 0.3s ease-in-out;
-    }
-
-    .option:hover {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
         background-color: #f0f0f0;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s, box-shadow 0.3s;
+        cursor: pointer;
     }
-
+    .option:hover, .option:focus {
+        background-color: rgb(232, 179, 188);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
     .correct {
-        background-color: #b3ffb3;
+        background-color: #b3ffb3; /* Green for correct */
     }
-
     .incorrect {
-        background-color: #ffb3b3;
+        background-color: #ffb3b3; /* Red for incorrect */
     }
-
-    .next-question-btn {
-        background-color: rgb(102, 41, 49);
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        margin-top: 20px;
-        border-radius: 5px;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    }
-
-    .next-question-btn:hover {
-        background-color: rgb(232, 179, 188);
-        color: rgb(102, 41, 49);
-    }
-    /* Existing CSS styles */
-    .quiz-container {
-        /* Add styles for button centering */
-        text-align: center;
-    }
-
-    .start-learning-btn {
-        /* Button styles */
-        background-color: rgb(102, 41, 49);
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-    }
-
-    .start-learning-btn:hover {
-        /* Button hover styles */
-        background-color: rgb(232, 179, 188);
-        color: rgb(102, 41, 49);
-    }
-
-    /* Gray out the button when disabled */
-    .start-learning-btn:disabled {
-        background-color: #ccc;
+    .explanation {
+        margin-top: 10px;
+        font-size: 0.9em;
         color: #666;
-        cursor: not-allowed;
     }
-    .submit-container {
-        /* Flexbox layout to center submit button */
-        display: flex;
-        justify-content: center;
-        margin-top: 20px; /* Adjust margin as needed */
+    .navigation-btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: rgb(102, 41, 49);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
     }
-
+    .navigation-btn:hover {
+        background-color: rgb(232, 179, 188);
+        color: rgb(102, 41, 49);
+    }
 </style>
 
-<body>
-    <div class="quiz-container">
-        <h1>Quiz</h1>
-        <div class="quiz-item">
-            <h2>{{ question["question"] }}</h2>
-            <img src="{{ url_for('static', filename='pic/' + question['image']) }}" alt="Question Image">
-            <form id="answer-form" action="/check-answer" method="POST">
-                <input type="hidden" id="correct-answer" name="correct_answer" value="{{ question['answer'] }}">
-                <input type="hidden" id="explanation" name="explanation" value="{{ question['explanation'] }}">
-                {% for option in current_options %}
-                <button type="button" class="option" name="answer" value="{{ option }}">{{ option }}</button>
-                {% endfor %}
-                <div class="submit-container">
-                    <button type="submit" id="submit-btn" class="start-learning-btn">Submit</button>
-                </div>
-            </form>
+<div class="quiz-container">
+    <h1>Quiz</h1>
+    <div class="quiz-item">
+        <h2>{{ question["question"] }}</h2>
+        <img src="{{ url_for('static', filename='pic/' + question['image']) }}" alt="Question Image" style="max-width: 80%; height: auto;">
+        {% for option in options %}
+        <button type="button" class="option" onclick="selectOption(this, '{{ option.option }}', '{{ option.explanation }}')">
+            {{ option.option }}
+        </button>
+        <div class="explanation" id="{{ option.option }}-explanation" style="display: none;">
+            {{ option.explanation }}
         </div>
+        {% endfor %}
     </div>
-</body>
+    {% if session['current_index'] < session['total_questions'] - 1 %}
+    <button class="navigation-btn" onclick="location.href='{{ url_for('quiz') }}'">Next Question</button>
+    {% else %}
+    <button class="navigation-btn" onclick="location.href='{{ url_for('quiz_results') }}'">Show Results</button>
+    {% endif %}
+</div>
 
 <script>
-    const answerButtons = document.querySelectorAll('.option');
-    const submitButton = document.getElementById('submit-btn');
-
-    answerButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            answerButtons.forEach(btn => {
-                btn.classList.remove('selected');
-            });
-            button.classList.add('selected');
-            submitButton.style.display = 'block';
-            submitButton.disabled = false; // Enable the button
-        });
+function selectOption(selectedElement, optionValue, explanation) {
+    let options = document.querySelectorAll('.option');
+    let explanations = document.querySelectorAll('.explanation');
+    explanations.forEach(ex => ex.style.display = 'none'); // Hide all explanations initially
+    options.forEach(option => {
+        option.disabled = true; // Disable all options after selection
     });
-
-    submitButton.addEventListener('click', (event) => {
-        event.preventDefault(); // Prevent form submission
-        const selectedButton = document.querySelector('.option.selected');
-        if (selectedButton) {
-            const userAnswer = selectedButton.textContent.trim();
-            const correctAnswer = document.getElementById('correct-answer').value.trim();
-            const isCorrect = userAnswer === correctAnswer;
-
-            if (isCorrect) {
-                selectedButton.classList.add('correct');
-            } else {
-                selectedButton.classList.add('incorrect');
-                answerButtons.forEach(btn => {
-                    if (btn !== selectedButton) {
-                        btn.style.display = 'none';
-                    }
-                });
-            }
-            setTimeout(() => {
-                answerButtons.forEach(btn => {
-                    btn.classList.remove('selected', 'correct', 'incorrect');
-                    btn.style.display = 'block';
-                });
-                submitButton.style.display = 'none';
-            }, 3000); // 3 seconds timeout
+    document.getElementById(optionValue + '-explanation').style.display = 'block'; // Show explanation for selected option
+    // Apply color feedback
+    options.forEach(option => {
+        if (option.textContent.trim() === optionValue) {
+            option.classList.add('correct');
+        } else {
+            option.classList.add('incorrect');
         }
     });
+    // Highlight selected option
+    selectedElement.classList.add('correct');
+}
 </script>
-
-
 {% endblock %}

@@ -17,21 +17,21 @@ quiz_data = {
 
 # Define additional options, each will be a wine and descriptor
 # descriptor should have dry, full body, etc.
-additional_options = [
-    "Chaniti",
-    "Cabernet Sauvignon",
-    "Pinot Grigio",
-    "Sauvignon Blanc",
-    "Pinot Noir",
-    "Rosé",
-    "Chardonnay",
-    "Prosecco",
-    "Chianti Classico",
-    "Ruby Port",
-    "Moscato d'Asti",
-    "Late Harvest Riesling"
+additional_options = {
+    "Chianiti": {"explanation": "This pairs well with tomato-based sauces and the richness of beef in the lasagna."},
+    "Cabernet Sauvignon": {"explanation": "Its bold flavors and tannins complement the savory richness."},
+    "Pinot Grigio": {"explanation": "This lighter-bodied white wine can provide a refreshing contrast to the richness."},
+    "Sauvignon Blanc": {"explanation": " Its crisp acidity and citrus notes can complement the fresh flavors of the salad, especially the pear."},
+    "Pinot Noir": {"explanation": "Its light to medium body and red fruit flavors can complement the sweetness and creaminess."},
+    "Rosé": {"explanation": "A dry rosé with fruity and floral notes can provide a refreshing contrast to the creaminess and sweetness."},
+    "Chardonnay": {"explanation": "A full-bodied Chardonnay with oak aging can complement the nutty and salty flavors."},
+    "Prosecco": {"explanation": "The crisp acidity and effervescence of Prosecco can contrast with the richness."},
+    "Chianti Classico": {"explanation": "The acidity and fruitiness of Chianti Classico can cut through the richness."},
+    "Ruby Port": {"explanation": "The rich, fruity flavors of Ruby Port can complement the sweetness of the toffee and caramel while contrasting with the saltiness."},
+    "Moscato d'Asti": {"explanation": "The light, sweet, and slightly effervescent character of Moscato d'Asti can provide a delightful contrast to the richness and saltiness of the bark."},
+    "Late Harvest Riesling": {"explanation": "The intense sweetness and honeyed notes of Late Harvest Riesling can complement the caramel and toffee flavors while balancing the saltiness."}
     # Add more options here
-]
+}
 
 @app.route('/')
 def index():
@@ -55,14 +55,21 @@ def quiz():
         return redirect(url_for('quiz_results'))
     
     current_question = session['selected_questions'][session['current_index']]
-    options = [current_question['answer']]  # Start with the correct answer
-    while len(options) < 3:  #3 options total
-        potential_option = random.choice(additional_options)
+    correct_option = current_question['answer']
+    options = [correct_option]  # Start with the correct answer
+
+    # Fix the selection of additional options
+    while len(options) < 3:  # Ensure three options
+        potential_option = random.choice(list(additional_options.keys()))
         if potential_option not in options:
             options.append(potential_option)
     random.shuffle(options)
 
-    return render_template('quiz.html', question=current_question, options=options)
+    # Get explanations for each option
+    options_with_explanations = [{'option': opt, 'explanation': additional_options[opt]['explanation']} for opt in options]
+
+    return render_template('quiz.html', question=current_question, options=options_with_explanations)
+
 
     # questions = list(quiz_data.keys())
 
