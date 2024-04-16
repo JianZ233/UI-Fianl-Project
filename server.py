@@ -18,7 +18,7 @@ quiz_data = {
 # Define additional options, each will be a wine and descriptor
 # descriptor should have dry, full body, etc.
 additional_options = {
-    "Chianiti": {"explanation": "This pairs well with tomato-based sauces and the richness of beef in the lasagna."},
+    "Chianti": {"explanation": "This pairs well with tomato-based sauces and the richness of beef in the lasagna."},
     "Cabernet Sauvignon": {"explanation": "Its bold flavors and tannins complement the savory richness."},
     "Pinot Grigio": {"explanation": "This lighter-bodied white wine can provide a refreshing contrast to the richness."},
     "Sauvignon Blanc": {"explanation": " Its crisp acidity and citrus notes can complement the fresh flavors of the salad, especially the pear."},
@@ -104,14 +104,20 @@ def quiz():
 def check_answer():
     selected_option = request.form['answer']
     correct_answer = session['selected_questions'][session['current_index']]['answer']
-    
+
+    # Increment the score if the answer is correct
     if selected_option == correct_answer:
         session['score'] += 1
-    
+
+    # Move to the next question
     session['current_index'] += 1
+
+    # Check if all questions have been answered
     if session['current_index'] >= session['total_questions']:
+        # If all questions have been answered, redirect to the results page
         return redirect(url_for('quiz_results'))
     else:
+        # If there are more questions, redirect back to the quiz page to load the next question
         return redirect(url_for('quiz'))
     # user_answer = request.form['answer']
     # correct_answer = request.form['correct_answer']
@@ -124,8 +130,9 @@ def check_answer():
 @app.route('/quiz-results')
 def quiz_results():
     score = session.get('score', 0)
-    total = session.get('total_questions', 0)
-    session.clear()  # Clear session after displaying results
+    total = session.get('total_questions', 5)  # Ensure this matches the number of questions initially set
+    # Optionally clear the session here if you do not plan to use it further
+    session.clear()
     return render_template('quiz_results.html', score=score, total=total)
 
 @app.route('/wine-terms')

@@ -68,41 +68,17 @@
     <div class="quiz-item">
         <h2>{{ question["question"] }}</h2>
         <img src="{{ url_for('static', filename='pic/' + question['image']) }}" alt="Question Image" style="max-width: 80%; height: auto;">
-        {% for option in options %}
-        <button type="button" class="option" onclick="selectOption(this, '{{ option.option }}', '{{ option.explanation }}')">
-            {{ option.option }}
-        </button>
-        <div class="explanation" id="{{ option.option }}-explanation" style="display: none;">
-            {{ option.explanation }}
-        </div>
-        {% endfor %}
+        <form action="{{ url_for('check_answer') }}" method="POST">
+            {% for option in options %}
+            <button type="submit" name="answer" value="{{ option['option'] }}" class="option">
+                {{ option['option'] }}
+            </button>
+            <div class="explanation" style="display:none;">
+                {{ option['explanation'] }}
+            </div>
+            {% endfor %}
+        </form>
     </div>
-    {% if session['current_index'] < session['total_questions'] - 1 %}
-    <button class="navigation-btn" onclick="location.href='{{ url_for('quiz') }}'">Next Question</button>
-    {% else %}
-    <button class="navigation-btn" onclick="location.href='{{ url_for('quiz_results') }}'">Show Results</button>
-    {% endif %}
 </div>
 
-<script>
-function selectOption(selectedElement, optionValue, explanation) {
-    let options = document.querySelectorAll('.option');
-    let explanations = document.querySelectorAll('.explanation');
-    explanations.forEach(ex => ex.style.display = 'none'); // Hide all explanations initially
-    options.forEach(option => {
-        option.disabled = true; // Disable all options after selection
-    });
-    document.getElementById(optionValue + '-explanation').style.display = 'block'; // Show explanation for selected option
-    // Apply color feedback
-    options.forEach(option => {
-        if (option.textContent.trim() === optionValue) {
-            option.classList.add('correct');
-        } else {
-            option.classList.add('incorrect');
-        }
-    });
-    // Highlight selected option
-    selectedElement.classList.add('correct');
-}
-</script>
 {% endblock %}
