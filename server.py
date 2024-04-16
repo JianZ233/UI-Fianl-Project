@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, url_for, redirect
+from flask import Flask, render_template, request, jsonify, url_for, redirect, session
 import random
 
 app = Flask(__name__, static_url_path='/static')
@@ -44,52 +44,81 @@ def index():
 
 @app.route('/quiz-start')
 def quiz_start():
-    return render_template('quiz_start.html')
+    session['total_questions'] = 5
+    session['current_index'] = 0
+    session['score'] = 0
+    session['selected_questions'] = random.sample(quiz_data, session['total_questions'])
+    return redirect(url_for('quiz'))
 
 @app.route('/quiz')
 def quiz():
-    questions = list(quiz_data.keys())
+    if 'selected_questions' not in session or session['current_index'] >= session['total_questions']:
+        return redirect(url_for('quiz_results'))
+    
+    current_question = session['selected_questions'][session['current_index']]
+    options = set([current_question['answer']])  # Start with the correct answer
+    while len(options) < 3:  # 3 options
+        options.add(random.choice(additional_options))
+    options = list(options)
+    random.shuffle(options)
 
-    # Ensure there are enough questions available
-    if len(questions) < 10:
-        return "Not enough questions available for the quiz."
+    return render_template('quiz.html', question=current_question, options=options)
+    # questions = list(quiz_data.keys())
 
-    # Randomly select 10 unique questions
-    selected_questions = []
-    while len(selected_questions) < 5:
-        question = random.choice(questions)
-        if question not in selected_questions:
-            selected_questions.append(question)
+    # # Ensure there are enough questions available
+    # if len(questions) < 10:
+    #     return "Not enough questions available for the quiz."
 
-    # Generate random options for each selected question
-    random_options = {}
-    options = []
-    for question in selected_questions:
-        correct_answer = quiz_data[question]
-        c = correct_answer['answer']
-        options = random.sample(additional_options, 2)
-        options.append(c)
-        random.shuffle(options)
-        random_options[question] = options
+    # # Randomly select 10 unique questions
+    # selected_questions = []
+    # while len(selected_questions) < 5:
+    #     question = random.choice(questions)
+    #     if question not in selected_questions:
+    #         selected_questions.append(question)
 
-    # Select the current question from the selected_questions
-    current_question = selected_questions[0]
+    # # Generate random options for each selected question
+    # random_options = {}
+    # options = []
+    # for question in selected_questions:
+    #     correct_answer = quiz_data[question]
+    #     c = correct_answer['answer']
+    #     options = random.sample(additional_options, 2)
+    #     options.append(c)
+    #     random.shuffle(options)
+    #     random_options[question] = options
 
-    return render_template('quiz.html', current_question=quiz_data[current_question], current_options=random_options[current_question])
+    # # Select the current question from the selected_questions
+    # current_question = selected_questions[0]
+
+    # return render_template('quiz.html', current_question=quiz_data[current_question], current_options=random_options[current_question])
 
 @app.route('/check-answer', methods=['POST'])
 def check_answer():
-    user_answer = request.form['answer']
-    correct_answer = request.form['correct_answer']
-    explanation = request.form['explanation']
+    selected_option = request.form['answer']
+    correct_answer = session['selected_questions'][session['current_index']]['answer']
+    
+    if selected_option == correct_answer:
+        session['score'] += 1
+    
+    session['current_index'] += 1
+    if session['current_index'] >= session['total_questions']:
+        return redirect(url_for('quiz_results'))
+    else:
+        return redirect(url_for('quiz'))
+    # user_answer = request.form['answer']
+    # correct_answer = request.form['correct_answer']
+    # explanation = request.form['explanation']
 
-    is_correct = user_answer == correct_answer
+    # is_correct = user_answer == correct_answer
 
-    return jsonify({'user_answer': user_answer, 'correct_answer': correct_answer, 'explanation': explanation, 'is_correct': is_correct})
+    # return jsonify({'user_answer': user_answer, 'correct_answer': correct_answer, 'explanation': explanation, 'is_correct': is_correct})
 
 @app.route('/quiz-results')
 def quiz_results():
-    return render_template('quiz_results.html')
+    score = session.get('score', 0)
+    total = session.get('total_questions', 0)
+    session.clear()  # Clear session after displaying results
+    return render_template('quiz_results.html', score=score, total=total)
 
 # # check navbar in examples from lecture
 # @app.route('/terms')
