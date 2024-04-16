@@ -78,20 +78,15 @@ def quiz():
 def quiz_results():
     return render_template('quiz_results.html')
 
-# # check navbar in examples from lecture
-# @app.route('/terms')
-# def terms():
-#     return
+
+@app.route('/wine-terms')
+def wine_terms():
+    return render_template('wine_terms.html')
  
-# @app.route('/types')
-# def types():
-
-#     return
-
-# @app.route('/pairings')
-# def types():
-
-#     return
+@app.route('/food-pairings')
+def wine_terms():
+    return render_template('food_pairings.html')
+ 
 
 if __name__ == '__main__':
     app.run(debug=True)
