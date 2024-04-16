@@ -7,32 +7,29 @@ app.secret_key = 'nXK8vpGjZXPr9rAz5qY-1w'
 
 current_id = 0
 quiz_data = {
-    "question1": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
-    "question2": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
-    "question3": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
-    "question4": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
-    "question5": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
-    "question6": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
-    "question7": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
-    "question8": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
-    "question9": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
-    "question10": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "because red wine"}
+    "question1": {"question": "Halibut with creamy sauce", "answer": "Sauvignon Blanc", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
+    "question2": {"question": "Beef lasagna", "answer": "Chianti", "image": "Beef_lasagna.jpg", "explanation": "Explanation for question 2."},
+    "question3": {"question": "Pear goat cheese salad", "answer": "Sauvignon Blanc", "image": "Pear_goat_cheese_salad.jpg", "explanation": "Explanation for question 3."},
+    "question4": {"question": "Parmesan cheese and crackers", "answer": "Chianti Classico", "image": "Cheese_and_crackers.jpg", "explanation": "Explanation for question 4."},
+    "question5": {"question": "salted caramel toffee bark", "answer": "Ruby Port", "image": "Salted_caramel_toffee_bark.jpg", "explanation": "Explanation for question 5."},
     # Add more questions and answers here
 }
 
 # Define additional options, each will be a wine and descriptor
 # descriptor should have dry, full body, etc.
 additional_options = [
-    "option1",
-    "option2",
-    "option3",
-    "option4",
-    "option5",
-    "option6",
-    "option7",
-    "option8",
-    "option9",
-    "option10"
+    "Chaniti",
+    "Cabernet Sauvignon",
+    "Pinot Grigio",
+    "Sauvignon Blanc",
+    "Pinot Noir",
+    "Rosé",
+    "Chardonnay",
+    "Prosecco",
+    "Chianti Classico",
+    "Ruby Port",
+    "Moscato d'Asti",
+    "Late Harvest Riesling"
     # Add more options here
 ]
 
