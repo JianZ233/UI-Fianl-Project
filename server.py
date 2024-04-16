@@ -146,26 +146,6 @@ def check_answer():
             options=[{'option': opt, 'explanation': additional_options[opt]['explanation']} for opt in next_question['options']]
         )
 
-    data = request.get_json()
-    selected_option = data['answer']
-    correct_answer = session['selected_questions'][session['current_index']]['answer']
-    
-    if selected_option == correct_answer:
-        session['score'] += 1
-    
-    session['current_index'] += 1
-    if session['current_index'] >= session['total_questions']:
-        return jsonify(endQuiz=True, correctAnswer=correct_answer)
-    else:
-        next_question = session['selected_questions'][session['current_index']]
-        return jsonify(
-            endQuiz=False,
-            correctAnswer=correct_answer,
-            question=next_question['question'],
-            image=next_question['image'],
-            options=[{'option': opt, 'explanation': additional_options[opt]['explanation']} for opt in next_question['options']]
-        )
-        
     # user_answer = request.form['answer']
     # correct_answer = request.form['correct_answer']
     # explanation = request.form['explanation']
