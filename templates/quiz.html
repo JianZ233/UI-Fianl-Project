@@ -111,11 +111,11 @@
     <div class="quiz-container">
         <h1>Quiz</h1>
         <div class="quiz-item">
-            <h2>{{ current_question["question"] }}</h2>
-            <img src="{{ url_for('static', filename='pic/' + current_question['image']) }}" alt="Question Image">
+            <h2>{{ question["question"] }}</h2>
+            <img src="{{ url_for('static', filename='pic/' + question['image']) }}" alt="Question Image">
             <form id="answer-form" action="/check-answer" method="POST">
-                <input type="hidden" id="correct-answer" name="correct_answer" value="{{ current_question['answer'] }}">
-                <input type="hidden" id="explanation" name="explanation" value="{{ current_question['explanation'] }}">
+                <input type="hidden" id="correct-answer" name="correct_answer" value="{{ question['answer'] }}">
+                <input type="hidden" id="explanation" name="explanation" value="{{ question['explanation'] }}">
                 {% for option in current_options %}
                 <button type="button" class="option" name="answer" value="{{ option }}">{{ option }}</button>
                 {% endfor %}

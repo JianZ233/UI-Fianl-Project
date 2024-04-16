@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, jsonify, url_for, redirect, s
 import random
 
 app = Flask(__name__, static_url_path='/static')
+app.secret_key = 'nXK8vpGjZXPr9rAz5qY-1w'
+
 
 current_id = 0
 quiz_data = {
@@ -20,7 +22,7 @@ quiz_data = {
 
 # Define additional options, each will be a wine and descriptor
 # descriptor should have dry, full body, etc.
-additional_options = {
+additional_options = [
     "option1",
     "option2",
     "option3",
@@ -32,7 +34,7 @@ additional_options = {
     "option9",
     "option10"
     # Add more options here
-}
+]
 
 @app.route('/')
 def index():
@@ -47,7 +49,7 @@ def quiz_start():
     session['total_questions'] = 5
     session['current_index'] = 0
     session['score'] = 0
-    session['selected_questions'] = random.sample(quiz_data, session['total_questions'])
+    session['selected_questions'] = random.sample(list(quiz_data.values()), session['total_questions'])
     return redirect(url_for('quiz'))
 
 @app.route('/quiz')
@@ -56,13 +58,15 @@ def quiz():
         return redirect(url_for('quiz_results'))
     
     current_question = session['selected_questions'][session['current_index']]
-    options = set([current_question['answer']])  # Start with the correct answer
-    while len(options) < 3:  # 3 options
-        options.add(random.choice(additional_options))
-    options = list(options)
+    options = [current_question['answer']]  # Start with the correct answer
+    while len(options) < 3:  #3 options total
+        potential_option = random.choice(additional_options)
+        if potential_option not in options:
+            options.append(potential_option)
     random.shuffle(options)
 
     return render_template('quiz.html', question=current_question, options=options)
+
     # questions = list(quiz_data.keys())
 
     # # Ensure there are enough questions available
@@ -120,6 +124,9 @@ def quiz_results():
     session.clear()  # Clear session after displaying results
     return render_template('quiz_results.html', score=score, total=total)
 
+@app.route('/wine-terms')
+def wine_terms():
+    return render_template('wine_terms.html')
 # # check navbar in examples from lecture
 # @app.route('/terms')
 # def terms():
