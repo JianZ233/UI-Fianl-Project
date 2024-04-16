@@ -5,20 +5,21 @@ app = Flask(__name__, static_url_path='/static')
 
 current_id = 0
 quiz_data = {
-    "question1": "answer1",
-    "question2": "answer2",
-    "question3": "answer3",
-    "question4": "answer4",
-    "question5": "answer5",
-    "question6": "answer6",
-    "question7": "answer7",
-    "question8": "answer8",
-    "question9": "answer9",
-    "question10": "answer10"
+    "question1": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
+    "question2": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
+    "question3": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
+    "question4": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
+    "question5": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
+    "question6": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
+    "question7": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
+    "question8": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
+    "question9": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
+    "question10": {"question": "Halibut with creamy sauce", "answer": "RED WINE", "image": "Halibut_with_cream_sauce.jpg", "explanation": "because red wine"}
     # Add more questions and answers here
 }
 
-# Define additional options
+# Define additional options, each will be a wine and descriptor
+# descriptor should have dry, full body, etc.
 additional_options = {
     "option1",
     "option2",
@@ -47,7 +48,6 @@ def quiz_start():
 
 @app.route('/quiz')
 def quiz():
-     
     questions = list(quiz_data.keys())
 
     # Ensure there are enough questions available
@@ -63,30 +63,48 @@ def quiz():
 
     # Generate random options for each selected question
     random_options = {}
+    options = []
     for question in selected_questions:
         correct_answer = quiz_data[question]
-        options = [correct_answer] + random.sample(additional_options, 2)
+        c = correct_answer['answer']
+        options = random.sample(additional_options, 2)
+        options.append(c)
         random.shuffle(options)
         random_options[question] = options
 
     # Select the current question from the selected_questions
     current_question = selected_questions[0]
 
-    return render_template('quiz.html', current_question=current_question, current_options=random_options[current_question])
+    return render_template('quiz.html', current_question=quiz_data[current_question], current_options=random_options[current_question])
+
+@app.route('/check-answer', methods=['POST'])
+def check_answer():
+    user_answer = request.form['answer']
+    correct_answer = request.form['correct_answer']
+    explanation = request.form['explanation']
+
+    is_correct = user_answer == correct_answer
+
+    return jsonify({'user_answer': user_answer, 'correct_answer': correct_answer, 'explanation': explanation, 'is_correct': is_correct})
 
 @app.route('/quiz-results')
 def quiz_results():
     return render_template('quiz_results.html')
 
+# # check navbar in examples from lecture
+# @app.route('/terms')
+# def terms():
+#     return
+ 
+# @app.route('/types')
+# def types():
 
-@app.route('/wine-terms')
-def wine_terms():
-    return render_template('wine_terms.html')
- 
-@app.route('/food-pairings')
-def wine_terms():
-    return render_template('food_pairings.html')
- 
+#     return
+
+# @app.route('/pairings')
+# def types():
+
+#     return
 
 if __name__ == '__main__':
     app.run(debug=True)
