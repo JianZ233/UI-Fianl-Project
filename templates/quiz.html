@@ -3,7 +3,7 @@
 {% block content %}
 <style>
     body {
-        background-color: rgb(224, 211, 172); /* light beige background */
+        background-color: rgb(224, 211, 172);
     }
     .quiz-container {
         display: flex;
@@ -15,12 +15,12 @@
     }
     .quiz-item {
         padding: 20px;
-        color: rgb(102, 41, 49); /* deep red color for text */
+        color: rgb(102, 41, 49);
         border: 1px solid #ddd;
         border-radius: 5px;
         background-color: #fff;
-        width: 80%; /* Wider quiz item for better mobile experience */
-        margin: 20px auto; /* Centering */
+        width: 80%;
+        margin: 20px auto;
     }
     .option {
         display: block;
@@ -37,29 +37,11 @@
         background-color: rgb(232, 179, 188);
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
-    .correct {
-        background-color: #b3ffb3; /* Green for correct */
-    }
-    .incorrect {
-        background-color: #ffb3b3; /* Red for incorrect */
-    }
     .explanation {
         margin-top: 10px;
         font-size: 0.9em;
         color: #666;
-    }
-    .navigation-btn {
-        margin-top: 20px;
-        padding: 10px 20px;
-        background-color: rgb(102, 41, 49);
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    .navigation-btn:hover {
-        background-color: rgb(232, 179, 188);
-        color: rgb(102, 41, 49);
+        display: none; /* Hidden by default */
     }
 </style>
 
@@ -68,17 +50,19 @@
     <div class="quiz-item">
         <h2>{{ question["question"] }}</h2>
         <img src="{{ url_for('static', filename='pic/' + question['image']) }}" alt="Question Image" style="max-width: 80%; height: auto;">
-        <form action="{{ url_for('check_answer') }}" method="POST">
+        <div id="answer-form">
             {% for option in options %}
-            <button type="submit" name="answer" value="{{ option['option'] }}" class="option">
+            <button type="button" class="option" onclick="submitAnswer(this)">
                 {{ option['option'] }}
             </button>
-            <div class="explanation" style="display:none;">
+            <div class="explanation" id="explanation-{{ loop.index }}">
                 {{ option['explanation'] }}
             </div>
             {% endfor %}
-        </form>
+        </div>
     </div>
 </div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
 
 {% endblock %}

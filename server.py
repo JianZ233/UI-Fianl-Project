@@ -7,11 +7,36 @@ app.secret_key = 'nXK8vpGjZXPr9rAz5qY-1w'
 
 current_id = 0
 quiz_data = {
-    "question1": {"question": "Halibut with creamy sauce", "answer": "Sauvignon Blanc", "image": "Halibut_with_cream_sauce.jpg", "explanation": "Explanation for question 1."},
-    "question2": {"question": "Beef lasagna", "answer": "Chianti", "image": "Beef_lasagna.jpg", "explanation": "Explanation for question 2."},
-    "question3": {"question": "Pear goat cheese salad", "answer": "Sauvignon Blanc", "image": "Pear_goat_cheese_salad.jpg", "explanation": "Explanation for question 3."},
-    "question4": {"question": "Parmesan cheese and crackers", "answer": "Chianti Classico", "image": "Cheese_and_crackers.jpg", "explanation": "Explanation for question 4."},
-    "question5": {"question": "salted caramel toffee bark", "answer": "Ruby Port", "image": "Salted_caramel_toffee_bark.jpg", "explanation": "Explanation for question 5."},
+    "question1": {"question": "Halibut with creamy sauce", 
+                  "answer": "Sauvignon Blanc", 
+                  "image": "Halibut_with_cream_sauce.jpg", 
+                  "explanation": "Explanation for question 1.",
+                  "options": ["Sauvignon Blanc", "Chardonnay", "Pinot Grigio"]
+                  },
+    "question2": {"question": "Beef lasagna", 
+                  "answer": "Chianti", 
+                  "image": "Beef_lasagna.jpg", 
+                  "explanation": "Explanation for question 2.",
+                  "options": ["Sauvignon Blanc", "Chianti", "Cabernet Sauvignon"]
+                  },
+    "question3": {"question": "Pear goat cheese salad", 
+                  "answer": "Sauvignon Blanc", 
+                  "image": "Pear_goat_cheese_salad.jpg", 
+                  "explanation": "Explanation for question 3.",
+                  "options": ["Sauvignon Blanc", "Pinot Noir", "Rosé"]
+                  },
+    "question4": {"question": "Parmesan cheese and crackers", 
+                  "answer": "Chianti Classico", 
+                  "image": "Cheese_and_crackers.jpg", 
+                  "explanation": "Explanation for question 4.",
+                  "options": ["Chardonnay", "Prosecco", "Chianti Classico"]
+                  },
+    "question5": {"question": "salted caramel toffee bark", 
+                  "answer": "Ruby Port", 
+                  "image": "Salted_caramel_toffee_bark.jpg", 
+                  "explanation": "Explanation for question 5.",
+                  "options": ["Ruby Port", "Moscato d'Asti", "Late Harvest Riesling"]
+                  },
     # Add more questions and answers here
 }
 
@@ -58,8 +83,7 @@ def quiz():
     correct_option = current_question['answer']
     options = [correct_option]  # Start with the correct answer
 
-    # Fix the selection of additional options
-    while len(options) < 3:  # Ensure three options
+    while len(options) < 3:  #three options
         potential_option = random.choice(list(additional_options.keys()))
         if potential_option not in options:
             options.append(potential_option)
@@ -102,23 +126,19 @@ def quiz():
 
 @app.route('/check-answer', methods=['POST'])
 def check_answer():
-    selected_option = request.form['answer']
+    data = request.get_json()
+    selected_option = data['answer']
     correct_answer = session['selected_questions'][session['current_index']]['answer']
-
-    # Increment the score if the answer is correct
+    
     if selected_option == correct_answer:
         session['score'] += 1
-
-    # Move to the next question
+    
     session['current_index'] += 1
-
-    # Check if all questions have been answered
     if session['current_index'] >= session['total_questions']:
-        # If all questions have been answered, redirect to the results page
-        return redirect(url_for('quiz_results'))
+        return jsonify(endQuiz=True)
     else:
-        # If there are more questions, redirect back to the quiz page to load the next question
-        return redirect(url_for('quiz'))
+        next_question = session['selected_questions'][session['current_index']]
+        return jsonify(endQuiz=False, question=next_question['question'], image=next_question['image'], options=[{'option': opt, 'explanation': additional_options[opt]['explanation']} for opt in next_question['options']])
     # user_answer = request.form['answer']
     # correct_answer = request.form['correct_answer']
     # explanation = request.form['explanation']
@@ -131,7 +151,7 @@ def check_answer():
 def quiz_results():
     score = session.get('score', 0)
     total = session.get('total_questions', 5)  # Ensure this matches the number of questions initially set
-    # Optionally clear the session here if you do not plan to use it further
+    # Clear the session 
     session.clear()
     return render_template('quiz_results.html', score=score, total=total)
 
