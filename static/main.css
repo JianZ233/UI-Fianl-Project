@@ -1,4 +1,30 @@
-.welcome-message h1 {
-    color: #007bff; /* Bootstrap primary blue */
-    margin-bottom: 15px;
+.option {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.option.correct {
+    background-color: #b3ffb3; /* Light green for correct answers */
+}
+
+.option.incorrect {
+    background-color: #ffb3b3; /* Light red for incorrect answers */
+}
+
+.option:hover, .option:focus {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.explanation {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #666;
+    display: none; /* Hidden by default */
 }

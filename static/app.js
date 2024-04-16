@@ -28,16 +28,31 @@ function submitAnswer(option) {
         },
         body: JSON.stringify(data)
     })
-    .then(response => {
-        if (!response.ok) throw new Error('Network response was not ok.');
-        return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
+        // Display explanations for all options
+        document.querySelectorAll('.explanation').forEach(explanation => {
+            explanation.style.display = 'block';
+        });
+
+        // Disable all option buttons to prevent further answers
+        document.querySelectorAll('.option').forEach(btn => {
+            btn.disabled = true;
+            btn.classList.add(btn.innerText.trim() === data.correctAnswer ? 'correct' : 'incorrect');
+        });
+
+        // Show next question or results button
+        const buttonContainer = document.getElementById('answer-form');
+        const actionButton = document.createElement('button');
+        actionButton.className = 'navigation-btn';
         if (data.endQuiz) {
-            window.location.href = "/quiz-results"; // Redirect to results if quiz is over
+            actionButton.innerText = 'Show Results';
+            actionButton.onclick = () => window.location.href = "/quiz-results";
         } else {
-            loadQuestion(data); // Load the next question data
+            actionButton.innerText = 'Next Question';
+            actionButton.onclick = () => loadQuestion(data);
         }
+        buttonContainer.appendChild(actionButton);
     })
     .catch(error => {
         console.error('Error:', error);
