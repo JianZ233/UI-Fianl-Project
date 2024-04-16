@@ -126,7 +126,7 @@ def quiz_results():
 
 @app.route('/wine-terms')
 def wine_terms():
-    return render_template('wine_terms.html')
+    return render_template('side_nav.html')
 # # check navbar in examples from lecture
 # @app.route('/terms')
 # def terms():
