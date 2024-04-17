@@ -3,8 +3,8 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-2">
-      <h2 id="nav-title"> Wine Terms</h2>
+    <div class="col-lg-2" style="border: 3px solid rgb(102, 41, 49); border-top: 0px;">
+      <h2 id="nav-title" style="padding-top: 20px;"> Wine Terms</h2>
       <ul class="nav flex-column">
         <li class="nav-item">
           <a class="nav-link active" href="#" onclick="loadContent('body')">Body</a>
@@ -13,10 +13,10 @@
           <a class="nav-link" href="#" onclick="loadContent('dryness')">Dryness</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" onclick="loadContent('wine_types')">Wine Types</a>
+          <a class="nav-link" href="/wine-terms?section=winetypes">Wine Types</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" onclick="loadContent('fullspectrum')">Spectrum</a>
+          <a class="nav-link" href="/wine-terms?section=fullspectrum">Spectrum</a>
         </li>
         <!-- Add more links as needed -->
       </ul>
@@ -28,66 +28,23 @@
 
 <script>
   function loadContent(url) {
-    $.get(url, function(data) {
-      $('#main-content').html(data);
-      initializeEventListeners(); // Initialize event listeners after loading content
-    });
-  }
+  $.get(url, function(html) {
+    $('#main-content').html(html);// Call the function to set up event listeners
+  }).fail(function(error) {
+    console.error('Error loading content: ', error);
+  });
+}
 
-  function initializeEventListeners() {
-    $("#topleft1").click(function() {
-      $('#winename').text(data.topleft.wine_name);
-      $('#winedesc').text(data.topleft.wine_desc);
-      console.log("working")
-    });
-
-    // Add event listeners for other elements as needed
-  }
-  // Load 'body' content immediately when the file is opened
- 
   $(document).ready(function() {
-    loadContent('body');
-    $("#topleft1").click(function() {
-            $('#winename').text(data.topleft.wine_name);
-            $('#winedesc').text(data.topleft.wine_desc);
-            console.log("working")
-        });
-
-        $("#topleft2").click(function() {
-            $('#winename').text(data.toplef2.wine_name);
-            $('#winedesc').text(data.topleft2.wine_desc);
-        });
-
-        $("#bottomleft1").click(function() {
-            $('#winename').text(data.bottomleft.wine_name);
-            $('#winedesc').text(data.bottomleft.wine_desc);
-        });
-
-        $("#bottomleft2").click(function() {
-            $('#winename').text(data.bottomleft2.wine_name);
-            $('#winedesc').text(data.bottomleft2.wine_desc);
-        });
-
-         $("#bottomright1").click(function() {
-            $('#winename').text(data.bottomright.wine_name);
-            $('#winedesc').text(data.bottomright.wine_desc);
-        });
-
-         $("#bottomright2").click(function() {
-            $('#winename').text(data.bottomright2.wine_name);
-            $('#winedesc').text(data.bottomright2.wine_desc);
-        });
-
-        $("#topright1").click(function() {
-            $('#winename').text(data.topright.wine_name);
-            $('#winedesc').text(data.topright.wine_desc);
-        });
-
-        $("#topright2").click(function() {
-            $('#winename').text(data.topright2.wine_name);
-            $('#winedesc').text(data.topright2.wine_desc);
-        });
- });
+    var urlParams = new URLSearchParams(window.location.search);
+    var section = urlParams.get('section');
+    if (section) {
+        console.log("hello")
+        loadContent(section);
+    } else {
+      loadContent('body');
+    }
+  });
 </script>
 
 {% endblock %}

@@ -1,105 +1,126 @@
 <html>
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>{% block title %}{% endblock %}</title>
-      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-      <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-      <link
-        rel="stylesheet"
-        href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
-      />
-      <!-- Bootstrap CSS -->
-      <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        crossorigin="anonymous"
-      />
-      <script>
-  var data = {{data|tojson}};
-</script>
-      
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <script>
+      var data = {{data|tojson}};
+    </script>
+  </head>
 
   <script>
-    $(document).ready(function() {
-        console.log("HELLO?????");
-        $("#topleft1").click(function() {
-            $('#winename').text(data.topleft.wine_name);
-            $('#winedesc').text(data.topleft.wine_desc);
-            console.log("working")
-        });
+    $(document).ready(function () {
+      $("#topleft1").click(function () {
+        $("#winename").text(data.topleft.wine_name);
+        $("#winedesc").text(data.topleft.wine_desc);
+        console.log("working");
+      });
 
-        $("#topleft2").click(function() {
-            $('#winename').text(data.toplef2.wine_name);
-            $('#winedesc').text(data.topleft2.wine_desc);
-        });
+      $("#topleft2").click(function () {
+        $("#winename").text(data.topleft2.wine_name);
+        $("#winedesc").text(data.topleft2.wine_desc);
+      });
 
-        $("#bottomleft1").click(function() {
-            $('#winename').text(data.bottomleft.wine_name);
-            $('#winedesc').text(data.bottomleft.wine_desc);
-        });
+      $("#bottomleft1").click(function () {
+        $("#winename").text(data.bottomleft.wine_name);
+        $("#winedesc").text(data.bottomleft.wine_desc);
+      });
 
-        $("#bottomleft2").click(function() {
-            $('#winename').text(data.bottomleft2.wine_name);
-            $('#winedesc').text(data.bottomleft2.wine_desc);
-        });
+      $("#bottomleft2").click(function () {
+        $("#winename").text(data.bottomleft2.wine_name);
+        $("#winedesc").text(data.bottomleft2.wine_desc);
+      });
 
-         $("#bottomright1").click(function() {
-            $('#winename').text(data.bottomright.wine_name);
-            $('#winedesc').text(data.bottomright.wine_desc);
-        });
+      $("#bottomright1").click(function () {
+        $("#winename").text(data.bottomright.wine_name);
+        $("#winedesc").text(data.bottomright.wine_desc);
+      });
 
-         $("#bottomright2").click(function() {
-            $('#winename').text(data.bottomright2.wine_name);
-            $('#winedesc').text(data.bottomright2.wine_desc);
-        });
+      $("#bottomright2").click(function () {
+        $("#winename").text(data.bottomright2.wine_name);
+        $("#winedesc").text(data.bottomright2.wine_desc);
+      });
 
-        $("#topright1").click(function() {
-            $('#winename').text(data.topright.wine_name);
-            $('#winedesc').text(data.topright.wine_desc);
-        });
+      $("#topright1").click(function () {
+        $("#winename").text(data.topright.wine_name);
+        $("#winedesc").text(data.topright.wine_desc);
+      });
 
-        $("#topright2").click(function() {
-            $('#winename').text(data.topright2.wine_name);
-            $('#winedesc').text(data.topright2.wine_desc);
-        });
-        console.log("Script executed successfully");
+      $("#topright2").click(function () {
+        $("#winename").text(data.topright2.wine_name);
+        $("#winedesc").text(data.topright2.wine_desc);
+      });
     });
-    </script>
+  </script>
   <body>
     <h2 id="title">{{data.title}}</h2>
     <div class="container">
       <div class="row">
         <div class="col-3" id="popup">
-          <div id="winename"></div>
+          <h3 id="winename"></h3>
           <div id="winedesc"></div>
         </div>
         <div class="col-9">
           <div class="row">
             <div class="col-6 col1">
-              <div class="btn" id="topleft1">{{data.topleft.wine_name}}</div>
-              <div id="topleft2">{{data.topleft2.wine_name}}</div>
+              <div class="btncontain">
+                <div class="beige-bg btn" id="topleft1">
+                  {{data.topleft.wine_name}}
+                </div>
+                <div class="darkred-bg btn" id="topleft2">
+                  {{data.topleft2.wine_name}}
+                </div>
+              </div>
             </div>
             <div class="col-6 col2">
               <div class="label1" id="top">{{data.labeltop}}</div>
-              <div id="topright1">{{data.topright.wine_name}}</div>
-              <div id="topright2">{{data.topright2.wine_name}}</div>
+              <div class="btncontain">
+                <div class="beige-bg btn" id="topright1">
+                  {{data.topright.wine_name}}
+                </div>
+                <div class="darkred-bg btn" id="topright2">
+                  {{data.topright2.wine_name}}
+                </div>
+              </div>
             </div>
           </div>
           <div class="row">
             <div class="col-6 col3">
               <div class="label2" id="bottom">{{data.labelleft}}</div>
-              <div id="bottomleft1">{{data.bottomleft.wine_name}}</div>
-              <div id="bottomleft2">{{data.bottomleft2.wine_name}}</div>
+              <div class="btncontain">
+                <div class="beige-bg btn" id="bottomleft1">
+                  {{data.bottomleft.wine_name}}
+                </div>
+                <div class="darkred-bg btn" id="bottomleft2">
+                  {{data.bottomleft2.wine_name}}
+                </div>
+              </div>
             </div>
             <div class="col-6 col4 position-relative">
               <div class="label3 position-absolute end-0" id="right">
                 {{data.labelright}}
               </div>
               <br />
-              <div id="bottomright1">{{data.bottomright.wine_name}}</div>
-              <div id="bottomright2">{{data.bottomright2.wine_name}}</div>
+              <div class="btncontain">
+                <div class="beige-bg btn" id="bottomright1">
+                  {{data.bottomright.wine_name}}
+                </div>
+                <div class="darkred-bg btn" id="bottomright2">
+                  {{data.bottomright2.wine_name}}
+                </div>
+              </div>
               <div class="label4 position-absolute bottom-0" id="left">
                 {{data.labelbottom}}
               </div>
@@ -113,6 +134,14 @@
       .col-6 {
         height: 350px;
       }
+      
+      .btncontain{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  height: 100%; /* Ensure the container takes up the full height of the column */
+}
 
       /* Only show left and bottom borders for the first column */
       .col1 {
@@ -141,7 +170,21 @@
       .highlight-border {
         padding: 10px;
       }
+
+      .beige-bg {
+        color: rgb(151, 59, 72);
+        background-color: rgb(241, 233, 208);
+      }
+
+      body {
+        color: rgb(151, 59, 72);
+        background-color: rgb(224, 211, 172); /* light red background */
+      }
+
+      .darkred-bg {
+        color: rgb(241, 233, 208);
+        background-color: rgb(151, 59, 72);
+      }
     </style>
   </body>
 </html>
-

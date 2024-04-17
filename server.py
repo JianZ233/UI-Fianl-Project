@@ -145,9 +145,13 @@ seafood = {
     'labelbottom':'Acidic',
     'labelleft':'Not Flaky',
     'topright': wines['Chardonnay'],
+    'topright2':'',
     'topleft': wines['Sauvignon Blanc'],
-    'bottomright': wines['Pinot Noir'],
-    'bottomleft': wines['Pinot Grigio']
+    'topleft2': '',
+    'bottomright2': wines['Pinot Noir'],
+    'bottomright': '',
+    'bottomleft': wines['Pinot Grigio'],
+    'bottomleft2': ''
 }
 
 meat = {
@@ -157,9 +161,13 @@ meat = {
     'labelbottom':'Acidic',
     'labelleft':'White meat',
     'topright': wines['Merlot'],
+    'topright2':'',
     'topleft': wines['Chardonnay'],
+    'topleft2': '',
     'bottomright': wines['Shiraz'],
-    'bottomleft': wines['Sauvignon Blanc']
+    'bottomright2': '',
+    'bottomleft': wines['Sauvignon Blanc'],
+    'bottomleft2': ''
 }
 
 vegetables = {
@@ -169,9 +177,13 @@ vegetables = {
     'labelbottom':'Acidic',
     'labelleft':'Spicy',
     'topright': wines['Pinot Noir'],
+    'topright2':'',
     'topleft': wines['Sauvignon Blanc'],
+    'topleft2': '',
     'bottomright': wines['Riesling'],
-    'bottomleft': wines['Chardonnay']
+    'bottomright2': '',
+    'bottomleft': wines['Chardonnay'],
+    'bottomleft2': ''
 }
 
 @app.route('/')
@@ -293,6 +305,18 @@ def food_pairings_summary():
 @app.route('/fullspectrum')
 def spectrum():
     return render_template('spectrum.html', data=basic_spectrum)
+
+@app.route('/seafood')
+def seafoodspec():
+    return render_template('spectrum.html', data=seafood)
+
+@app.route('/meat')
+def meatspec():
+    return render_template('spectrum.html', data=meat)
+
+@app.route('/vegetables')
+def vegspec():
+    return render_template('spectrum.html', data=vegetables)
 
 @app.route('/body')
 def body():
