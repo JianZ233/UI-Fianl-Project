@@ -1,5 +1,4 @@
 <html>
-  <head>
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,9 +19,7 @@
         rel="stylesheet"
         href="{{url_for('static', filename='main.css')}}"
       />
-      <script src="{{ url_for('static', filename='app.js') }}"></script>
     </head>
-  </head>
 
   <script>
     var data= {{data|tojson}};
@@ -31,32 +28,35 @@
     <h2 id="title">{{data.title}}</h2>
     <div class="container">
       <div class="row">
-        <div class="col-3">stuff</div>
+        <div class="col-3" id="popup">
+          <div id="winename"></div>
+          <div id="winedesc"></div>
+        </div>
         <div class="col-9">
           <div class="row">
             <div class="col-6 col1">
-              <div id="topleft1">{{data.topleft}}</div>
-              <div id="topleft2">{{data.topleft2}}</div>
+              <div class="btn" id="topleft1">{{data.topleft.wine_name}}</div>
+              <div id="topleft2">{{data.topleft2.wine_name}}</div>
             </div>
             <div class="col-6 col2">
               <div class="label1" id="top">{{data.labeltop}}</div>
-              <div id="topright1">{{data.topright}}</div>
-              <div id="topright2">{{data.topright2}}</div>
+              <div id="topright1">{{data.topright.wine_name}}</div>
+              <div id="topright2">{{data.topright2.wine_name}}</div>
             </div>
           </div>
           <div class="row">
             <div class="col-6 col3">
               <div class="label2" id="bottom">{{data.labelleft}}</div>
-              <div id="bottomleft1">{{data.bottomleft}}</div>
-              <div id="bottomleft2">{{data.bottomleft2}}</div>
+              <div id="bottomleft1">{{data.bottomleft.wine_name}}</div>
+              <div id="bottomleft2">{{data.bottomleft2.wine_name}}</div>
             </div>
             <div class="col-6 col4 position-relative">
               <div class="label3 position-absolute end-0" id="right">
                 {{data.labelright}}
               </div>
               <br />
-              <div id="bottomright1">{{data.bottomright}}</div>
-              <div id="bottomright2">{{data.bottomright2}}</div>
+              <div id="bottomright1">{{data.bottomright.wine_name}}</div>
+              <div id="bottomright2">{{data.bottomright2.wine_name}}</div>
               <div class="label4 position-absolute bottom-0" id="left">
                 {{data.labelbottom}}
               </div>
@@ -99,5 +99,53 @@
         padding: 10px;
       }
     </style>
+
+     <script>
+    $(document).ready(function() {
+        conole.log("HELLO?????");
+        /*$("#topleft1").click(function() {
+            $('#winename').text(data.topleft.wine_name);
+            $('#winedesc').text(data.topleft.wine_desc);
+            console.log("working")
+        });
+
+        $("#topleft2").click(function() {
+            $('#winename').text(data.toplef2.wine_name);
+            $('#winedesc').text(data.topleft2.wine_desc);
+        });
+
+        $("#bottomleft1").click(function() {
+            $('#winename').text(data.bottomleft.wine_name);
+            $('#winedesc').text(data.bottomleft.wine_desc);
+        });
+
+        $("#bottomleft2").click(function() {
+            $('#winename').text(data.bottomleft2.wine_name);
+            $('#winedesc').text(data.bottomleft2.wine_desc);
+        });
+
+         $("#bottomright1").click(function() {
+            $('#winename').text(data.bottomright.wine_name);
+            $('#winedesc').text(data.bottomright.wine_desc);
+        });
+
+         $("#bottomright2").click(function() {
+            $('#winename').text(data.bottomright2.wine_name);
+            $('#winedesc').text(data.bottomright2.wine_desc);
+        });
+
+        $("#topright1").click(function() {
+            $('#winename').text(data.topright.wine_name);
+            $('#winedesc').text(data.topright.wine_desc);
+        });
+
+        $("#topright2").click(function() {
+            $('#winename').text(data.topright2.wine_name);
+            $('#winedesc').text(data.topright2.wine_desc);
+        });*/
+        console.log("Script executed successfully");
+    });
+    </script>
   </body>
 </html>
+
