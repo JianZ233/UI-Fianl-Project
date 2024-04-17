@@ -50,46 +50,54 @@
     <div class="row">
         <div class="col-md-4" style="text-align: center;"> 
             <div>
-                <button
-                  style="
-                    color: rgb(102, 41, 49);
-                    border: 2px solid rgb(102, 41, 49);
-                    background-color: transparent;
-                  "
-                  onclick="loadContent('seafood')"
-                >
-                  Seafood
-                </button>
+              <!-- replace dryness with seafood and href wine-terms with food-pairings -->
+              <a href="/wine-terms?section=dryness"
+              style="
+                display: inline-block;
+                color: rgb(102, 41, 49);
+                border: 2px solid rgb(102, 41, 49);
+                background-color: transparent;
+                text-decoration: none;
+                padding: 8px 12px;
+                text-align: center;"
+           >
+              Seafood
+           </a>
               </div>
               <img class="frame" src="{{ url_for('static', filename='pic/seafood.jpg') }}" alt="Seafood">
         </div>
         <div class="col-md-4"  style="text-align: center;">
             <div>
-                <button
-                  style="
-                    color: rgb(102, 41, 49);
-                    border: 2px solid rgb(102, 41, 49);
-                    background-color: transparent;
-                  "
-                  onclick="loadContent('meat')"
-                >
-                  Meat
-                </button>
+              <!-- replace dryness with seafood and href wine-terms with food-pairings -->
+              <a href="/wine-terms?section=dryness"
+              style="
+                display: inline-block;
+                color: rgb(102, 41, 49);
+                border: 2px solid rgb(102, 41, 49);
+                background-color: transparent;
+                text-decoration: none;
+                padding: 8px 12px;
+                text-align: center;">
+              Meat
+              </a>
               </div>
               <img class="frame" src="{{ url_for('static', filename='pic/meat.jpg') }}" alt="Meat">
         </div>
         <div class="col-md-4"  style="text-align: center;">
             <div>
-                <button
-                  style="
-                    color: rgb(102, 41, 49);
-                    border: 2px solid rgb(102, 41, 49);
-                    background-color: transparent;
-                  "
-                  onclick="loadContent('vegetable')"
-                >
-                  Vegetable
-                </button>
+              <!-- replace dryness with seafood and href wine-terms with food-pairings -->
+              <a href="/wine-terms?section=dryness"
+                style="
+                  display: inline-block;
+                  color: rgb(102, 41, 49);
+                  border: 2px solid rgb(102, 41, 49);
+                  background-color: transparent;
+                  text-decoration: none;
+                  padding: 8px 12px;
+                  text-align: center;"
+              >
+                Vegetable
+              </a>
               </div>
               <img class="frame" src="{{ url_for('static', filename='pic/vegetable.jpg') }}" alt="Vegetable">
         </div>

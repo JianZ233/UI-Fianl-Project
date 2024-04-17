@@ -3,8 +3,8 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-2">
-      <h2 id="nav-title"> Wine Terms</h2>
+    <div class="col-lg-2" style="border: 3px solid rgb(102, 41, 49); border-top: 0px;">
+      <h2 id="nav-title" style="padding-top: 20px;"> Wine Terms</h2>
       <ul class="nav flex-column">
         <li class="nav-item">
           <a class="nav-link active" href="#" onclick="loadContent('body')">Body</a>
@@ -36,10 +36,15 @@
       .catch(error => console.error('Error loading content: ', error));
   }
 
-  // Load 'body' content immediately when the file is opened
-  window.onload = function() {
-    loadContent('body');
-  };
+  $(document).ready(function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var section = urlParams.get('section');
+    if (section) {
+        loadContent(section);
+    } else {
+      loadContent('body');
+    }
+  });
 </script>
 
 {% endblock %}
