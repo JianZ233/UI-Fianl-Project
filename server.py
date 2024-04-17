@@ -82,7 +82,7 @@ wines={
         'wine_type':'Red',
         'wine_desc':'A sweet red wine with delicious flavor of cherries, red berries and plums.'    
     },
-    'Reisling':{
+    'Riesling':{
         'wine_type':'White',
         'wine_desc':'This sweet, aromatic white wine offers primary fruit aromas of orchard fruits like nectarine, apricot, honey-crisp apple, and pear. '
     },
@@ -116,13 +116,13 @@ basic_spectrum = {
     'labelright':'Sweet',
     'labelbottom':'Light',
     'labelleft':'Dry',
-    'topright1': wines['Vin Santo'],
+    'topright': wines['Vin Santo'],
     'topright2': wines['Dornfelder'],
-    'topleft1': wines['Chardonnay'],
+    'topleft': wines['Chardonnay'],
     'topleft2': wines['Cabernet Sauvignon'],
-    'bottomright1': wines['Reisling'],
+    'bottomright': wines['Riesling'],
     'bottomright2': wines['Ruby Port'],
-    'bottomleft1': wines['Sauvignon Blanc'],
+    'bottomleft': wines['Sauvignon Blanc'],
     'bottomleft2': wines['Lambrusco di Sorbara']
 }
 
@@ -281,6 +281,7 @@ def spectrum():
 @app.route('/body')
 def body():
     return render_template('body.html')
+
 
 @app.route('/pairings')
 def pairings():

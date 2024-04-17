@@ -1,28 +1,34 @@
 {% extends "base.html" %} {% block content %}
-<h2 id="title"></h2>
+
+<script>
+  var data= {{data|tojson}};
+</script>
+
+<h2 id="title">{{data.title}}</h2>
 <div class="container">
   <div class="row">
     <div class="col-6 col1">
-      <div id="topleft1"></div>
-      <div id="topleft2"></div>
+      <div id="topleft1">{{data.topleft}}</div>
+      <div id="topleft2">{{data.topleft2}}
+      </div>
     </div>
     <div class="col-6 col2">
-      <div class="label1" id="top">Column 1</div>
-      <div id="topright1"></div>
-      <div id="topright2"></div>
+      <div class="label1" id="top">{{data.labeltop}}</div>
+      <div id="topright1">{{data.topright}}</div>
+      <div id="topright2">{{data.topright2}}</div>
     </div>
   </div>
   <div class="row">
     <div class="col-6 col3">
-      <div class="label2" id="bottom">Column 2</div>
-      <div id="bottomleft1"></div>
-      <div id="bottomleft2"></div>
+      <div class="label2" id="bottom">{{data.labelleft}}</div>
+      <div id="bottomleft1">{{data.bottomleft}}</div>
+      <div id="bottomleft2">{{data.bottomleft2}}</div>
     </div>
     <div class="col-6 col4 position-relative">
-        <div id="bottomright1"></div>
-      <div id="bottomright2"></div>
-      <div class="label3 position-absolute end-0" id="right">Column 3</div>
-      <div class="label4 position-absolute bottom-0" id="left">Column 4</div>
+        <div id="bottomright1">{{data.bottomright}}</div>
+      <div id="bottomright2">{{data.bottomright2}}</div>
+      <div class="label3 position-absolute end-0" id="right">{{data.labelright}}</div>
+      <div class="label4 position-absolute bottom-0" id="left">{{data.labelbottom}}</div>
     </div>
   </div>
 </div>
