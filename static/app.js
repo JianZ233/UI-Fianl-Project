@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     if (window.location.pathname == "/wine-terms"){
         $("#wine-terms-nav").css("text-decoration", "underline");
@@ -43,7 +42,7 @@ function submitAnswer() {
                 } else if (btn.classList.contains('clicked')) {
                     btn.classList.add('incorrect');
                 }
-                btn.disabled = true;
+                btn.disabled = false;
             });
 
             // Hide the submit button
@@ -58,6 +57,7 @@ function submitAnswer() {
                 actionButton.onclick = () => window.location.href = "/quiz-results";
             } else {
                 actionButton.innerText = 'Next Question';
+                console.log("about to call");
                 actionButton.onclick = () => loadQuestion(data);
             }
             buttonContainer.appendChild(actionButton);
@@ -90,12 +90,10 @@ function markClicked(option) {
     document.getElementById("submit-btn").disabled = false;
 }
 
-
-// Function to dynamically load the next question
-// Function to dynamically load the next question
 function loadQuestion(data) {
+    console.log("Load question function called");
     const quizContainer = document.querySelector('.quiz-container');
-    quizContainer.querySelector('h2').innerText = data.question;
+    quizContainer.querySelector('h3').innerText = data.question;
     const image = quizContainer.querySelector('img');
     image.src = '/static/pic/' + data.image;
     image.alt = 'Question Image';
@@ -124,7 +122,12 @@ function loadQuestion(data) {
     });
 
     // Enable the submit button
-    document.getElementById("submit-btn").style.display = 'block'; // Add this line
-    document.getElementById("submit-btn").disabled = true; // Add this line
-}
+    document.getElementById("submit-btn").style.display = 'block';
+    document.getElementById("submit-btn").disabled = true;
 
+    // Remove any existing "Next Question" button
+    const existingNextBtn = document.getElementById('next-btn');
+    if (existingNextBtn) {
+        existingNextBtn.remove();
+    }
+}
