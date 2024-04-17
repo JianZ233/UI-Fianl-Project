@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    body {
+        background-color: rgb(224, 211, 172);
+        color: rgb(102, 41, 49);
+    }
+    .results-container {
+        text-align: center;
+    }
+    .start-learning-btn {
+        text-decoration-color: rgb(224, 211, 172);
+        background-color: rgb(102, 41, 49);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 10px;
+        text-decoration: none;
+        margin: 0 auto;
+        width: 15%;
+        display: block; /* Make buttons block-level */
+    }
+
+    .start-learning-btn:hover {
+        background-color: rgb(232, 179, 188);
+        color: rgb(102, 41, 49);
+    }
+</style>
+<div class="results-container">
+    <h1 style="font-size: 2.5em; font-weight: bold; padding-top: 20px;">Quiz Results</h1>
+    <p style="padding-top: 20px;">You answered {{ score }} out of {{ total }} questions correctly!</p>
+    <p style="padding-top: 10px;">Do you want to review any sections?</p>
+    <div style="padding-top: 5px; padding-bottom: 5px;">
+        <a href="/wine-terms" class="btn btn-primary mt-3 start-learning-btn">Wine Terms</a>
+        <a href="/pairings" class="btn btn-primary mt-3 start-learning-btn">Food Pairings</a>
+        <a href="/quiz-start" class="btn btn-primary mt-3 start-learning-btn">Retake the Quiz</a>
+    </div>
+    <p style="padding-top: 20px;">Thank you for Wining and Dining!</p>
+    <img src="{{ url_for('static', filename='pic/Homepage_Wine_Pairing.jpg') }}" alt="Wine Pairing" style="width: 40%; margin: 20px auto;">
+</div>
+{% endblock %}

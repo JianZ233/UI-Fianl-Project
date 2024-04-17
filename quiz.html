@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %}Quiz - My Website{% endblock %}
+{% block content %}
+<style>
+    body {
+        background-color: rgb(224, 211, 172);
+        color: rgb(102, 41, 49);
+    }
+    .quiz-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 50%;
+        margin: 0 auto; /* Center horizontally */
+        padding-top: 20px;
+    }
+    .quiz-item {
+        padding: 20px;
+        color: rgb(102, 41, 49);
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #fff;
+        width: 80%;
+        margin: 10px auto;
+    }
+    .option {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        background-color: #f0f0f0;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+    }
+    .option.clicked {
+        background-color: darkgray;
+    }
+    .explanation {
+        margin-top: 10px;
+        font-size: 0.9em;
+        color: #666;
+        display: none; /* Hidden by default */
+    }
+    .start-learning-btn {
+    background-color: rgb(102, 41, 49);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    }
+
+    .start-learning-btn:hover {
+        background-color: rgb(232, 179, 188);
+        color: rgb(102, 41, 49);
+    }
+</style>
+
+<div class="quiz-container">
+    <h3>What kind of wine would you pair with this food?</h3>
+    <div class="quiz-item">
+        <p>{{ question["question"] }}</p>
+        <img src="{{ url_for('static', filename='pic/' + question['image']) }}" alt="Question Image" style="max-width: 80%; height: auto;">
+        <div id="answer-form">
+            {% for option in options %}
+            <button type="button" class="option" onclick="markClicked(this)">
+                {{ option['option'] }}
+            </button>
+            <div class="explanation" id="explanation-{{ loop.index }}">
+                {{ option['explanation'] }}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="button-container">
+            <button id="submit-btn" class="btn btn-primary mt-3 start-learning-btn" onclick="submitAnswer()" disabled>Submit</button>
+            <button id="next-btn" class="start-learning-btn" onclick="loadNextQuestion()" style="display: none;">Next Question</button>
+        </div>
+    </div>
+</div>
+
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+{% endblock %}

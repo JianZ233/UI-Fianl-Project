@@ -16,7 +16,7 @@ quiz_data = {
     "question2": {"question": "Beef lasagna", 
                   "answer": "Chianti", 
                   "image": "Beef_lasagna.jpg", 
-                  "explanation": "Explanation for question 2.",
+                  "explanation": "With its roots deeply entrenched in Italian tradition, this red elixir harmonizes seamlessly with the robust tomato-based sauces and the succulent richness of beef enveloped within the layers of lasagna.",
                   "options": ["Sauvignon Blanc", "Chianti", "Cabernet Sauvignon"]
                   },
     "question3": {"question": "Pear goat cheese salad", 
@@ -43,19 +43,18 @@ quiz_data = {
 # Define additional options, each will be a wine and descriptor
 # descriptor should have dry, full body, etc.
 additional_options = {
-    "Chianti": {"explanation": "This pairs well with tomato-based sauces and the richness of beef in the lasagna."},
-    "Cabernet Sauvignon": {"explanation": "Its bold flavors and tannins complement the savory richness."},
-    "Pinot Grigio": {"explanation": "This lighter-bodied white wine can provide a refreshing contrast to the richness."},
-    "Sauvignon Blanc": {"explanation": " Its crisp acidity and citrus notes can complement the fresh flavors of the salad, especially the pear."},
-    "Pinot Noir": {"explanation": "Its light to medium body and red fruit flavors can complement the sweetness and creaminess."},
-    "Rosé": {"explanation": "A dry rosé with fruity and floral notes can provide a refreshing contrast to the creaminess and sweetness."},
-    "Chardonnay": {"explanation": "A full-bodied Chardonnay with oak aging can complement the nutty and salty flavors."},
-    "Prosecco": {"explanation": "The crisp acidity and effervescence of Prosecco can contrast with the richness."},
-    "Chianti Classico": {"explanation": "The acidity and fruitiness of Chianti Classico can cut through the richness."},
-    "Ruby Port": {"explanation": "The rich, fruity flavors of Ruby Port can complement the sweetness of the toffee and caramel while contrasting with the saltiness."},
-    "Moscato d'Asti": {"explanation": "The light, sweet, and slightly effervescent character of Moscato d'Asti can provide a delightful contrast to the richness and saltiness of the bark."},
-    "Late Harvest Riesling": {"explanation": "The intense sweetness and honeyed notes of Late Harvest Riesling can complement the caramel and toffee flavors while balancing the saltiness."}
-    # Add more options here
+    "Chianti": {"explanation": "Chianti's bold character and robust flavors of ripe red fruit and earthiness make it ideal for hearty dishes, but its strength may overshadow delicate flavors and might not pair well with light seafood or delicate salads."},
+    "Cabernet Sauvignon": {"explanation": "Cabernet Sauvignon's full body and rich dark fruit flavors complement savory dishes, but its robust nature can overwhelm lighter fare, so it's not the best choice for delicate fish or subtle dishes."},
+    "Pinot Grigio": {"explanation": "Pinot Grigio's crisp acidity and refreshing citrus notes offer versatility, pairing well with various dishes, yet its subtle flavors may be overshadowed by intensely flavored fare, such as heavily spiced dishes or very rich, creamy sauces."},
+    "Sauvignon Blanc": {"explanation": "Sauvignon Blanc's zesty citrus aromas and vibrant acidity make it perfect for fresh salads and seafood, though its lightness may not stand up to heavier dishes like red meats or creamy pastas."},
+    "Pinot Noir": {"explanation": "Pinot Noir's silky texture and elegant red fruit flavors pair well with dishes balancing sweetness and savory elements, but its medium body may lack the intensity for bolder flavors and might not be the best choice for heavily spiced or heavily sauced dishes."},
+    "Rosé": {"explanation": "Rosé's delicate hue and fruity aromas offer a refreshing drinking experience, complementing light, summery fare, yet its delicate nature may be overshadowed by richer dishes or strong-flavored foods."},
+    "Chardonnay": {"explanation": "Chardonnay's rich texture and vibrant flavors of ripe fruits and toasted oak make it perfect for creamy dishes, though its oak aging can overpower delicate flavors, so it's not the best choice for subtle seafood or light salads."},
+    "Prosecco": {"explanation": "Prosecco's effervescence and fruity aromas provide a refreshing palate cleanse, ideal for light appetizers or as an aperitif, yet it may lack the complexity for more substantial dishes and may not pair well with heavily spiced foods or very rich dishes."},
+    "Chianti Classico": {"explanation": "Chianti Classico's vibrant acidity and fruity flavors pair excellently with classic Italian cuisine, striking a perfect balance of acidity and richness, but it may not be the best choice for very spicy dishes or overly sweet desserts."},
+    "Ruby Port": {"explanation": "Ruby Port's luscious sweetness and intense flavors make it a luxurious indulgence, perfect for pairing with rich desserts and savory cheeses, but it might overwhelm lighter dishes or delicate flavors."},
+    "Moscato d'Asti": {"explanation": "Moscato d'Asti's delicate sweetness and floral aromas make it a delightful choice for pairing with fresh fruit, light desserts, or enjoying on its own, but it may not pair well with very savory or spicy dishes."},
+    "Late Harvest Riesling": {"explanation": "Late Harvest Riesling's opulent sweetness and vibrant acidity make it a perfect match for rich desserts or pungent cheeses, but it might not be the best choice for very light or delicate dishes."}
 }
 
 @app.route('/')
@@ -72,7 +71,8 @@ def quiz_start():
     session['current_index'] = 0
     session['score'] = 0
     session['selected_questions'] = random.sample(list(quiz_data.values()), session['total_questions'])
-    return redirect(url_for('quiz'))
+    return render_template('quiz_start.html')
+    # return redirect(url_for('quiz'))
 
 @app.route('/quiz')
 def quiz():
@@ -126,11 +126,14 @@ def quiz():
 
 @app.route('/check-answer', methods=['POST'])
 def check_answer():
+
+    correct=False
     data = request.get_json()
     selected_option = data['answer']
     correct_answer = session['selected_questions'][session['current_index']]['answer']
     
     if selected_option == correct_answer:
+        correct=True
         session['score'] += 1
     
     session['current_index'] += 1
@@ -143,7 +146,8 @@ def check_answer():
             correctAnswer=correct_answer,
             question=next_question['question'],
             image=next_question['image'],
-            options=[{'option': opt, 'explanation': additional_options[opt]['explanation']} for opt in next_question['options']]
+            options=[{'option': opt, 'explanation': additional_options[opt]['explanation']} for opt in next_question['options']],
+            correct=correct
         )
 
     # user_answer = request.form['answer']
@@ -169,6 +173,10 @@ def wine_terms():
 @app.route('/spectrum')
 def spectrum():
     return render_template('spectrum.html')
+
+@app.route('/pairings')
+def pairings():
+    return render_template('food-pairings.html')
 # # check navbar in examples from lecture
 # @app.route('/terms')
 # def terms():
