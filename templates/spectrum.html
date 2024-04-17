@@ -1,27 +1,28 @@
 {% extends "base.html" %} {% block content %}
+<h2 id="title"></h2>
 <div class="container">
   <div class="row">
     <div class="col-6 col1">
-      <div id="-xy1"></div>
-      <div id="-xy2"></div>
+      <div id="topleft1"></div>
+      <div id="topleft2"></div>
     </div>
     <div class="col-6 col2">
-      <div class="label1" id="y">Column 1</div>
-      <div id="xy1"></div>
-      <div id="xy2"></div>
+      <div class="label1" id="top">Column 1</div>
+      <div id="topright1"></div>
+      <div id="topright2"></div>
     </div>
   </div>
   <div class="row">
     <div class="col-6 col3">
-      <div class="label2" id="-x">Column 2</div>
-      <div id="-x-y1"></div>
-      <div id="-x-y2"></div>
+      <div class="label2" id="bottom">Column 2</div>
+      <div id="bottomleft1"></div>
+      <div id="bottomleft2"></div>
     </div>
     <div class="col-6 col4 position-relative">
-        <div id="x-y1"></div>
-      <div id="x-y2"></div>
-      <div class="label3 position-absolute end-0" id="x">Column 3</div>
-      <div class="label4 position-absolute bottom-0" id="-y">Column 4</div>
+        <div id="bottomright1"></div>
+      <div id="bottomright2"></div>
+      <div class="label3 position-absolute end-0" id="right">Column 3</div>
+      <div class="label4 position-absolute bottom-0" id="left">Column 4</div>
     </div>
   </div>
 </div>

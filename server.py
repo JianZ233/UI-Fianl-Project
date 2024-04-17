@@ -57,6 +57,22 @@ additional_options = {
     "Late Harvest Riesling": {"explanation": "Late Harvest Riesling's opulent sweetness and vibrant acidity make it a perfect match for rich desserts or pungent cheeses, but it might not be the best choice for very light or delicate dishes."}
 }
 
+basic_spectrum = {
+    'title': 'Basic Spectrum',
+    'labeltop': 'Full',
+    'labelright':'Sweet',
+    'labelbottom':'Light',
+    'labelleft':'Dry',
+    'topright1':{
+        'wine_name': 'Oaked Chardonay',
+        'wine_type': 'white',
+        'wine_desc':'This wine has a fuller body, lower acidity, and toasty, nutty, and buttery notes'
+    },
+    'topright2':{
+        'wine_name':''
+    }
+}
+
 @app.route('/')
 def index():
     return render_template('home.html')
@@ -172,6 +188,10 @@ def wine_terms():
 @app.route('/spectrum')
 def spectrum():
     return render_template('spectrum.html')
+
+@app.route('/body')
+def body():
+    return render_template('body.html')
 
 @app.route('/pairings')
 def pairings():

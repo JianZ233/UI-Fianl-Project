@@ -1,5 +1,5 @@
-{% extends "base.html" %} {% block content %}
-
+{% extends "base.html" %} 
+{% block content %}
 
 <div class="container">
   <div class="row">
@@ -7,22 +7,34 @@
       <h2 id="nav-title"> Wine Terms</h2>
       <ul class="nav flex-column">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Dryness</a>
+          <a class="nav-link active" href="#" onclick="loadContent('dryness.html')">Dryness</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Body</a>
+          <a class="nav-link" href="#" onclick="loadContent('body')">Body</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Wine Types</a>
+          <a class="nav-link" href="#" onclick="loadContent('wine_types.html')">Wine Types</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Spectrum</a>
+          <a class="nav-link" href="#" onclick="loadContent('spectrum.html')">Spectrum</a>
         </li>
         <!-- Add more links as needed -->
       </ul>
     </div>
     <!-- Main Content Area -->
-    <div class="col-lg-9">wine terms</div>
+    <div class="col-lg-9" id="main-content"></div>
   </div>
 </div>
+
+<script>
+  function loadContent(url) {
+    fetch(url)
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('main-content').innerHTML = html;
+      })
+      .catch(error => console.error('Error loading content: ', error));
+  }
+</script>
+
 {% endblock %}
