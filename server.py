@@ -286,6 +286,9 @@ def quiz_results():
 def wine_terms():
     return render_template('wine_terms.html')
 
+@app.route('/food-pairings-summary')
+def food_pairings_summary():
+    return render_template('food_pairings_summary.html')
 
 @app.route('/fullspectrum')
 def spectrum():
@@ -295,6 +298,13 @@ def spectrum():
 def body():
     return render_template('body.html')
 
+@app.route('/dryness')
+def dryness():
+    return render_template('dryness.html')
+
+@app.route('/wine_types')
+def wine_types():
+    return render_template('wine_types.html')
 
 @app.route('/pairings')
 def pairings():

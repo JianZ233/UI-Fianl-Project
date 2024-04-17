@@ -24,12 +24,24 @@
     rel="stylesheet"
     crossorigin="anonymous"
   />
+
+  <script>
+    function loadContent(url) {
+      fetch(url)
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('main-content').innerHTML = html;
+        })
+        .catch(error => console.error('Error loading content: ', error));
+    }
+</script>
+
   <style>
     #term-row {
       margin-top: 20px;
       height: 45px;
-      margin-left: 20%;
-      margin-right: 20%;
+      margin-left: 8%;
+      margin-right: 8%;
       margin-top: 0%;
       vertical-align: middle;
     }
@@ -102,7 +114,7 @@
           border: 2px solid rgb(102, 41, 49);
           background-color: transparent;
         "
-        onclick="window.location.href='dryness.html'"
+        onclick="loadContent('dryness')"
       >
         Learn about Dryness >
       </button>
