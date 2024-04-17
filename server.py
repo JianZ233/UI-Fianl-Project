@@ -94,7 +94,6 @@ def quiz():
 
     return render_template('quiz.html', question=current_question, options=options_with_explanations)
 
-
     # questions = list(quiz_data.keys())
 
     # # Ensure there are enough questions available
