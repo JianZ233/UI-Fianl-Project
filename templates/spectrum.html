@@ -22,46 +22,111 @@
 
   <script>
     $(document).ready(function () {
-      $("#topleft1").click(function () {
-        $("#winename").text(data.topleft.wine_name);
-        $("#winedesc").text(data.topleft.wine_desc);
-        console.log("working");
-      });
 
-      $("#topleft2").click(function () {
-        $("#winename").text(data.topleft2.wine_name);
-        $("#winedesc").text(data.topleft2.wine_desc);
-      });
+    {% if data.topleft %}
+        if (data.topleft.wine_type==='Red'){
+            $("#topleft").html(`<div class="darkred-bg btn" id="topleftbtn">${data.topleft.wine_name}</div>`);
+        }else {
+            $("#topleft").html(`<div class="beige-bg btn" id="topleftbtn">${data.topleft.wine_name}</div>`);
 
-      $("#bottomleft1").click(function () {
-        $("#winename").text(data.bottomleft.wine_name);
-        $("#winedesc").text(data.bottomleft.wine_desc);
-      });
+        }
+        $("#topleftbtn").click(function () {
+            $("#winename").text(data.topleft.wine_name);
+            $("#winedesc").text(data.topleft.wine_desc);
+        });
+    {% endif %}
 
-      $("#bottomleft2").click(function () {
-        $("#winename").text(data.bottomleft2.wine_name);
-        $("#winedesc").text(data.bottomleft2.wine_desc);
-      });
+    {% if data.topleft2 %}
+        if (data.topleft2.wine_type==='Red'){
+            $("#topleft2").html(`<div class="darkred-bg btn" id="topleft2btn">${data.topleft2.wine_name}</div>`);
+        }else {
+            $("#topleft2").html(`<div class="beige-bg btn" id="topleft2btn">${data.topleft2.wine_name}</div>`);
 
-      $("#bottomright1").click(function () {
-        $("#winename").text(data.bottomright.wine_name);
-        $("#winedesc").text(data.bottomright.wine_desc);
-      });
+        }
+        $("#topleft2btn").click(function () {
+            $("#winename").text(data.topleft2.wine_name);
+            $("#winedesc").text(data.topleft2.wine_desc);
+        });
+    {% endif %}
 
-      $("#bottomright2").click(function () {
-        $("#winename").text(data.bottomright2.wine_name);
-        $("#winedesc").text(data.bottomright2.wine_desc);
-      });
+    {% if data.topright %}
+        if (data.topright.wine_type==='Red'){
+            $("#topright").html(`<div class="darkred-bg btn" id="toprightbtn">${data.topright.wine_name}</div>`);
+        }else {
+            $("#topright").html(`<div class="beige-bg btn" id="toprightbtn">${data.topright.wine_name}</div>`);
 
-      $("#topright1").click(function () {
-        $("#winename").text(data.topright.wine_name);
-        $("#winedesc").text(data.topright.wine_desc);
-      });
+        }
+        $("#toprightbtn").click(function () {
+            $("#winename").text(data.topright.wine_name);
+            $("#winedesc").text(data.topright.wine_desc);
+        });
+    {% endif %}
 
-      $("#topright2").click(function () {
-        $("#winename").text(data.topright2.wine_name);
-        $("#winedesc").text(data.topright2.wine_desc);
-      });
+     {% if data.topright2 %}
+        if (data.topright2.wine_type==='Red'){
+            $("#topright2").html(`<div class="darkred-bg btn" id="topright2btn">${data.topright2.wine_name}</div>`);
+        }else {
+            $("#topright2").html(`<div class="beige-bg btn" id="topright2btn">${data.topright2.wine_name}</div>`);
+
+        }
+        $("#topright2btn").click(function () {
+            $("#winename").text(data.topright2.wine_name);
+            $("#winedesc").text(data.topright2.wine_desc);
+        });
+    {% endif %}
+
+    {% if data.bottomright %}
+        if (data.bottomright.wine_type==='Red'){
+            $("#bottomright").html(`<div class="darkred-bg btn" id="bottomrightbtn">${data.bottomright.wine_name}</div>`);
+        }else {
+            $("#bottomright").html(`<div class="beige-bg btn" id="bottomrightbtn">${data.bottomright.wine_name}</div>`);
+
+        }
+        $("#bottomrightbtn").click(function () {
+            $("#winename").text(data.bottomright.wine_name);
+            $("#winedesc").text(data.bottomright.wine_desc);
+        });
+    {% endif %}
+
+    {% if data.bottomright2 %}
+        if (data.bottomright2.wine_type==='Red'){
+            $("#bottomright2").html(`<div class="darkred-bg btn" id="bottomright2btn">${data.bottomright2.wine_name}</div>`);
+        }else {
+            $("#bottomright2").html(`<div class="beige-bg btn" id="bottomright2btn">${data.bottomright2.wine_name}</div>`);
+
+        }
+        $("#bottomright2btn").click(function () {
+            $("#winename").text(data.bottomright2.wine_name);
+            $("#winedesc").text(data.bottomright2.wine_desc);
+        });
+    {% endif %}
+
+    {% if data.bottomleft %}
+        if (data.bottomleft.wine_type==='Red'){
+            $("#bottomleft").html(`<div class="darkred-bg btn" id="bottomleftbtn">${data.bottomleft.wine_name}</div>`);
+        }else {
+            $("#bottomleft").html(`<div class="beige-bg btn" id="bottomleftbtn">${data.bottomleft.wine_name}</div>`);
+
+        }
+        $("#bottomleftbtn").click(function () {
+            $("#winename").text(data.bottomleft.wine_name);
+            $("#winedesc").text(data.bottomleft.wine_desc);
+        });
+    {% endif %}
+
+    {% if data.bottomleft2 %}
+        if (data.bottomleft2.wine_type==='Red'){
+            $("#bottomleft2").html(`<div class="darkred-bg btn" id="bottomleft2btn">${data.bottomleft2.wine_name}</div>`);
+        }else {
+            $("#bottomleft2").html(`<div class="beige-bg btn" id="bottomleft2btn">${data.bottomleft2.wine_name}</div>`);
+
+        }
+        $("#bottomleft2btn").click(function () {
+            $("#winename").text(data.bottomleft2.wine_name);
+            $("#winedesc").text(data.bottomleft2.wine_desc);
+        });
+    {% endif %}
+
     });
   </script>
   <body>
@@ -76,22 +141,16 @@
           <div class="row">
             <div class="col-6 col1">
               <div class="btncontain">
-                <div class="beige-bg btn" id="topleft1">
-                  {{data.topleft.wine_name}}
-                </div>
-                <div class="darkred-bg btn" id="topleft2">
-                  {{data.topleft2.wine_name}}
-                </div>
+                <div id="topleft"></div>
+                <div id="topleft2"></div>
               </div>
             </div>
             <div class="col-6 col2">
               <div class="label1" id="top">{{data.labeltop}}</div>
               <div class="btncontain">
-                <div class="beige-bg btn" id="topright1">
-                  {{data.topright.wine_name}}
+                <div id="topright">
                 </div>
-                <div class="darkred-bg btn" id="topright2">
-                  {{data.topright2.wine_name}}
+                <div id="topright2">
                 </div>
               </div>
             </div>
@@ -100,11 +159,9 @@
             <div class="col-6 col3">
               <div class="label2" id="bottom">{{data.labelleft}}</div>
               <div class="btncontain">
-                <div class="beige-bg btn" id="bottomleft1">
-                  {{data.bottomleft.wine_name}}
+                <div id="bottomleft">
                 </div>
-                <div class="darkred-bg btn" id="bottomleft2">
-                  {{data.bottomleft2.wine_name}}
+                <div id="bottomleft2">
                 </div>
               </div>
             </div>
@@ -114,11 +171,9 @@
               </div>
               <br />
               <div class="btncontain">
-                <div class="beige-bg btn" id="bottomright1">
-                  {{data.bottomright.wine_name}}
+                <div id="bottomright">
                 </div>
-                <div class="darkred-bg btn" id="bottomright2">
-                  {{data.bottomright2.wine_name}}
+                <div id="bottomright2">
                 </div>
               </div>
               <div class="label4 position-absolute bottom-0" id="left">
@@ -134,14 +189,14 @@
       .col-6 {
         height: 350px;
       }
-      
-      .btncontain{
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
-  height: 100%; /* Ensure the container takes up the full height of the column */
-}
+
+      .btncontain {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center vertically */
+        align-items: center; /* Center horizontally */
+        height: 100%; /* Ensure the container takes up the full height of the column */
+      }
 
       /* Only show left and bottom borders for the first column */
       .col1 {

@@ -131,7 +131,7 @@ basic_spectrum = {
     'topright': wines['Vin Santo'],
     'topright2': wines['Dornfelder'],
     'topleft': wines['Chardonnay'],
-    'topleft2': wines['Cabernet Sauvignon'],
+    #'topleft2': wines['Cabernet Sauvignon'],
     'bottomright': wines['Riesling'],
     'bottomright2': wines['Ruby Port'],
     'bottomleft': wines['Sauvignon Blanc'],
@@ -145,13 +145,10 @@ seafood = {
     'labelbottom':'Acidic',
     'labelleft':'Not Flaky',
     'topright': wines['Chardonnay'],
-    'topright2':'',
     'topleft': wines['Sauvignon Blanc'],
-    'topleft2': '',
     'bottomright2': wines['Pinot Noir'],
-    'bottomright': '',
     'bottomleft': wines['Pinot Grigio'],
-    'bottomleft2': ''
+
 }
 
 meat = {
@@ -161,13 +158,9 @@ meat = {
     'labelbottom':'Acidic',
     'labelleft':'White meat',
     'topright': wines['Merlot'],
-    'topright2':'',
     'topleft': wines['Chardonnay'],
-    'topleft2': '',
     'bottomright': wines['Shiraz'],
-    'bottomright2': '',
     'bottomleft': wines['Sauvignon Blanc'],
-    'bottomleft2': ''
 }
 
 vegetables = {
@@ -177,13 +170,10 @@ vegetables = {
     'labelbottom':'Acidic',
     'labelleft':'Spicy',
     'topright': wines['Pinot Noir'],
-    'topright2':'',
     'topleft': wines['Sauvignon Blanc'],
-    'topleft2': '',
     'bottomright': wines['Riesling'],
-    'bottomright2': '',
     'bottomleft': wines['Chardonnay'],
-    'bottomleft2': ''
+
 }
 
 @app.route('/')
