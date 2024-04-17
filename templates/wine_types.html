@@ -34,6 +34,15 @@
         height: auto;
         max-height: 280px;
         margin-bottom: 5%;
+        margin-top: 5%;
+    }
+
+    #term-header {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
+        color: rgb(102, 41, 49);
+        margin-top: 5%;
     }
 
     .term-subheader {
@@ -74,6 +83,7 @@
 
 
 <body>
+    <h1 id="term-header">Basic Wine Types</h1>
     <div class="row">
         <div class="col-md-6">
             <img src="{{ url_for('static', filename='pic/Wine_types_red.jpg') }}" alt="Red Wine">
@@ -86,7 +96,19 @@
             <h2 class="term-subheader">White Wine</h2>
             <h3 class="one-liner">Light and Citrusy</h3>
             <p class="left-text">White wine enchants with its crisp, refreshing character and vibrant fruit-forward flavors. Derived from green or yellow grapes like Chardonnay and Sauvignon Blanc, white wine presents a symphony of citrus notes, apple, and pear, complemented by delicate floral aromas. Its pale straw to golden color suggests a lightness that belies its complexity. Best served chilled between 45°F to 55°F (7°C to 12°C), white wine invigorates the senses, awakening the palate with each sip. Whether enjoyed on a sunlit patio or paired with a delectable seafood dish, white wine embodies elegance and versatility, offering a delightful companion for any occasion.</p>
-
         </div>
     </div>
+    <div style="text-align: right; margin-right: 12%; margin-top: 7%">
+        <button
+          style="
+            color: rgb(102, 41, 49);
+            border: 2px solid rgb(102, 41, 49);
+            background-color: transparent;
+            margin-bottom: 10%;
+          "
+          onclick="loadContent('fullspectrum')"
+        >
+          Learn about the full Wine Spectrum >
+        </button>
+      </div>  
 </body>
