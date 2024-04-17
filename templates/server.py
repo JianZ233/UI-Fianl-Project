@@ -298,7 +298,7 @@ def food_pairings():
 
 @app.route('/fullspectrum')
 def spectrum():
-    return render_template('spectrum.html', data=basic_spectrum)
+    return render_template('og_spectrum.html', data=basic_spectrum)
 
 @app.route('/seafood')
 def seafoodspec():

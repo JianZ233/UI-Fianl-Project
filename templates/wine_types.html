@@ -25,59 +25,60 @@
     crossorigin="anonymous"
   />
 
-<style>
+  <style>
     img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 150px;
-        height: auto;
-        max-height: 280px;
-        margin-bottom: 5%;
-        margin-top: 5%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 150px;
+      height: auto;
+      max-height: 280px;
+      margin-bottom: 5%;
+      margin-top: 5%;
     }
 
     #term-header {
-        text-align: center;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: bolder;
-        color: rgb(102, 41, 49);
-        margin-top: 5%;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bolder;
+      color: rgb(102, 41, 49);
+      margin-top: 5%;
     }
 
     .term-subheader {
-        text-align: center;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: bold;
-        color: rgb(102, 41, 49);
-        margin-top: 2%;
-        margin-bottom: 5%;
-        font-size: 20px;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      color: rgb(102, 41, 49);
+      margin-top: 2%;
+      margin-bottom: 5%;
+      font-size: 20px;
     }
 
     .one-liner {
-        text-align: center;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: regular;
-        color: rgb(102, 41, 49);
-        margin-top: 2%;
-        margin-bottom: 5%;
-        font-size: 14px;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: regular;
+      color: rgb(102, 41, 49);
+      margin-top: 2%;
+      margin-bottom: 5%;
+      font-size: 14px;
     }
 
     p {
-        color: rgb(102, 41, 49);
-        padding: 25px;
-        padding-top: 10px;
+      color: rgb(102, 41, 49);
+      padding: 25px;
+      padding-top: 10px;
     }
 
     .left-text {
-        margin-left: 5%;
+      margin-left: 5%;
     }
 
     .right-text {
-        margin-right: 5%;
+      margin-right: 5%;
     }
+  </style>
 
     body {
         background-color: rgb(224, 211, 172);
@@ -86,34 +87,55 @@
 </style>
 
 
-<body>
+  <body>
+    <script>
+      function loadContent(url) {
+      fetch(url)
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('main-content').innerHTML = html;
+        })
+        .catch(error => console.error('Error loading content: ', error));
+    }
+    </script>
     <h1 id="term-header">Basic Wine Types</h1>
     <div class="row">
-        <div class="col-md-6">
-            <img src="{{ url_for('static', filename='pic/Wine_types_red.jpg') }}" alt="Red Wine">
-            <h2 class="term-subheader">Red Wine</h2>
-            <h3 class="one-liner">Dark and Tart</h3>
-            <p class="left-text">Red wine, with its rich, velvety texture and complex flavors, offers a sensorial journey that captivates wine enthusiasts worldwide. Crafted from dark grape varieties like Cabernet Sauvignon and Merlot, red wine embodies a spectrum of tastes, from the robust notes of ripe berries and cherries to the subtle nuances of earthy undertones and spices.</p>
-        </div>
-        <div class="col-md-6">
-            <img src="{{ url_for('static', filename='pic/Wine_types_white.jpg') }}"  alt="White Wine">
-            <h2 class="term-subheader">White Wine</h2>
-            <h3 class="one-liner">Light and Citrusy</h3>
-            <p class="left-text">White wine enchants with its crisp, refreshing character and vibrant fruit-forward flavors. Derived from green or yellow grapes like Chardonnay and Sauvignon Blanc, white wine presents a symphony of citrus notes, apple, and pear, complemented by delicate floral aromas.</p>
-        </div>
+      <div class="col-md-6">
+        <img
+          src="{{ url_for('static', filename='pic/Wine_types_red.jpg') }}"
+          alt="Red Wine"
+        />
+        <h2 class="term-subheader">Red Wine</h2>
+        <h3 class="one-liner">Dark and Tart</h3>
+        <p class="left-text">
+          Red wine, with its rich, velvety texture and complex flavors, offers a
+          sensorial journey that captivates wine enthusiasts worldwide. Crafted
+          from dark grape varieties like Cabernet Sauvignon and Merlot, red wine
+          embodies a spectrum of tastes, from the robust notes of ripe berries
+          and cherries to the subtle nuances of earthy undertones and spices.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <img
+          src="{{ url_for('static', filename='pic/Wine_types_white.jpg') }}"
+          alt="White Wine"
+        />
+        <h2 class="term-subheader">White Wine</h2>
+        <h3 class="one-liner">Light and Citrusy</h3>
+        <p class="left-text">
+          White wine enchants with its crisp, refreshing character and vibrant
+          fruit-forward flavors. Derived from green or yellow grapes like
+          Chardonnay and Sauvignon Blanc, white wine presents a symphony of
+          citrus notes, apple, and pear, complemented by delicate floral aromas.
+        </p>
+      </div>
     </div>
     <div style="text-align: right; margin-right: 12%; margin-top: 7%">
-        <button
-          style="
-            color: rgb(102, 41, 49);
-            border: 2px solid rgb(102, 41, 49);
-            background-color: transparent;
-            margin-bottom: 10%;
-          "
-          onclick="loadContent('fullspectrum')"
-        >
-          Learn about the full Wine Spectrum >
-        </button>
-      </div>  
-</body>
+      <a href="/wine-terms?section=fullspectrum">
+    <button style="color: rgb(102, 41, 49); border: 2px solid rgb(102, 41, 49); background-color: transparent; margin-bottom: 10%;">
+      Learn about the full Wine Spectrum >
+    </button>
+  </a>
+    </div>
+  </body>
 </html>
