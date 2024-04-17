@@ -302,6 +302,10 @@ def wine_terms():
 def food_pairings_summary():
     return render_template('food_pairings_summary.html')
 
+@app.route('/food-pairings')
+def food_pairings():
+    return render_template('food_pairings.html')
+
 @app.route('/fullspectrum')
 def spectrum():
     return render_template('spectrum.html', data=basic_spectrum)
@@ -330,9 +334,6 @@ def dryness():
 def wine_types():
     return render_template('wine_types.html')
 
-@app.route('/pairings')
-def pairings():
-    return render_template('food-pairings.html')
 # # check navbar in examples from lecture
 # @app.route('/terms')
 # def terms():
