@@ -4,19 +4,16 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-2">
-      <h2 id="nav-title"> Wine Terms</h2>
+      <h2 id="nav-title">Food Pairings</h2>
       <ul class="nav flex-column">
         <li class="nav-item">
-          <a class="nav-link active" href="#" onclick="loadContent('body')">Body</a>
+          <a class="nav-link active" href="#" onclick="loadContent('seafood')">Seafood</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" onclick="loadContent('dryness')">Dryness</a>
+          <a class="nav-link" href="#" onclick="loadContent('meat')">Meat</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" onclick="loadContent('wine_types')">Wine Types</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" onclick="loadContent('fullspectrum')">Spectrum</a>
+          <a class="nav-link" href="#" onclick="loadContent('vegetable')">Vegetable</a>
         </li>
         <!-- Add more links as needed -->
       </ul>
@@ -35,11 +32,6 @@
       })
       .catch(error => console.error('Error loading content: ', error));
   }
-
-  // Load 'body' content immediately when the file is opened
-  window.onload = function() {
-    loadContent('body');
-  };
 </script>
 
 {% endblock %}

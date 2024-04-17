@@ -274,6 +274,9 @@ def quiz_results():
 def wine_terms():
     return render_template('wine_terms.html')
 
+@app.route('/food-pairings')
+def food_pairings():
+    return render_template('food_pairings.html')
 
 @app.route('/fullspectrum')
 def spectrum():
