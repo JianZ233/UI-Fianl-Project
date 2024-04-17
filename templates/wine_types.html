@@ -1,15 +1,38 @@
-{% extends "base.html" %}
-{% block content %}
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" />
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </head>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    crossorigin="anonymous"
+  />
 
 <style>
     img {
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 200px;
+        width: 150px;
         height: auto;
-        max-height: 370px;
+        max-height: 280px;
         margin-bottom: 5%;
     }
 
@@ -50,20 +73,20 @@
 </style>
 
 
+<body>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ url_for('static', filename='pic/Wine_types_red.jpg') }}" alt="Red Wine">
+            <h2 class="term-subheader">Red Wine</h2>
+            <h3 class="one-liner">Dark and Tart</h3>
+            <p class="left-text">Red wine, with its rich, velvety texture and complex flavors, offers a sensorial journey that captivates wine enthusiasts worldwide. Crafted from dark grape varieties like Cabernet Sauvignon and Merlot, red wine embodies a spectrum of tastes, from the robust notes of ripe berries and cherries to the subtle nuances of earthy undertones and spices. Its deep, alluring hue, ranging from ruby to garnet, beckons with promises of indulgence and sophistication. Served slightly warmer than its white counterpart, red wine reveals its full potential at temperatures between 55°F to 65°F (12°C to 18°C), allowing its aromas to flourish and its tannins to impart a satisfying structure on the palate.</p>
+        </div>
+        <div class="col-md-6">
+            <img src="{{ url_for('static', filename='pic/Wine_types_white.jpg') }}"  alt="White Wine">
+            <h2 class="term-subheader">White Wine</h2>
+            <h3 class="one-liner">Light and Citrusy</h3>
+            <p class="left-text">White wine enchants with its crisp, refreshing character and vibrant fruit-forward flavors. Derived from green or yellow grapes like Chardonnay and Sauvignon Blanc, white wine presents a symphony of citrus notes, apple, and pear, complemented by delicate floral aromas. Its pale straw to golden color suggests a lightness that belies its complexity. Best served chilled between 45°F to 55°F (7°C to 12°C), white wine invigorates the senses, awakening the palate with each sip. Whether enjoyed on a sunlit patio or paired with a delectable seafood dish, white wine embodies elegance and versatility, offering a delightful companion for any occasion.</p>
 
-<div class="row">
-    <div class="col-md-6">
-        <img src="pic/wine_types_red.jpg" alt="Red Wine">
-        <h2 class="term-subheader">Red Wine</h2>
-        <h3 class="one-liner">Dark and Tart</h3>
-        <p class="left-text">Red wine, with its rich, velvety texture and complex flavors, offers a sensorial journey that captivates wine enthusiasts worldwide. Crafted from dark grape varieties like Cabernet Sauvignon and Merlot, red wine embodies a spectrum of tastes, from the robust notes of ripe berries and cherries to the subtle nuances of earthy undertones and spices. Its deep, alluring hue, ranging from ruby to garnet, beckons with promises of indulgence and sophistication. Served slightly warmer than its white counterpart, red wine reveals its full potential at temperatures between 55°F to 65°F (12°C to 18°C), allowing its aromas to flourish and its tannins to impart a satisfying structure on the palate.</p>
+        </div>
     </div>
-    <div class="col-md-6">
-        <img src="pic/wine_types_white.jpg" alt="White Wine">
-        <h2 class="term-subheader">White Wine</h2>
-        <h3 class="one-liner">Light and Citrusy</h3>
-        <p class="left-text">White wine enchants with its crisp, refreshing character and vibrant fruit-forward flavors. Derived from green or yellow grapes like Chardonnay and Sauvignon Blanc, white wine presents a symphony of citrus notes, apple, and pear, complemented by delicate floral aromas. Its pale straw to golden color suggests a lightness that belies its complexity. Best served chilled between 45°F to 55°F (7°C to 12°C), white wine invigorates the senses, awakening the palate with each sip. Whether enjoyed on a sunlit patio or paired with a delectable seafood dish, white wine embodies elegance and versatility, offering a delightful companion for any occasion.</p>
-
-    </div>
-</div>
-{% endblock %}
+</body>

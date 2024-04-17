@@ -282,6 +282,13 @@ def spectrum():
 def body():
     return render_template('body.html')
 
+@app.route('/dryness')
+def dryness():
+    return render_template('dryness.html')
+
+@app.route('/wine_types')
+def wine_types():
+    return render_template('wine_types.html')
 
 @app.route('/pairings')
 def pairings():
