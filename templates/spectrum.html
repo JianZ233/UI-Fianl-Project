@@ -15,15 +15,58 @@
         rel="stylesheet"
         crossorigin="anonymous"
       />
-      <link
-        rel="stylesheet"
-        href="{{url_for('static', filename='main.css')}}"
-      />
+      <script>
+  var data = {{data|tojson}};
+</script>
+      
     </head>
 
   <script>
-    var data= {{data|tojson}};
-  </script>
+    $(document).ready(function() {
+        console.log("HELLO?????");
+        $("#topleft1").click(function() {
+            $('#winename').text(data.topleft.wine_name);
+            $('#winedesc').text(data.topleft.wine_desc);
+            console.log("working")
+        });
+
+        $("#topleft2").click(function() {
+            $('#winename').text(data.toplef2.wine_name);
+            $('#winedesc').text(data.topleft2.wine_desc);
+        });
+
+        $("#bottomleft1").click(function() {
+            $('#winename').text(data.bottomleft.wine_name);
+            $('#winedesc').text(data.bottomleft.wine_desc);
+        });
+
+        $("#bottomleft2").click(function() {
+            $('#winename').text(data.bottomleft2.wine_name);
+            $('#winedesc').text(data.bottomleft2.wine_desc);
+        });
+
+         $("#bottomright1").click(function() {
+            $('#winename').text(data.bottomright.wine_name);
+            $('#winedesc').text(data.bottomright.wine_desc);
+        });
+
+         $("#bottomright2").click(function() {
+            $('#winename').text(data.bottomright2.wine_name);
+            $('#winedesc').text(data.bottomright2.wine_desc);
+        });
+
+        $("#topright1").click(function() {
+            $('#winename').text(data.topright.wine_name);
+            $('#winedesc').text(data.topright.wine_desc);
+        });
+
+        $("#topright2").click(function() {
+            $('#winename').text(data.topright2.wine_name);
+            $('#winedesc').text(data.topright2.wine_desc);
+        });
+        console.log("Script executed successfully");
+    });
+    </script>
   <body>
     <h2 id="title">{{data.title}}</h2>
     <div class="container">
@@ -99,53 +142,6 @@
         padding: 10px;
       }
     </style>
-
-     <script>
-    $(document).ready(function() {
-        conole.log("HELLO?????");
-        /*$("#topleft1").click(function() {
-            $('#winename').text(data.topleft.wine_name);
-            $('#winedesc').text(data.topleft.wine_desc);
-            console.log("working")
-        });
-
-        $("#topleft2").click(function() {
-            $('#winename').text(data.toplef2.wine_name);
-            $('#winedesc').text(data.topleft2.wine_desc);
-        });
-
-        $("#bottomleft1").click(function() {
-            $('#winename').text(data.bottomleft.wine_name);
-            $('#winedesc').text(data.bottomleft.wine_desc);
-        });
-
-        $("#bottomleft2").click(function() {
-            $('#winename').text(data.bottomleft2.wine_name);
-            $('#winedesc').text(data.bottomleft2.wine_desc);
-        });
-
-         $("#bottomright1").click(function() {
-            $('#winename').text(data.bottomright.wine_name);
-            $('#winedesc').text(data.bottomright.wine_desc);
-        });
-
-         $("#bottomright2").click(function() {
-            $('#winename').text(data.bottomright2.wine_name);
-            $('#winedesc').text(data.bottomright2.wine_desc);
-        });
-
-        $("#topright1").click(function() {
-            $('#winename').text(data.topright.wine_name);
-            $('#winedesc').text(data.topright.wine_desc);
-        });
-
-        $("#topright2").click(function() {
-            $('#winename').text(data.topright2.wine_name);
-            $('#winedesc').text(data.topright2.wine_desc);
-        });*/
-        console.log("Script executed successfully");
-    });
-    </script>
   </body>
 </html>
 

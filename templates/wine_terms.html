@@ -28,18 +28,66 @@
 
 <script>
   function loadContent(url) {
-    fetch(url)
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('main-content').innerHTML = html;
-      })
-      .catch(error => console.error('Error loading content: ', error));
+    $.get(url, function(data) {
+      $('#main-content').html(data);
+      initializeEventListeners(); // Initialize event listeners after loading content
+    });
   }
 
+  function initializeEventListeners() {
+    $("#topleft1").click(function() {
+      $('#winename').text(data.topleft.wine_name);
+      $('#winedesc').text(data.topleft.wine_desc);
+      console.log("working")
+    });
+
+    // Add event listeners for other elements as needed
+  }
   // Load 'body' content immediately when the file is opened
-  window.onload = function() {
+ 
+  $(document).ready(function() {
     loadContent('body');
-  };
+    $("#topleft1").click(function() {
+            $('#winename').text(data.topleft.wine_name);
+            $('#winedesc').text(data.topleft.wine_desc);
+            console.log("working")
+        });
+
+        $("#topleft2").click(function() {
+            $('#winename').text(data.toplef2.wine_name);
+            $('#winedesc').text(data.topleft2.wine_desc);
+        });
+
+        $("#bottomleft1").click(function() {
+            $('#winename').text(data.bottomleft.wine_name);
+            $('#winedesc').text(data.bottomleft.wine_desc);
+        });
+
+        $("#bottomleft2").click(function() {
+            $('#winename').text(data.bottomleft2.wine_name);
+            $('#winedesc').text(data.bottomleft2.wine_desc);
+        });
+
+         $("#bottomright1").click(function() {
+            $('#winename').text(data.bottomright.wine_name);
+            $('#winedesc').text(data.bottomright.wine_desc);
+        });
+
+         $("#bottomright2").click(function() {
+            $('#winename').text(data.bottomright2.wine_name);
+            $('#winedesc').text(data.bottomright2.wine_desc);
+        });
+
+        $("#topright1").click(function() {
+            $('#winename').text(data.topright.wine_name);
+            $('#winedesc').text(data.topright.wine_desc);
+        });
+
+        $("#topright2").click(function() {
+            $('#winename').text(data.topright2.wine_name);
+            $('#winedesc').text(data.topright2.wine_desc);
+        });
+ });
 </script>
 
 {% endblock %}
