@@ -274,9 +274,10 @@ def quiz_results():
 def wine_terms():
     return render_template('wine_terms.html')
 
-@app.route('/spectrum')
+
+@app.route('/fullspectrum')
 def spectrum():
-    return render_template('spectrum.html')
+    return render_template('spectrum.html', data=basic_spectrum)
 
 @app.route('/body')
 def body():
