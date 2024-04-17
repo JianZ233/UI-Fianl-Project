@@ -1,0 +1,103 @@
+{% extends "base.html" %} 
+{% block content %}
+
+<style>
+    #term-header {
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      color: rgb(102, 41, 49);
+      margin-top: 5%;
+    }
+
+    .term-subheader {
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      color: rgb(102, 41, 49);
+      margin-top: 2%;
+      margin-bottom: 8%;
+      font-size: 20px;
+    }
+
+    .frame{
+        margin-top: 5%;
+        width:300px;
+        height:300px;
+        display:inline-block;
+        border:5px solid rgb(102, 41, 49);
+        position:relative;
+        object-fit: cover;
+    }
+
+    .frame > img{
+        max-width:100%;
+        max-height:100%;
+        width:auto;
+        height:auto;
+        position:absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        margin:auto;
+    }
+  </style>
+
+
+    <h1 id="term-header">So, how do you pair wine with food?</h1>
+    <h2 class="term-subheader">Click on a food group to learn more.</h2>
+    <div class="row">
+        <div class="col-md-4" style="text-align: center;"> 
+            <div>
+                <button
+                  style="
+                    color: rgb(102, 41, 49);
+                    border: 2px solid rgb(102, 41, 49);
+                    background-color: transparent;
+                  "
+                  onclick="loadContent('seafood')"
+                >
+                  Seafood
+                </button>
+              </div>
+              <img class="frame" src="{{ url_for('static', filename='pic/seafood.jpg') }}" alt="Seafood">
+        </div>
+        <div class="col-md-4"  style="text-align: center;">
+            <div>
+                <button
+                  style="
+                    color: rgb(102, 41, 49);
+                    border: 2px solid rgb(102, 41, 49);
+                    background-color: transparent;
+                  "
+                  onclick="loadContent('meat')"
+                >
+                  Meat
+                </button>
+              </div>
+              <img class="frame" src="{{ url_for('static', filename='pic/meat.jpg') }}" alt="Meat">
+        </div>
+        <div class="col-md-4"  style="text-align: center;">
+            <div>
+                <button
+                  style="
+                    color: rgb(102, 41, 49);
+                    border: 2px solid rgb(102, 41, 49);
+                    background-color: transparent;
+                  "
+                  onclick="loadContent('vegetable')"
+                >
+                  Vegetable
+                </button>
+              </div>
+              <img class="frame" src="{{ url_for('static', filename='pic/vegetable.jpg') }}" alt="Vegetable">
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock %}
