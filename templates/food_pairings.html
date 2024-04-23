@@ -4,7 +4,7 @@
 <style>
   .nav-bar {
     color: rgb(102, 41, 49);
-    background-color: #F2EFE1;
+    background-color: rgb(224, 211, 172);
   }
 
   /* New CSS to apply border to the wrapper div */
@@ -33,11 +33,13 @@
   }
 </style>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-lg-2 nav-bar">
+    <!-- Apply classes pl-0 (padding-left: 0) and ml-auto (margin-left: auto) -->
+    <div class="col-2 pl-0 ml-auto">
+      <!-- Apply the border to this wrapper div -->
       <div class="nav-box">
-      <h2 id="nav-title" style="padding-top: 20px; font-family: Arial; font-weight: bold;"> Food Pairings</h2>
+        <h2 id="nav-title" style="padding-top: 20px; font-family: Arial; font-weight: bold;"> Wine Terms</h2>
       <ul class="nav flex-column">
         <li class="nav-item">
           <a id="seafood-navlink" class="nav-link inactive" href="/food-pairings?section=seafood">Seafood</a>
@@ -53,9 +55,18 @@
       </div>
     </div>
     <!-- Main Content Area -->
-    <div class="col-lg-9" id="main-content"></div>
+    <div class="col-lg-10" id="main-content"></div>
   </div>
 </div>
+
+<style>
+  body {
+    color: rgb(102, 41, 49);
+    background-color: #F2EFE1; 
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+</style>
 
 <script>
     function loadContent(url) {
@@ -73,10 +84,10 @@
         console.log("hello")
         loadContent(section);
     } else {
-      loadContent('body');
+      loadContent('seafood');
     }
   });
-</script>
+
 
 var urlParams = new URLSearchParams(window.location.search);
 var section = urlParams.get("section");
@@ -86,4 +97,5 @@ if (section) {
   $("#seafood-navlink").removeClass("inactive").addClass("active");
 }
 
+</script>
 {% endblock %}
