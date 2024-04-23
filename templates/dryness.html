@@ -84,6 +84,31 @@
     body {
         background-color: #F2EFE1;
     }
+
+        
+    .frame-img {
+        margin-top: 0px;
+        margin-bottom: 5%;
+        width: 600px;
+        height: 120px;
+        display: inline-block;
+        border: 5px solid rgb(102, 41, 49);
+        position: relative;
+        object-fit: cover;
+      }
+    
+      .frame-img > img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
 </style>
 
 <script>
@@ -101,6 +126,13 @@
 <body>
     <h1 id="term-header">So what is the "dryness" of a wine?</h1>
     <h2 class="term-subheader">Dryness refers to the level of sweetness of the wine.</h2>
+
+    <div style="text-align:center">
+        <img  class="frame-img"
+        src="{{url_for('static', filename='pic/dryness_spectrum.png')}}" 
+        alt="Wine Dryness Spectrum" />
+    </div>
+
     <div class="row" id="term-row">
         <div class="col-md-6" id="top-left">
             <p>Dry, least sweet</p>
@@ -117,7 +149,7 @@
             <p>More residual sugar/ripe fruit</p>
         </div>
     </div>
-    <h2 class="term-subheader" id="extra-info">The longer the fermentation, the lesser residual sugar, the dryer the wine gets.</h2>
+    <h2 class="term-subheader" id="extra-info" style="margin-top:7%">The longer the fermentation, the lesser residual sugar, the dryer the wine gets.</h2>
 
     <div style="text-align: right; margin-right: 12%; margin-top: 5%;">
         <button id="next-btn" style="color: rgb(102, 41, 49); border: 2px solid rgb(102, 41, 49); background-color: transparent;" onclick="loadContent('wine_types')">Learn about Wine Types > </button>

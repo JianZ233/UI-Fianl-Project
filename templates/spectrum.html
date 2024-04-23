@@ -36,6 +36,29 @@
       padding: 10px;
       display: none;
     }
+
+    .frame {
+      margin-top: 5%;
+      width: 150px;
+      height: 150px;
+      display: inline-block;
+      border: 5px solid rgb(102, 41, 49);
+      position: relative;
+      object-fit: cover;
+    }
+  
+    .frame > img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
   </style>
 
   <script>
@@ -153,6 +176,22 @@
         });
     {% endif %}
 
+    {% if data.imgtopleft %}
+            $("#topleft-img").attr("src", "{{ url_for('static', filename='pic/' + data.imgtopleft) }}").attr("alt", data.imgtopleft);
+    {% endif %}
+
+    {% if data.imgtopright %}
+          $("#topright-img").attr("src", "{{ url_for('static', filename='pic/' + data.imgtopright) }}").attr("alt", data.imgtopright);
+    {% endif %}
+
+    {% if data.imgbottomleft %}
+          $("#bottomleft-img").attr("src", "{{ url_for('static', filename='pic/' + data.imgbottomleft) }}").attr("alt", data.imgbottomleft);
+    {% endif %}
+
+    {% if data.imgbottomright %}
+          $("#bottomright-img").attr("src", "{{ url_for('static', filename='pic/' + data.imgbottomright) }}").attr("alt", data.imgbottomright);
+    {% endif %}
+
     var urlParams = new URLSearchParams(window.location.search);
     var section = urlParams.get("section");
     if (section == "fullspectrum") {
@@ -177,14 +216,20 @@
         <div class="col-9">
           <div class="row">
             <div class="col-6 col1">
-              <div class="btncontain">
+              <div style="margin-top:-15px"> 
+                <img id="topleft-img" class="frame">
+              </div>
+              <div class="btncontain" style="margin-top:-35px;">
                 <div id="topleft"></div>
                 <div id="topleft2"></div>
               </div>
             </div>
             <div class="col-6 col2">
               <div class="label1" id="top">{{data.labeltop}}</div>
-              <div class="btncontain">
+              <div style="text-align:right; margin-top:-40px;">
+                <img id="topright-img" class="frame">
+              </div>
+              <div class="btncontain" style="margin-top:-35px;">
                 <div id="topright">
                 </div>
                 <div id="topright2">
@@ -195,11 +240,14 @@
           <div class="row">
             <div class="col-6 col3">
               <div class="label2" id="bottom">{{data.labelleft}}</div>
-              <div class="btncontain">
+              <div class="btncontain" style="margin-top: -125px">
                 <div id="bottomleft">
                 </div>
                 <div id="bottomleft2">
                 </div>
+              </div>
+              <div>
+                <img id="bottomleft-img" class="frame" style="margin-top: -45px">
               </div>
             </div>
             <div class="col-6 col4 position-relative">
@@ -207,11 +255,14 @@
                 {{data.labelright}}
               </div>
               <br />
-              <div class="btncontain">
+              <div class="btncontain" style="margin-top:-125px">
                 <div id="bottomright">
                 </div>
                 <div id="bottomright2">
                 </div>
+              </div>
+              <div style="text-align:right;">
+                <img id="bottomright-img" class="frame"  style="margin-top: -45px">
               </div>
               <div class="label4 position-absolute bottom-0" id="left">
                 {{data.labelbottom}}
