@@ -154,9 +154,9 @@ seafood = {
 meat = {
     'title': 'Meat',
     'labeltop': 'Creamy',
-    'labelright':'Red meat',
+    'labelright':'Bloody',
     'labelbottom':'Acidic',
-    'labelleft':'White meat',
+    'labelleft':'Not Bloody',
     'topright': wines['Merlot'],
     'topleft': wines['Chardonnay'],
     'bottomright': wines['Shiraz'],

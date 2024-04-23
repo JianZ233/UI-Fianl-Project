@@ -6,24 +6,51 @@
     color: rgb(102, 41, 49);
     background-color: #F2EFE1;
   }
+
+  /* New CSS to apply border to the wrapper div */
+  .nav-box {
+    border: 3px solid rgb(102, 41, 49);
+    margin-top: 10px;
+    padding: 12px;
+  }
+
+  .nav-link.active:hover {
+    background-color:  #54370f;
+    color: rgb(224, 211, 172);
+  }
+  
+  .nav-link.active {
+    background-color: rgb(102, 41, 49);
+    color: rgb(224, 211, 172);
+  }
+  
+  .nav-link.inactive {
+    color: rgb(102, 41, 49);
+  }
+  
+  .nav-link.inactive:hover {
+    color: #54370f;
+  }
 </style>
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-2 nav-bar"style="border: 3px solid rgb(102, 41, 49); border-top: 0px;">
-      <h2 id="nav-title" style="padding-top: 20px;"> Food Pairings</h2>
+    <div class="col-lg-2 nav-bar">
+      <div class="nav-box">
+      <h2 id="nav-title" style="padding-top: 20px; font-family: Arial; font-weight: bold;"> Food Pairings</h2>
       <ul class="nav flex-column">
         <li class="nav-item">
-          <a class="nav-link active" href="/food-pairings?section=seafood">Seafood</a>
+          <a id="seafood-navlink" class="nav-link inactive" href="/food-pairings?section=seafood">Seafood</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/food-pairings?section=meat">Meat</a>
+          <a class="nav-link inactive" href="/food-pairings?section=meat">Meat</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/food-pairings?section=vegetables">Vegetable</a>
+          <a class="nav-link inactive" href="/food-pairings?section=vegetables">Vegetable</a>
         </li>
         <!-- Add more links as needed -->
       </ul>
+      </div>
     </div>
     <!-- Main Content Area -->
     <div class="col-lg-9" id="main-content"></div>
@@ -50,5 +77,13 @@
     }
   });
 </script>
+
+var urlParams = new URLSearchParams(window.location.search);
+var section = urlParams.get("section");
+if (section) {
+  $("a[href='/food-pairings?section=" + section + "']").removeClass("inactive").addClass("active");
+} else {
+  $("#seafood-navlink").removeClass("inactive").addClass("active");
+}
 
 {% endblock %}
