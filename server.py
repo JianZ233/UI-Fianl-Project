@@ -136,10 +136,10 @@ basic_spectrum = {
     'bottomright2': wines['Ruby Port'],
     'bottomleft': wines['Sauvignon Blanc'],
     'bottomleft2': wines['Lambrusco di Sorbara'],
-    'imgtopright': 'chaniti.jpeg',
-    'imgtopleft': 'Chardonnay.jpeg',
-    'imgbottomright': 'Riesling.jpeg',
-    'imgbottomleft': 'Sauvignon Blanc.png'
+    'img-topright': 'chaniti.jpeg',
+    'img-topleft': 'Chardonnay.jpeg',
+    'img-bottomright': 'Riesling.jpeg',
+    'img-bottomleft': 'Sauvignon Blanc.png'
 }
 
 seafood = {
@@ -152,10 +152,10 @@ seafood = {
     'topleft': wines['Sauvignon Blanc'],
     'bottomright2': wines['Pinot Noir'],
     'bottomleft': wines['Pinot Grigio'],
-    'imgtopright': 'seafood_moreflaky_creamy.jpg',
-    'imgtopleft': 'seafood_lessflaky_creamy.jpg',
-    'imgbottomright': 'seafood_moreflaky_acidic.jpg',
-    'imgbottomleft': 'seafood_lessflaky_acidic.jpg',
+    'img-topright': 'seafood_moreflaky_creamy.jpg',
+    'img-topleft': 'seafood_lessflaky_creamy.jpg',
+    'img-bottomright': 'seafood_moreflaky_acidic.jpg',
+    'img-bottomleft': 'seafood_lessflaky_acidic.jpg',
 }
 
 meat = {
@@ -168,10 +168,10 @@ meat = {
     'topleft': wines['Chardonnay'],
     'bottomright': wines['Shiraz'],
     'bottomleft': wines['Sauvignon Blanc'],
-    'imgtopright': 'meat_red_creamy.jpg',
-    'imgtopleft': 'meat_white_creamy.jpg',
-    'imgbottomright': 'meat_red_acidic.jpg',
-    'imgbottomleft': 'meat_white_acidic.jpg',
+    'img-topright': 'meat_red_creamy.jpg',
+    'img-topleft': 'meat_white_creamy.jpg',
+    'img-bottomright': 'meat_red_acidic.jpg',
+    'img-bottomleft': 'meat_white_acidic.jpg',
 }
 
 vegetables = {
@@ -184,10 +184,10 @@ vegetables = {
     'topleft': wines['Sauvignon Blanc'],
     'bottomright': wines['Riesling'],
     'bottomleft': wines['Chardonnay'],
-    'imgtopright': 'vegetable_sweet_creamy.jpg',
-    'imgtopleft': 'vegetable_spicy_creamy.jpg',
-    'imgbottomright': 'vegetable_sweet_acidic.jpg',
-    'imgbottomleft': 'vegetable_spicy_acidic.jpg',
+    'img-topright': 'vegetable_sweet_creamy.jpg',
+    'img-topleft': 'vegetable_spicy_creamy.jpg',
+    'img-bottomright': 'vegetable_sweet_acidic.jpg',
+    'img-bottomleft': 'vegetable_spicy_acidic.jpg',
 }
 
 @app.route('/')
