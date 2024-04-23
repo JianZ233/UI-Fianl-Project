@@ -45,34 +45,63 @@
         color: #666;
         display: none; /* Hidden by default */
     }
-    .start-learning-btn {
+    .start-learning-btn, #submit-btn:hover{
     background-color: rgb(102, 41, 49);
     color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+    border-radius: 5px;
+    }
+    .start-learning-btn.disabled {
+    background-color: lightgray;
+    cursor: not-allowed;
     }
 
-    .start-learning-btn:hover {
+    .start-learning-btn:hover, #submit-btn:hover {
         background-color: rgb(232, 179, 188);
         color: rgb(102, 41, 49);
     }
-</style>
+    .wrong-click {
+    background-color: red;
+    color: white;
+    }
+    #submit-btn {
+    background-color: rgb(102, 41, 49); /* Set initial background color to light gray */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px; /* Add border-radius for rounded edges */
+}
+    .image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .button-container {
+    text-align: center;
+    margin-top: 20px; /* Adjust this value as needed */
+    }
 
+</style>
 <div class="quiz-container">
     <h3>What kind of wine would you pair with this food?</h3>
     <div class="quiz-item">
         <p>{{ question["question"] }}</p>
-        <img src="{{ url_for('static', filename='pic/' + question['image']) }}" alt="Question Image" style="max-width: 80%; height: auto;">
-        <div id="answer-form">
-            {% for option in options %}
-            <button type="button" class="option" onclick="markClicked(this)">
-                {{ option['option'] }}
-            </button>
-            <div class="explanation" id="explanation-{{ loop.index }}">
-                {{ option['explanation'] }}
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='pic/' + question['image']) }}" alt="Question Image" style="max-width: 80%; height: auto;">
+            <div id="message"></div>
+            <div id="answer-form">
+                {% for option in options %}
+                <button type="button" class="option" onclick="markClicked(this)">
+                    {{ option['option'] }}
+                </button>
+                <div class="explanation" id="explanation-{{ loop.index }}">
+                    {{ option['explanation'] }}
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
         <div class="button-container">
             <button id="submit-btn" class="btn btn-primary mt-3 start-learning-btn" onclick="submitAnswer()" disabled>Submit</button>
