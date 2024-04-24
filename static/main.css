@@ -104,3 +104,10 @@
     padding: 50px;
     box-shadow: 0 30px 50px #dbdbdb;
 } */
+
+.quickfix_container{
+    background-image: url('static/pic/red-wine-with-fish.jpg');
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background */
+    background-repeat: no-repeat; /* Don't repeat the image */
+}
