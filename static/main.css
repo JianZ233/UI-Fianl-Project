@@ -115,3 +115,9 @@
     padding: 10px;
     color: white;
 }
+
+#factImage {
+    width: 100%; /* Adjust this to fit your design needs */
+    height: 400px; /* Fixed height */
+    object-fit: cover; /* This will cover the area without distorting the ratio */
+}
