@@ -151,3 +151,48 @@ function loadQuestion(data) {
         existingNextBtn.remove();
     }
 }
+
+document.addEventListener('DOMContentLoaded', newFact);
+
+function newFact() {
+    const randomFacts = [
+        {
+            "id": "1",
+            "facts": "Bold red wines can stand up to hearty vegetarian dishes like mushroom risotto.",
+            "image": "static/pic/image-1719.webp"
+        },
+        {
+            "id": "2",
+            "facts": "When in doubt, Champagne or sparkling wine can enhance almost any appetizer.",
+            "image": "static/pic/AppetizersChampagne.jpg"
+        },
+        {
+            "id": "3",
+            "facts": "For a classic pairing, try Cabernet Sauvignon with a juicy steak.",
+            "image": "static/pic/redwinesteak.jpg"
+        },
+        {
+            "id": "4",
+            "facts": "Rosé isn't just for summer; it can elevate the flavors of barbecue dishes year-round.",
+            "image": "static/pic/redwinebbq.webp"
+        },
+        {
+            "id": "5",
+            "facts": "Rich desserts find their match in sweet, fortified wines like Port or Sherry.",
+            "image": "static/pic/DessertWine.jpg"
+        },
+        {
+            "id": "6",
+            "facts": "Not all seafood have to pair with white wine",
+            "image": "static/pic/red-wine-with-fish.jpg"
+        }
+    ];
+
+    const randomIndex = Math.floor(Math.random() * randomFacts.length);
+    const fact = randomFacts[randomIndex];
+    const factText = document.getElementById('factText');
+    const factImage = document.getElementById('factImage');
+
+    factText.textContent = fact.facts;
+    factImage.src = fact.image;
+}
