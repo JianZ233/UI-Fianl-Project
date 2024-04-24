@@ -12,7 +12,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        width: 50%;
+        width: 100%;
         margin: 0 auto; /* Center horizontally */
         padding-top: 20px;
     }
@@ -22,7 +22,7 @@
         border: 1px solid #ddd;
         border-radius: 5px;
         background-color: #fff;
-        width: 80%;
+        width: 50%;
         margin: 10px auto;
     }
     .option {
@@ -41,6 +41,7 @@
     }
     .explanation {
         margin-top: 10px;
+        margin-bottom: 10px;
         font-size: 0.9em;
         color: #666;
         display: none; /* Hidden by default */
@@ -63,7 +64,7 @@
         color: rgb(102, 41, 49);
     }
     .wrong-click {
-    background-color: red;
+    background-color: rgb(213, 121, 121);
     color: white;
     }
     #submit-btn {
@@ -81,7 +82,7 @@
     }
     .button-container {
     text-align: center;
-    margin-top: 20px; /* Adjust this value as needed */
+    margin: 20px; /* Adjust this value as needed */
     }
 
 </style>
@@ -90,8 +91,8 @@
     <div class="quiz-item">
         <p>{{ question["question"] }}</p>
         <div class="image-container">
-            <img src="{{ url_for('static', filename='pic/' + question['image']) }}" alt="Question Image" style="max-width: 80%; height: auto;">
-            <div id="message"></div>
+            <img src="{{ url_for('static', filename='pic/' + question['image']) }}" alt="Question Image" style="max-width: 50%; height: auto;">
+            <div id="message" style="margin: 5px;"></div>
             <div id="answer-form">
                 {% for option in options %}
                 <button type="button" class="option" onclick="markClicked(this)">
