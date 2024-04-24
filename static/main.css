@@ -105,9 +105,20 @@
     box-shadow: 0 30px 50px #dbdbdb;
 } */
 
-.quickfix_container{
-    background-image: url('static/pic/red-wine-with-fish.jpg');
-    background-size: cover; /* Cover the entire container */
-    background-position: center; /* Center the background */
-    background-repeat: no-repeat; /* Don't repeat the image */
+.centered-fact-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Times New Roman', Times, serif;;
+    font-size: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 10px;
+    color: white;
+}
+
+#factImage {
+    width: 100%; /* Adjust this to fit your design needs */
+    height: 400px; /* Fixed height */
+    object-fit: cover; /* This will cover the area without distorting the ratio */
 }

@@ -74,7 +74,7 @@
         $("#topleftbtn").click(function () {
             $(".highlight-border").show();
             $("#winename").text(data.topleft.wine_name);
-            $("#winedesc").text(data.topleft.wine_desc);
+            $("#winedesc").html(data.topleft.wine_desc);
         });
     {% endif %}
 
@@ -88,7 +88,7 @@
         $("#topleft2btn").click(function () {
             $(".highlight-border").show();
             $("#winename").text(data.topleft2.wine_name);
-            $("#winedesc").text(data.topleft2.wine_desc);
+            $("#winedesc").html(data.topleft2.wine_desc);
         });
     {% endif %}
 
@@ -102,7 +102,7 @@
         $("#toprightbtn").click(function () {
           $(".highlight-border").show();
             $("#winename").text(data.topright.wine_name);
-            $("#winedesc").text(data.topright.wine_desc);
+            $("#winedesc").html(data.topright.wine_desc);
         });
     {% endif %}
 
@@ -116,7 +116,7 @@
         $("#topright2btn").click(function () {
           $(".highlight-border").show();
             $("#winename").text(data.topright2.wine_name);
-            $("#winedesc").text(data.topright2.wine_desc);
+            $("#winedesc").html(data.topright2.wine_desc);
         });
     {% endif %}
 
@@ -130,7 +130,7 @@
         $("#bottomrightbtn").click(function () {
           $(".highlight-border").show();
             $("#winename").text(data.bottomright.wine_name);
-            $("#winedesc").text(data.bottomright.wine_desc);
+            $("#winedesc").html(data.bottomright.wine_desc);
         });
     {% endif %}
 
@@ -144,7 +144,7 @@
         $("#bottomright2btn").click(function () {
           $(".highlight-border").show();
             $("#winename").text(data.bottomright2.wine_name);
-            $("#winedesc").text(data.bottomright2.wine_desc);
+            $("#winedesc").html(data.bottomright2.wine_desc);
         });
     {% endif %}
 
@@ -158,7 +158,7 @@
         $("#bottomleftbtn").click(function () {
           $(".highlight-border").show();
             $("#winename").text(data.bottomleft.wine_name);
-            $("#winedesc").text(data.bottomleft.wine_desc);
+            $("#winedesc").html(data.bottomleft.wine_desc);
         });
     {% endif %}
 
@@ -172,7 +172,7 @@
         $("#bottomleft2btn").click(function () {
           $(".highlight-border").show();
             $("#winename").text(data.bottomleft2.wine_name);
-            $("#winedesc").text(data.bottomleft2.wine_desc);
+            $("#winedesc").html(data.bottomleft2.wine_desc);
         });
     {% endif %}
 
@@ -204,7 +204,7 @@
   </script>
 
   <body>
-    <h2 class ="title">{{data.title}}</h2>
+    <h2 class ="title" style="font-family:'Times New Roman', Times, serif;">{{data.title}}</h2>
     <div class="container">
       <div class="row">
         <div class="col-3" id="popup">
@@ -216,7 +216,7 @@
         <div class="col-9">
           <div class="row">
             <div class="col-6 col1">
-              <div style="margin-top:-15px"> 
+              <div style="margin-top:-35px"> 
                 <img id="topleft-img" class="frame">
               </div>
               <div class="btncontain" style="margin-top:-35px;">
@@ -226,7 +226,7 @@
             </div>
             <div class="col-6 col2">
               <div class="label1" id="top">{{data.labeltop}}</div>
-              <div style="text-align:right; margin-top:-40px;">
+              <div style="text-align:right; margin-top:-60px;">
                 <img id="topright-img" class="frame">
               </div>
               <div class="btncontain" style="margin-top:-35px;">
@@ -325,6 +325,7 @@
       .beige-bg {
         color: rgb(151, 59, 72);
         background-color: rgb(224, 211, 172);
+        margin:15px
       }
 
       body {
@@ -343,6 +344,7 @@
       .darkred-bg {
         color: rgb(241, 233, 208);
         background-color: rgb(151, 59, 72);
+        margin: 15px;
       }
     </style>
   </body>

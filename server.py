@@ -61,62 +61,62 @@ wines={
     'Chardonnay':{
         'wine_name':'Chardonnay',
         'wine_type':'White',
-        'wine_desc':'Full-bodied white wine that is smooth and subtly oaked, usually with notes of vanilla and butter.'
+        'wine_desc':'Full-bodied white wine that is smooth and subtly oaked, usually with notes of vanilla and butter. <b> Best with mild foods </b> '
     },
     'Cabernet Sauvignon':{
         'wine_name':'Cabernet Sauvignon',
         'wine_type':'Red',
-        'wine_desc':'Red wine that tends to showcase currants, cherry, and brambly berry liqueur, and, if it\'s been aged in new oak, aromas, and flavors of vanilla and chocolate.'
+        'wine_desc':'Red wine that tends to showcase currants, cherry, and brambly berry liqueur, and, if it\'s been aged in new oak, aromas, and flavors of vanilla and chocolate.<b> Best with richer and heartier foods </b>'
     },
     'Sauvignon Blanc':{
         'wine_name':'Sauvignon Blanc',
         'wine_type':'White',
-        'wine_desc':'Light, crisply dry, herbal, and fragrant white wine, that usually has a mellow color and a high acidity to add to its sense of refreshment.'
+        'wine_desc':'Light, crisply dry, herbal, and fragrant white wine, that usually has a mellow color and a high acidity to add to its sense of refreshment. <b> Best with vegetables and lighter flavors</b>'
     },
     'Lambrusco di Sorbara':{
         'wine_name':'Lambrusco di Sorbara',
         'wine_type':'Red',
-        'wine_desc': 'A light and floral red wine that is dry but has aromas of orange blossom, mandarin orange, cherries, violets, and watermelon.'
+        'wine_desc': 'A light and floral red wine that is dry but has aromas of orange blossom, mandarin orange, cherries, violets, and watermelon. <b>Best with creamier dishes or cured meats </b>'
     },
     'Vin Santo':{
         'wine_name':'Vin Santo',
         'wine_type':'White',
-        'wine_desc':'A full-bodied, typically very sweet white dessert wine with aromas of hazelnut, caramel, honey, tropical fruit, perfume and dried apricot.'
+        'wine_desc':'A full-bodied, typically very sweet white dessert wine with aromas of hazelnut, caramel, honey, tropical fruit, perfume and dried apricot. <b>Best with fruit based desserts </b>'
     },
     'Dornfelder':{
         'wine_name':'Dornfelder',
         'wine_type':'Red',
-        'wine_desc':'A sweet red wine with delicious flavor of cherries, red berries and plums.'    
+        'wine_desc':'A sweet red wine with delicious flavor of cherries, red berries and plums.<b> Best with meat-based dishes </b>'    
     },
     'Riesling':{
         'wine_name':'Riesling',
         'wine_type':'White',
-        'wine_desc':'This sweet, aromatic white wine offers primary fruit aromas of orchard fruits like nectarine, apricot, honey-crisp apple, and pear. '
+        'wine_desc':'This sweet, aromatic white wine offers primary fruit aromas of orchard fruits like nectarine, apricot, honey-crisp apple, and pear. <b>Best with spicy foods and creamy sauces </b>'
     },
     'Ruby Port':{
         'wine_name':'Ruby Port',
         'wine_type':'Red',
-        'wine_desc':'A red wine traditionally enjoyed as a dessert wine with notes of plum, chocolate, raisin, black cherry.'
+        'wine_desc':'A red wine traditionally enjoyed as a dessert wine with notes of plum, chocolate, raisin, black cherry. <b> Best with savory desserts or stnky cheeses </b>'
     },
     'Pinot Noir':{
         'wine_name':'Pinot Noir',
         'wine_type':'Red',
-        'wine_desc':' Light-bodied red wine that is dry, with bright acidity and has complex flavors that include cherry, raspberry, mushroom and forest floor, plus vanilla and baking spice when aged in French oak'
+        'wine_desc':' Light-bodied red wine that is dry, with bright acidity and has complex flavors that include cherry, raspberry, mushroom and forest floor, plus vanilla and baking spice when aged in French oak. <b> Best with mushrooms and roasted meats </b>'
     },
     'Pinot Grigio':{
         'wine_name':'Pinot Grigio',
         'wine_type':'White',
-        'wine_desc':'Light-bodied, dry, white wine usually crisp, with citrus fruit, apples and a hint of spice.'
+        'wine_desc':'Light-bodied, dry, white wine usually crisp, with citrus fruit, apples and a hint of spice. <b> Best with lighter and fresher flavors </b>'
     },
     'Merlot':{
         'wine_name':'Merlot',
         'wine_type': 'Red',
-        'wine_desc':'Full and dry red wine that usually has a fruit-forward, velvety, rich, and oaky taste.'
+        'wine_desc':'Full and dry red wine that usually has a fruit-forward, velvety, rich, and oaky taste. <b> Best with roasted vegetables or lean beed </b>'
     },
     'Shiraz':{
         'wine_name':'Shiraz',
         'wine_type': 'Red',
-        'wine_desc': 'Full, red, rich, bold with aromatic notes of smoke, pepper spice, plum, leather, licorice, chocolate, and black fruit.'
+        'wine_desc': 'Full, red, rich, bold with aromatic notes of smoke, pepper spice, plum, leather, licorice, chocolate, and black fruit. <b> Best with red meat</b>'
     }
 
 }
@@ -131,7 +131,7 @@ basic_spectrum = {
     'topright': wines['Vin Santo'],
     'topright2': wines['Dornfelder'],
     'topleft': wines['Chardonnay'],
-    #'topleft2': wines['Cabernet Sauvignon'],
+    'topleft2': wines['Cabernet Sauvignon'],
     'bottomright': wines['Riesling'],
     'bottomright2': wines['Ruby Port'],
     'bottomleft': wines['Sauvignon Blanc'],

@@ -86,13 +86,18 @@
 </div> -->
 
 <!-- below is the temproy fix for now till i can work out the fancy verison  -->
-<div class="quickfix_container text-center">
-    <!-- <h1 style="font-weight: bold; font-size: 35px;">Implement Randomly Displaying Fact Card</h1>-->
-    <div id="popularItems" class="row"></div>
-    <div class="container">
-        <h>When in doubt, Champagne or sparkling wine can enhance almost any appetizer.</h>
+<div class="container text-center">
+    <!-- <div id="popularItems" class="row"></div> -->
+    <div id="factCard" class="fact-card">
+        <img id="factImage" src="" alt="Fact Image" style="width:100%; position:relative;">
+        <div id="factText" class="centered-fact-text"></div>
+        <a href="/wine-terms" class="btn btn-primary mt-3 start-learning-btn" style="position:absolute; bottom:20px; left:50%; transform:translateX(-50%);">Start Learning</a>
     </div>
-    <a href="/wine-terms" class="btn btn-primary mt-3 start-learning-btn">Start Learning</a> 
+    <!-- <div class="card" onclick="newFact()">
+        <img id="factImage" src="static/pic/image-1719.webp" alt="Fact Image">
+        <p id="factText">Click me for a fact!</p>
+    </div>
+    <a href="/wine-terms" class="btn btn-primary mt-3 start-learning-btn">Start Learning</a>  -->
 </div>
 
 <script src="{{ url_for('static', filename='actions.js') }}"></script>
