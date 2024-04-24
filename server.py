@@ -135,7 +135,11 @@ basic_spectrum = {
     'bottomright': wines['Riesling'],
     'bottomright2': wines['Ruby Port'],
     'bottomleft': wines['Sauvignon Blanc'],
-    'bottomleft2': wines['Lambrusco di Sorbara']
+    'bottomleft2': wines['Lambrusco di Sorbara'],
+    'imgtopright': 'chaniti.jpeg',
+    'imgtopleft': 'Chardonnay.jpeg',
+    'imgbottomright': 'Riesling.jpeg',
+    'imgbottomleft': 'Sauvignon Blanc.png'
 }
 
 seafood = {
@@ -148,19 +152,26 @@ seafood = {
     'topleft': wines['Sauvignon Blanc'],
     'bottomright2': wines['Pinot Noir'],
     'bottomleft': wines['Pinot Grigio'],
-
+    'imgtopright': 'seafood_moreflaky_creamy.jpg',
+    'imgtopleft': 'seafood_lessflaky_creamy.jpg',
+    'imgbottomright': 'seafood_moreflaky_acidic.jpg',
+    'imgbottomleft': 'seafood_lessflaky_acidic.jpg',
 }
 
 meat = {
     'title': 'Meat',
     'labeltop': 'Creamy',
-    'labelright':'Red meat',
+    'labelright':'Bloody',
     'labelbottom':'Acidic',
-    'labelleft':'White meat',
+    'labelleft':'Less Bloody',
     'topright': wines['Merlot'],
     'topleft': wines['Chardonnay'],
     'bottomright': wines['Shiraz'],
     'bottomleft': wines['Sauvignon Blanc'],
+    'imgtopright': 'meat_red_creamy.jpg',
+    'imgtopleft': 'meat_white_creamy.jpg',
+    'imgbottomright': 'meat_red_acidic.jpg',
+    'imgbottomleft': 'meat_white_acidic.jpg',
 }
 
 vegetables = {
@@ -173,7 +184,10 @@ vegetables = {
     'topleft': wines['Sauvignon Blanc'],
     'bottomright': wines['Riesling'],
     'bottomleft': wines['Chardonnay'],
-
+    'imgtopright': 'vegetable_sweet_creamy.jpg',
+    'imgtopleft': 'vegetable_spicy_creamy.jpg',
+    'imgbottomright': 'vegetable_sweet_acidic.jpg',
+    'imgbottomleft': 'vegetable_spicy_acidic.jpg',
 }
 
 @app.route('/')

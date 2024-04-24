@@ -10,19 +10,27 @@
   /* New CSS to apply border to the wrapper div */
   .nav-box {
     border: 3px solid rgb(102, 41, 49);
-    margin-top: 5px;
-    padding: 7px;
+    margin-top: 10px;
+    padding: 12px;
   }
 
-  /* Updated CSS to center the nav title */
-  #nav-title {
-    padding-top: 10px;
-    font-family: Arial;
-    font-weight: bold;
-    text-align: center;
-    background-color: rgb(100, 59, 13);
-    color: #dbbe9f /* Center the text */
-  }
+.nav-link.active:hover {
+  background-color: rgb(102, 41, 49);
+  color: rgb(224, 211, 172);
+}
+
+.nav-link.active {
+    background-color:  #54370f;
+    color: rgb(224, 211, 172);
+}
+
+.nav-link.inactive {
+  color: rgb(102, 41, 49);
+}
+
+.nav-link.inactive:hover {
+  color: #54370f;
+}
 </style>
 
 <div class="container-fluid">
@@ -30,21 +38,21 @@
     <!-- Apply classes pl-0 (padding-left: 0) and ml-auto (margin-left: auto) -->
     <div class="col-2 pl-0 ml-auto">
       <!-- Apply the border to this wrapper div -->
-      <div class="nav-box">
-        <h2 id="nav-title">Wine Terms</h2>
+      <div class="nav-box" style="background-color:  rgb(224, 211, 172);">
+        <h2 id="nav-title" style="padding-top: 20px; font-family: Arial; font-weight: bold;"> Wine Terms</h2>
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="/wine-terms?section=body">Body</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/wine-terms?section=dryness">Dryness</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/wine-terms?section=wine_types">Wine Types</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/wine-terms?section=fullspectrum">Spectrum</a>
-          </li>
+            <a id="body-navlink" class="nav-link inactive" href="/wine-terms?section=body">Body</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link inactive" href="/wine-terms?section=dryness">Dryness</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link inactive" href="/wine-terms?section=wine_types">Wine Types</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link inactive" href="/wine-terms?section=fullspectrum">Spectrum</a>
+            </li>
           <!-- Add more links as needed -->
         </ul>
       </div>
@@ -56,8 +64,8 @@
 
 <style>
   body {
-    color: rgb(151, 59, 72);
-    background-color: rgb(224, 211, 172);
+    color: rgb(102, 41, 49);
+    background-color: #F2EFE1; 
     font-family: 'Times New Roman', Times, serif;
   }
 
@@ -82,6 +90,15 @@
       loadContent("body");
     }
   });
+
+  var urlParams = new URLSearchParams(window.location.search);
+  var section = urlParams.get("section");
+  if (section) {
+    $("a[href='/wine-terms?section=" + section + "']").removeClass("inactive").addClass("active");
+  } else {
+    $("#body-navlink").removeClass("inactive").addClass("active");
+  }
+
 </script>
 
 {% endblock %}

@@ -80,7 +80,30 @@
     }
 
     body {
-        background-color: rgb(224, 211, 172);
+        background-color: #F2EFE1;
+    }
+
+    .frame {
+      margin-top: 5%;
+      width: 250px;
+      height: 250px;
+      display: inline-block;
+      border: 5px solid rgb(102, 41, 49);
+      position: relative;
+      object-fit: cover;
+    }
+  
+    .frame > img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
     }
     
 </style>
@@ -99,9 +122,9 @@
     </script>
     <h1 id="term-header">Basic Wine Types</h1>
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6" style="text-align:center;">
         <img
-        class="wineimg"
+        class="frame"
           src="{{ url_for('static', filename='pic/Wine_types_red.jpg') }}"
           alt="Red Wine"
         />
@@ -115,9 +138,9 @@
           and cherries to the subtle nuances of earthy undertones and spices.
         </p>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6" style="text-align:center;">
         <img
-        class="wineimg"
+        class="frame"
           src="{{ url_for('static', filename='pic/Wine_types_white.jpg') }}"
           alt="White Wine"
         />
