@@ -57,6 +57,139 @@ additional_options = {
     "Late Harvest Riesling": {"explanation": "Late Harvest Riesling's opulent sweetness and vibrant acidity make it a perfect match for rich desserts or pungent cheeses, but it might not be the best choice for very light or delicate dishes."}
 }
 
+wines={
+    'Chardonnay':{
+        'wine_name':'Chardonnay',
+        'wine_type':'White',
+        'wine_desc':'Full-bodied white wine that is smooth and subtly oaked, usually with notes of vanilla and butter. <b> Best with mild foods </b> '
+    },
+    'Cabernet Sauvignon':{
+        'wine_name':'Cabernet Sauvignon',
+        'wine_type':'Red',
+        'wine_desc':'Red wine that tends to showcase currants, cherry, and brambly berry liqueur, and, if it\'s been aged in new oak, aromas, and flavors of vanilla and chocolate.<b> Best with richer and heartier foods </b>'
+    },
+    'Sauvignon Blanc':{
+        'wine_name':'Sauvignon Blanc',
+        'wine_type':'White',
+        'wine_desc':'Light, crisply dry, herbal, and fragrant white wine, that usually has a mellow color and a high acidity to add to its sense of refreshment. <b> Best with vegetables and lighter flavors</b>'
+    },
+    'Lambrusco di Sorbara':{
+        'wine_name':'Lambrusco di Sorbara',
+        'wine_type':'Red',
+        'wine_desc': 'A light and floral red wine that is dry but has aromas of orange blossom, mandarin orange, cherries, violets, and watermelon. <b>Best with creamier dishes or cured meats </b>'
+    },
+    'Vin Santo':{
+        'wine_name':'Vin Santo',
+        'wine_type':'White',
+        'wine_desc':'A full-bodied, typically very sweet white dessert wine with aromas of hazelnut, caramel, honey, tropical fruit, perfume and dried apricot. <b>Best with fruit based desserts </b>'
+    },
+    'Dornfelder':{
+        'wine_name':'Dornfelder',
+        'wine_type':'Red',
+        'wine_desc':'A sweet red wine with delicious flavor of cherries, red berries and plums.<b> Best with meat-based dishes </b>'    
+    },
+    'Riesling':{
+        'wine_name':'Riesling',
+        'wine_type':'White',
+        'wine_desc':'This sweet, aromatic white wine offers primary fruit aromas of orchard fruits like nectarine, apricot, honey-crisp apple, and pear. <b>Best with spicy foods and creamy sauces </b>'
+    },
+    'Ruby Port':{
+        'wine_name':'Ruby Port',
+        'wine_type':'Red',
+        'wine_desc':'A red wine traditionally enjoyed as a dessert wine with notes of plum, chocolate, raisin, black cherry. <b> Best with savory desserts or stnky cheeses </b>'
+    },
+    'Pinot Noir':{
+        'wine_name':'Pinot Noir',
+        'wine_type':'Red',
+        'wine_desc':' Light-bodied red wine that is dry, with bright acidity and has complex flavors that include cherry, raspberry, mushroom and forest floor, plus vanilla and baking spice when aged in French oak. <b> Best with mushrooms and roasted meats </b>'
+    },
+    'Pinot Grigio':{
+        'wine_name':'Pinot Grigio',
+        'wine_type':'White',
+        'wine_desc':'Light-bodied, dry, white wine usually crisp, with citrus fruit, apples and a hint of spice. <b> Best with lighter and fresher flavors </b>'
+    },
+    'Merlot':{
+        'wine_name':'Merlot',
+        'wine_type': 'Red',
+        'wine_desc':'Full and dry red wine that usually has a fruit-forward, velvety, rich, and oaky taste. <b> Best with roasted vegetables or lean beed </b>'
+    },
+    'Shiraz':{
+        'wine_name':'Shiraz',
+        'wine_type': 'Red',
+        'wine_desc': 'Full, red, rich, bold with aromatic notes of smoke, pepper spice, plum, leather, licorice, chocolate, and black fruit. <b> Best with red meat</b>'
+    }
+
+}
+
+
+basic_spectrum = {
+    'title': 'Basic Spectrum',
+    'labeltop': 'Full',
+    'labelright':'Sweet',
+    'labelbottom':'Light',
+    'labelleft':'Dry',
+    'topright': wines['Vin Santo'],
+    'topright2': wines['Dornfelder'],
+    'topleft': wines['Chardonnay'],
+    'topleft2': wines['Cabernet Sauvignon'],
+    'bottomright': wines['Riesling'],
+    'bottomright2': wines['Ruby Port'],
+    'bottomleft': wines['Sauvignon Blanc'],
+    'bottomleft2': wines['Lambrusco di Sorbara'],
+    'imgtopright': 'chaniti.jpeg',
+    'imgtopleft': 'Chardonnay.jpeg',
+    'imgbottomright': 'Riesling.jpeg',
+    'imgbottomleft': 'Sauvignon Blanc.png'
+}
+
+seafood = {
+    'title': 'Seafood',
+    'labeltop': 'Creamy',
+    'labelright':'Flaky',
+    'labelbottom':'Acidic',
+    'labelleft':'Not Flaky',
+    'topright': wines['Chardonnay'],
+    'topleft': wines['Sauvignon Blanc'],
+    'bottomright2': wines['Pinot Noir'],
+    'bottomleft': wines['Pinot Grigio'],
+    'imgtopright': 'seafood_moreflaky_creamy.jpg',
+    'imgtopleft': 'seafood_lessflaky_creamy.jpg',
+    'imgbottomright': 'seafood_moreflaky_acidic.jpg',
+    'imgbottomleft': 'seafood_lessflaky_acidic.jpg',
+}
+
+meat = {
+    'title': 'Meat',
+    'labeltop': 'Creamy',
+    'labelright':'Bloody',
+    'labelbottom':'Acidic',
+    'labelleft':'Less Bloody',
+    'topright': wines['Merlot'],
+    'topleft': wines['Chardonnay'],
+    'bottomright': wines['Shiraz'],
+    'bottomleft': wines['Sauvignon Blanc'],
+    'imgtopright': 'meat_red_creamy.jpg',
+    'imgtopleft': 'meat_white_creamy.jpg',
+    'imgbottomright': 'meat_red_acidic.jpg',
+    'imgbottomleft': 'meat_white_acidic.jpg',
+}
+
+vegetables = {
+    'title': 'Vegetables',
+    'labeltop': 'Creamy',
+    'labelright':'Sweet',
+    'labelbottom':'Acidic',
+    'labelleft':'Spicy',
+    'topright': wines['Pinot Noir'],
+    'topleft': wines['Sauvignon Blanc'],
+    'bottomright': wines['Riesling'],
+    'bottomleft': wines['Chardonnay'],
+    'imgtopright': 'vegetable_sweet_creamy.jpg',
+    'imgtopleft': 'vegetable_spicy_creamy.jpg',
+    'imgbottomright': 'vegetable_sweet_acidic.jpg',
+    'imgbottomleft': 'vegetable_spicy_acidic.jpg',
+}
+
 @app.route('/')
 def index():
     return render_template('home.html')
@@ -137,7 +270,7 @@ def check_answer():
     
     session['current_index'] += 1
     if session['current_index'] >= session['total_questions']:
-        return jsonify(endQuiz=True, correctAnswer=correct_answer)
+        return jsonify(endQuiz=True, correctAnswer=correct_answer, correct=correct)
     else:
         next_question = session['selected_questions'][session['current_index']]
         return jsonify(
@@ -169,13 +302,42 @@ def quiz_results():
 def wine_terms():
     return render_template('wine_terms.html')
 
-@app.route('/spectrum')
-def spectrum():
-    return render_template('spectrum.html')
+@app.route('/food-pairings-summary')
+def food_pairings_summary():
+    return render_template('food_pairings_summary.html')
 
-@app.route('/pairings')
-def pairings():
-    return render_template('food-pairings.html')
+@app.route('/food-pairings')
+def food_pairings():
+    return render_template('food_pairings.html')
+
+@app.route('/fullspectrum')
+def spectrum():
+    return render_template('spectrum.html', data=basic_spectrum)
+
+@app.route('/seafood')
+def seafoodspec():
+    return render_template('spectrum.html', data=seafood)
+
+@app.route('/meat')
+def meatspec():
+    return render_template('spectrum.html', data=meat)
+
+@app.route('/vegetables')
+def vegspec():
+    return render_template('spectrum.html', data=vegetables)
+
+@app.route('/body')
+def body():
+    return render_template('body.html')
+
+@app.route('/dryness')
+def dryness():
+    return render_template('dryness.html')
+
+@app.route('/wine_types')
+def wine_types():
+    return render_template('wine_types.html')
+
 # # check navbar in examples from lecture
 # @app.route('/terms')
 # def terms():
