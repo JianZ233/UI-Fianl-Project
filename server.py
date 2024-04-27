@@ -270,7 +270,7 @@ def check_answer():
     
     session['current_index'] += 1
     if session['current_index'] >= session['total_questions']:
-        return jsonify(endQuiz=True, correctAnswer=correct_answer)
+        return jsonify(endQuiz=True, correctAnswer=correct_answer, correct=correct)
     else:
         next_question = session['selected_questions'][session['current_index']]
         return jsonify(
