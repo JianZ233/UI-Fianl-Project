@@ -110,6 +110,23 @@
         right: 0;
         margin: auto;
       }
+      .start-learning-btn {
+      background-color: rgb(102, 41, 49);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 250px;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .start-learning-btn:hover {
+      background-color: rgb(232, 179, 188);
+      color: rgb(102, 41, 49);
+    }
+
 </style>
 
 <script>
@@ -150,12 +167,12 @@
             <p>More residual sugar/ripe fruit</p>
         </div>
     </div>
-    <h2 class="term-subheader" id="extra-info" style="margin-top:7%">The longer the fermentation, the lesser residual sugar, the dryer the wine gets.</h2>
+    <h2 class="term-subheader" id="extra-info" style="margin-top:3%">The longer the fermentation, the lesser residual sugar, the dryer the wine gets.</h2>
 
     <div style="text-align: right; margin-right: 12%; margin-top: 5%;">
         <a class="nav-link inactive" href="/wine-terms?section=wine_types">
-        <button id="next-btn" style="color: rgb(102, 41, 49); border: 2px solid rgb(102, 41, 49); background-color: transparent;" onclick="loadContent('wine_types')">Learn about Wine Types > </button>
-        </a>
+        <button class="start-learning-btn" onclick="loadContent('wine_types')">Learn about Wine Types > </button>
+    </a>
     </div>
 </body>
 </html>

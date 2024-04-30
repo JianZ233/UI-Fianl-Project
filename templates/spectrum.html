@@ -7,7 +7,7 @@
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
     <link
       rel="stylesheet"
-      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+      href="https://code.jquery.com/ui/1.12.1/themes/e/jquery-ui.css"
     />
     <!-- Bootstrap CSS -->
     <link
@@ -59,6 +59,31 @@
       right: 0;
       margin: auto;
     }
+    .start-learning-btn {
+      background-color: rgb(102, 41, 49);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 400px;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .start-learning-btn:hover {
+      background-color: rgb(232, 179, 188);
+      color: rgb(102, 41, 49);
+    }
+    .message-box {
+    margin-top: 5px;
+    max-width: 100px;
+    padding: 5px;
+    background-color: rgb(224, 211, 172);
+    border: 3px solid rgb(102, 41, 49);
+    border-radius: 5px;
+    text-align: center;
+  }
   </style>
 
   <script>
@@ -205,6 +230,9 @@
 
   <body>
     <h2 class ="title" style="font-family:'Times New Roman', Times, serif;">{{data.title}}</h2>
+    <div class="message-box">
+      <p>Click on a red or white wine to learn more!</p>
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-3" id="popup">
@@ -271,9 +299,10 @@
           </div>
         </div>
       </div>
+      
       <div style="text-align: right; margin-top: 7%">
         
-      <button id="quiz-button" onclick="window.location.href='/quiz-start'" style="color: rgb(102, 41, 49); border: 2px solid rgb(102, 41, 49); background-color: transparent; margin-bottom: 20%;">
+      <button class="start-learning-btn" onclick="window.location.href='/quiz-start'">
         Take the quiz once you have explored all food types >
       </button>
       </div>

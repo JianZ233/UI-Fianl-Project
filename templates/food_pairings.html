@@ -1,4 +1,4 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 {% block content %}
 
 <style>
@@ -12,22 +12,37 @@
     border: 3px solid rgb(102, 41, 49);
     margin-top: 10px;
     padding: 12px;
+    background-color: rgb(224, 211, 172);
   }
 
-  .nav-link.active:hover {
+  /* Adjusted CSS for nav-link and nav-link.active */
+  .nav-link, .nav-link.active {
+    background-color: transparent;
+    color: rgb(102, 41, 49);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 10px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  /* Adjusted CSS for .nav-link:hover */
+  .nav-link:hover {
     background-color: rgb(102, 41, 49);
     color: rgb(224, 211, 172);
   }
-  
+
   .nav-link.active {
-      background-color:  #54370f;
-      color: rgb(224, 211, 172);
+    background-color: #54370f;
+    color: rgb(224, 211, 172);
   }
-  
+
   .nav-link.inactive {
     color: rgb(102, 41, 49);
   }
-  
+
   .nav-link.inactive:hover {
     color: #54370f;
   }
@@ -38,20 +53,20 @@
     <!-- Apply classes pl-0 (padding-left: 0) and ml-auto (margin-left: auto) -->
     <div class="col-2 pl-0 ml-auto">
       <!-- Apply the border to this wrapper div -->
-      <div class="nav-box" style="background-color:  rgb(224, 211, 172);">
-        <h2 id="nav-title" style=" font-family: 'Times New Roman', Times, serif; padding-top: 20px; font-weight: bold;"> Wine Terms</h2>
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a id="seafood-navlink" class="nav-link inactive" href="/food-pairings?section=seafood">Seafood</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link inactive" href="/food-pairings?section=meat">Meat</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link inactive" href="/food-pairings?section=vegetables">Vegetable</a>
-        </li>
-        <!-- Add more links as needed -->
-      </ul>
+      <div class="nav-box">
+        <h2 id="nav-title" style="font-family: 'Times New Roman', Times, serif; font-weight: bold;"> Food Pairings</h2>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a id="seafood-navlink" class="nav-link inactive" href="/food-pairings?section=seafood">Seafood</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link inactive" href="/food-pairings?section=meat">Meat</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link inactive" href="/food-pairings?section=vegetables">Vegetables</a>
+          </li>
+          <!-- Add more links as needed -->
+        </ul>
       </div>
     </div>
     <!-- Main Content Area -->
@@ -65,37 +80,34 @@
     background-color: #F2EFE1; 
     font-family: 'Times New Roman', Times, serif;
   }
-
 </style>
 
 <script>
-    function loadContent(url) {
-  $.get(url, function(html) {
-    $('#main-content').html(html);// Call the function to set up event listeners
-  }).fail(function(error) {
-    console.error('Error loading content: ', error);
-  });
-}
+  function loadContent(url) {
+    $.get(url, function(html) {
+      $('#main-content').html(html); // Call the function to set up event listeners
+    }).fail(function(error) {
+      console.error('Error loading content: ', error);
+    });
+  }
 
   $(document).ready(function() {
     var urlParams = new URLSearchParams(window.location.search);
     var section = urlParams.get('section');
     if (section) {
-        console.log("hello")
-        loadContent(section);
+      console.log("hello")
+      loadContent(section);
     } else {
       loadContent('seafood');
     }
   });
 
-
-var urlParams = new URLSearchParams(window.location.search);
-var section = urlParams.get("section");
-if (section) {
-  $("a[href='/food-pairings?section=" + section + "']").removeClass("inactive").addClass("active");
-} else {
-  $("#seafood-navlink").removeClass("inactive").addClass("active");
-}
-
+  var urlParams = new URLSearchParams(window.location.search);
+  var section = urlParams.get("section");
+  if (section) {
+    $("a[href='/food-pairings?section=" + section + "']").removeClass("inactive").addClass("active");
+  } else {
+    $("#seafood-navlink").removeClass("inactive").addClass("active");
+  }
 </script>
 {% endblock %}

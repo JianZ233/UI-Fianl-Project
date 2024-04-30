@@ -20,8 +20,12 @@
 }
 
 .nav-link.active {
-    background-color:  #54370f;
-    color: rgb(224, 211, 172);
+    background-color: rgb(102, 41, 49);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
 .nav-link.inactive {
@@ -31,6 +35,15 @@
 .nav-link.inactive:hover {
   color: #54370f;
 }
+    .start-learning-btn.disabled {
+    background-color: lightgray;
+    cursor: not-allowed;
+    }
+
+    .start-learning-btn:hover, #submit-btn:hover {
+        background-color: rgb(232, 179, 188);
+        color: rgb(102, 41, 49);
+    }
 </style>
 
 <div class="container-fluid">
