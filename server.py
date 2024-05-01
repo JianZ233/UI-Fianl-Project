@@ -142,6 +142,22 @@ basic_spectrum = {
     'imgbottomleft': 'Sauvignon Blanc.png'
 }
 
+red_spectrum = {
+    'title': 'White Wine Spectrum',
+    'labeltop': 'Full',
+    'labelright':'Sweet',
+    'labelbottom':'Light',
+    'labelleft':'Dry',
+    'topright': wines['Dornfelder'],
+    'topleft': wines['Cabernet Sauvignon'],
+    'bottomright': wines['Ruby Port'],
+    'bottomleft': wines['Lambrusco di Sorbara'],
+    'imgtopright': 'dornfelder.jpg',
+    'imgtopleft': 'Carbernet Sauvignon.png',
+    'imgbottomright': 'Ruby Port.jpg',
+    'imgbottomleft': 'lambrusco.jpg'
+}
+
 seafood = {
     'title': 'Seafood',
     'labeltop': 'Creamy',
