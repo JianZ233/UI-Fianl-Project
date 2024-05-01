@@ -143,7 +143,7 @@ basic_spectrum = {
 }
 
 red_spectrum = {
-    'title': 'White Wine Spectrum',
+    'title': 'Red Wine Spectrum',
     'labeltop': 'Full',
     'labelright':'Sweet',
     'labelbottom':'Light',
@@ -153,9 +153,25 @@ red_spectrum = {
     'bottomright': wines['Ruby Port'],
     'bottomleft': wines['Lambrusco di Sorbara'],
     'imgtopright': 'dornfelder.jpg',
-    'imgtopleft': 'Carbernet Sauvignon.png',
+    'imgtopleft': 'Cabernet Sauvignon.png',
     'imgbottomright': 'Ruby Port.jpg',
     'imgbottomleft': 'lambrusco.jpg'
+}
+
+white_spectrum = {
+    'title': 'White Wine Spectrum',
+    'labeltop': 'Full',
+    'labelright':'Sweet',
+    'labelbottom':'Light',
+    'labelleft':'Dry',
+    'topright': wines['Vin Santo'],
+    'topleft': wines['Chardonnay'],
+    'bottomright': wines['Riesling'],
+    'bottomleft': wines['Sauvignon Blanc'],
+    'imgtopright': 'vinsanto.jpg',
+    'imgtopleft': 'Chardonnay.jpeg',
+    'imgbottomright': 'Riesling.jpeg',
+    'imgbottomleft': 'Sauvignon Blanc.png'
 }
 
 seafood = {
@@ -325,6 +341,18 @@ def food_pairings_summary():
 @app.route('/food-pairings')
 def food_pairings():
     return render_template('food_pairings.html')
+
+@app.route('/redwhite-buffer')
+def redwhite_buffer():
+    return render_template('redwhite_buffer.html')
+
+@app.route('/red-spectrum')
+def redspec():
+    return render_template('spectrum.html', data=red_spectrum)
+
+@app.route('/white-spectrum')
+def whitespec():
+    return render_template('spectrum.html', data=white_spectrum)
 
 @app.route('/fullspectrum')
 def spectrum():
