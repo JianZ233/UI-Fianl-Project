@@ -77,7 +77,7 @@
     }
     .message-box {
     margin-top: 5px;
-    max-width: 100px;
+    max-width: 275px;
     padding: 5px;
     background-color: rgb(224, 211, 172);
     border: 3px solid rgb(102, 41, 49);
@@ -219,9 +219,10 @@
 
     var urlParams = new URLSearchParams(window.location.search);
     var section = urlParams.get("section");
+    console.log(section)
     if (section == "fullspectrum") {
-      $("#quiz-button").text("Learn different food pairings >");
-      $("#quiz-button").attr("onclick", "window.location.href='/food-pairings'");
+      $(".start-learning-btn").text("Learn different food pairings >");
+      $(".start-learning-btn").attr("onclick", "window.location.href='/food-pairings'");
     }
     });
 
@@ -230,12 +231,12 @@
 
   <body>
     <h2 class ="title" style="font-family:'Times New Roman', Times, serif;">{{data.title}}</h2>
-    <div class="message-box">
-      <p>Click on a red or white wine to learn more!</p>
-    </div>
     <div class="container">
       <div class="row">
         <div class="col-3" id="popup">
+          <div class="message-box">
+      <p>Click on a red or white wine to learn more!</p>
+    </div>
           <div class="highlight-border">
             <h3 id="winename"></h3>
             <div id="winedesc"></div>
