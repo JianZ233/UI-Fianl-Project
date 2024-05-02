@@ -85,6 +85,12 @@
     border-radius: 5px;
     text-align: center;
   }
+
+  #backbutton {
+    margin-right: 15%;
+    width: 300px;
+
+  }
   </style>
 
   <script>
@@ -218,6 +224,28 @@
           $("#bottomright-img").attr("src", "{{ url_for('static', filename='pic/' + data.imgbottomright) }}").attr("alt", data.imgbottomright);
     {% endif %}
 
+    {% if data.hrefback %}
+        $("#backbutton").attr("onclick", `window.location.href='${data.hrefback}'`);
+    {% endif %}
+
+    {% if data.hrefnext %}
+        $("#nextbutton").attr("onclick", `window.location.href='${data.hrefnext}'`);
+    {% endif %}
+
+    {% if data.back %}
+        $("#backbutton").text(data.back);
+    { else }
+        $("#backbutton").hide();
+    {% endif %}
+
+    {% if data.next %}
+        $("#nextbutton").text(data.next);
+    { else }
+        $("#nextbutton").hide();
+    {% endif %}
+
+        
+    /*
     var urlParams = new URLSearchParams(window.location.search);
     var section = urlParams.get("section");
     console.log(section)
@@ -236,7 +264,7 @@
       $(".start-learning-btn").attr("onclick", "window.location.href='/wine-terms?section=fullspectrum'");
     }
     });
-
+    */
 
   </script>
 
@@ -313,9 +341,11 @@
       </div>
       
       <div style="text-align: right; margin-top: 7%">
+
+      <button id="backbutton" class="start-learning-btn">
+      </button>
         
-      <button class="start-learning-btn" onclick="window.location.href='/quiz-start'">
-        Take the quiz once you have explored all food types >
+      <button id="nextbutton" class="start-learning-btn">
       </button>
       </div>
       <br>

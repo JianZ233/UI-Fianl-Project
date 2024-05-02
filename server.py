@@ -122,6 +122,46 @@ wines={
 }
 
 
+red_spectrum = {
+    'title': 'Red Wines',
+    'labeltop': 'Full',
+    'labelright':'Sweet',
+    'labelbottom':'Light',
+    'labelleft':'Dry',
+    'topright': wines['Dornfelder'],
+    'topleft': wines['Cabernet Sauvignon'],
+    'bottomright': wines['Ruby Port'],
+    'bottomleft': wines['Lambrusco di Sorbara'],
+    'imgtopright': 'dornfelder.jpg',
+    'imgtopleft': 'Cabernet Sauvignon.png',
+    'imgbottomright': 'Ruby Port.jpg',
+    'imgbottomleft': 'lambrusco.jpg',
+    'hrefback': '/wine-terms?section=redwhite-buffer',
+    'back': '< Spectrum Overview',
+    'hrefnext': '/wine-terms?section=white-spectrum',
+    'next': 'White Wine Spectrum >'
+}
+
+white_spectrum = {
+    'title': 'White Wines',
+    'labeltop': 'Full',
+    'labelright':'Sweet',
+    'labelbottom':'Light',
+    'labelleft':'Dry',
+    'topright': wines['Vin Santo'],
+    'topleft': wines['Chardonnay'],
+    'bottomright': wines['Riesling'],
+    'bottomleft': wines['Sauvignon Blanc'],
+    'imgtopright': 'vinsanto.jpg',
+    'imgtopleft': 'Chardonnay.jpeg',
+    'imgbottomright': 'Riesling.jpeg',
+    'imgbottomleft': 'Sauvignon Blanc.png',
+    'hrefback': '/wine-terms?section=red-spectrum',
+    'back': '< Red Wine Spectrum',
+    'hrefnext': '/wine-terms?section=fullspectrum',
+    'next': 'Full Spectrum >'
+}
+
 basic_spectrum = {
     'title': 'Basic Spectrum',
     'labeltop': 'Full',
@@ -139,39 +179,11 @@ basic_spectrum = {
     'imgtopright': 'redwhite1.jpg',
     'imgtopleft': 'redwhite3.jpg',
     'imgbottomright': 'redwhite2.jpeg',
-    'imgbottomleft': 'redwhite4.jpg'
-}
-
-red_spectrum = {
-    'title': 'Red Wines',
-    'labeltop': 'Full',
-    'labelright':'Sweet',
-    'labelbottom':'Light',
-    'labelleft':'Dry',
-    'topright': wines['Dornfelder'],
-    'topleft': wines['Cabernet Sauvignon'],
-    'bottomright': wines['Ruby Port'],
-    'bottomleft': wines['Lambrusco di Sorbara'],
-    'imgtopright': 'dornfelder.jpg',
-    'imgtopleft': 'Cabernet Sauvignon.png',
-    'imgbottomright': 'Ruby Port.jpg',
-    'imgbottomleft': 'lambrusco.jpg'
-}
-
-white_spectrum = {
-    'title': 'White Wines',
-    'labeltop': 'Full',
-    'labelright':'Sweet',
-    'labelbottom':'Light',
-    'labelleft':'Dry',
-    'topright': wines['Vin Santo'],
-    'topleft': wines['Chardonnay'],
-    'bottomright': wines['Riesling'],
-    'bottomleft': wines['Sauvignon Blanc'],
-    'imgtopright': 'vinsanto.jpg',
-    'imgtopleft': 'Chardonnay.jpeg',
-    'imgbottomright': 'Riesling.jpeg',
-    'imgbottomleft': 'Sauvignon Blanc.png'
+    'imgbottomleft': 'redwhite4.jpg',
+    'hrefback': '/wine-terms?section=white-spectrum',
+    'back': '< White Wine Spectrum',
+    'hrefnext': '/food-pairings-summary',
+    'next': 'Learn about food pairings >'
 }
 
 seafood = {
@@ -188,6 +200,8 @@ seafood = {
     'imgtopleft': 'seafood_lessflaky_creamy.jpg',
     'imgbottomright': 'seafood_moreflaky_acidic.jpg',
     'imgbottomleft': 'seafood_lessflaky_acidic.jpg',
+    'hrefnext': '/food-pairings?section=meat',
+    'next': 'Meat pairings >'
 }
 
 meat = {
@@ -204,6 +218,10 @@ meat = {
     'imgtopleft': 'meat_white_creamy.jpg',
     'imgbottomright': 'meat_red_acidic.jpg',
     'imgbottomleft': 'meat_white_acidic.jpg',
+    'hrefback': '/food-pairings?section=seafood',
+    'back': '< Seafood pairings',
+    'hrefnext': '/food-pairings?section=vegetables',
+    'next': 'Vegetable pairings >'
 }
 
 vegetables = {
@@ -220,6 +238,10 @@ vegetables = {
     'imgtopleft': 'vegetable_spicy_creamy.jpg',
     'imgbottomright': 'vegetable_sweet_acidic.jpg',
     'imgbottomleft': 'vegetable_spicy_acidic.jpg',
+    'hrefback': '/food-pairings?section=meat',
+    'back': '< Meat pairings',
+    'hrefnext': '/quiz-start',
+    'next': 'Explored all the food types? Take the quiz >'
 }
 
 @app.route('/')
