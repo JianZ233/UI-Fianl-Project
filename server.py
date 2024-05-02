@@ -136,14 +136,14 @@ basic_spectrum = {
     'bottomright2': wines['Ruby Port'],
     'bottomleft': wines['Sauvignon Blanc'],
     'bottomleft2': wines['Lambrusco di Sorbara'],
-    'imgtopright': 'chaniti.jpeg',
-    'imgtopleft': 'Chardonnay.jpeg',
-    'imgbottomright': 'Riesling.jpeg',
-    'imgbottomleft': 'Sauvignon Blanc.png'
+    'imgtopright': 'redwhite1.jpg',
+    'imgtopleft': 'redwhite3.jpg',
+    'imgbottomright': 'redwhite2.jpeg',
+    'imgbottomleft': 'redwhite4.jpg'
 }
 
 red_spectrum = {
-    'title': 'Red Wine Spectrum',
+    'title': 'Red Wines',
     'labeltop': 'Full',
     'labelright':'Sweet',
     'labelbottom':'Light',
@@ -159,7 +159,7 @@ red_spectrum = {
 }
 
 white_spectrum = {
-    'title': 'White Wine Spectrum',
+    'title': 'White Wines',
     'labeltop': 'Full',
     'labelright':'Sweet',
     'labelbottom':'Light',

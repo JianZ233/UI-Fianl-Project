@@ -225,6 +225,16 @@
       $(".start-learning-btn").text("Learn different food pairings >");
       $(".start-learning-btn").attr("onclick", "window.location.href='/food-pairings'");
     }
+
+    if (section == "red-spectrum") {
+      $(".start-learning-btn").text("See white wine spectrum >");
+      $(".start-learning-btn").attr("onclick", "window.location.href='/wine-terms?section=white-spectrum'");
+    }
+
+    if (section == "white-spectrum") {
+      $(".start-learning-btn").text("See full spectrum >");
+      $(".start-learning-btn").attr("onclick", "window.location.href='/wine-terms?section=fullspectrum'");
+    }
     });
 
 
