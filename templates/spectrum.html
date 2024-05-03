@@ -24,15 +24,15 @@
     .title {
         font-family: Arial, Helvetica, sans-serif;
         font-weight: bolder;
-        color: rgb(102, 41, 49);
+        color: rgb(65, 12, 13);
         margin-top: 3%;
         margin-left: 2%;
     }
 
     .highlight-border {
-      color: rgb(102, 41, 49);
+      color: rgb(65, 12, 13);
       margin-top: 5%;
-      border: 1px solid rgb(102, 41, 49);
+      border: 1px solid rgb(65, 12, 13);
       padding: 10px;
       display: none;
     }
@@ -42,7 +42,7 @@
       width: 150px;
       height: 150px;
       display: inline-block;
-      border: 5px solid rgb(102, 41, 49);
+      border: 5px solid rgb(65, 12, 13);
       position: relative;
       object-fit: cover;
     }
@@ -60,11 +60,10 @@
       margin: auto;
     }
     .start-learning-btn {
-      background-color: rgb(102, 41, 49);
-      color: white;
+      background-color: rgb(65, 12, 13);
+      color: rgb(221, 188, 160);
       border: none;
       padding: 10px 20px;
-      margin-bottom: 30px;
       cursor: pointer;
       border-radius: 5px;
       width: 400px;
@@ -73,23 +72,18 @@
     }
 
     .start-learning-btn:hover {
-      background-color: rgb(232, 179, 188);
-      color: rgb(102, 41, 49);
+      background-color: rgb(221, 188, 160);
+      color: rgb(65, 12, 13);
     }
     .message-box {
     margin-top: 5px;
-    max-width: 275px;
+    max-width: 300px;
     padding: 5px;
+    font-size: large;
     background-color: rgb(224, 211, 172);
-    border: 3px solid rgb(102, 41, 49);
+    border: 3px solid rgb(65, 12, 13);
     border-radius: 5px;
     text-align: center;
-  }
-
-  #backbutton {
-    margin-right: 15%;
-    width: 300px;
-
   }
   </style>
 
@@ -224,58 +218,28 @@
           $("#bottomright-img").attr("src", "{{ url_for('static', filename='pic/' + data.imgbottomright) }}").attr("alt", data.imgbottomright);
     {% endif %}
 
-    {% if data.hrefback %}
-        $("#backbutton").attr("onclick", `window.location.href='${data.hrefback}'`);
-    {% endif %}
-
-    {% if data.hrefnext %}
-        $("#nextbutton").attr("onclick", `window.location.href='${data.hrefnext}'`);
-    {% endif %}
-
-    {% if data.back %}
-        $("#backbutton").text(data.back);
-    { else }
-        $("#backbutton").hide();
-    {% endif %}
-
-    {% if data.next %}
-        $("#nextbutton").text(data.next);
-    { else }
-        $("#nextbutton").hide();
-    {% endif %}
-
-        
-    /*
     var urlParams = new URLSearchParams(window.location.search);
     var section = urlParams.get("section");
-    console.log(section)
-    if (section == "fullspectrum") {
-      $(".start-learning-btn").text("Learn different food pairings >");
-      $(".start-learning-btn").attr("onclick", "window.location.href='/food-pairings'");
+    console.log("type:", data.type)
+    if (data.type == "basic_spectrum") {
+      $(".start-learning-btn").text("Now, learn about how to pair wine with food! >");
+      $(".start-learning-btn").attr("onclick", "window.location.href='/food-pairings-summary'");
     }
-
-    if (section == "red-spectrum") {
-      $(".start-learning-btn").text("See white wine spectrum >");
-      $(".start-learning-btn").attr("onclick", "window.location.href='/wine-terms?section=white-spectrum'");
+    else {
+      $(".start-learning-btn").text("After learning about all the pairings, take the quiz! >");
+      $(".start-learning-btn").attr("onclick", "window.location.href='/quiz-start'");
     }
-
-    if (section == "white-spectrum") {
-      $(".start-learning-btn").text("See full spectrum >");
-      $(".start-learning-btn").attr("onclick", "window.location.href='/wine-terms?section=fullspectrum'");
-    }
+    
     });
-    */
+
 
   </script>
 
   <body>
-    <h2 class ="title" style="font-family:'Times New Roman', Times, serif;">{{data.title}}</h2>
     <div class="container">
-      <div class="row">
+      <div class="row" style="margin-top: 30px; margin-left: -150px;">
         <div class="col-3" id="popup">
-          <div class="message-box">
-      <p>Click on a wine name to learn more!</p>
-    </div>
+          <h2 class ="title" style="font-family:'Times New Roman', Times, serif; margin-right: 100px;">{{data.title}}</h2>
           <div class="highlight-border">
             <h3 id="winename"></h3>
             <div id="winedesc"></div>
@@ -341,14 +305,10 @@
       </div>
       
       <div style="text-align: right; margin-top: 7%">
-
-      <button id="backbutton" class="start-learning-btn">
-      </button>
-        
-      <button id="nextbutton" class="start-learning-btn">
+      
+      <button class="start-learning-btn">
       </button>
       </div>
-      <br>
 
 
     </div>

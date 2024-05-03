@@ -3,25 +3,40 @@
 
 <style>
   .nav-bar {
-    color: rgb(102, 41, 49);
-    background-color: rgb(224, 211, 172);
+    color: rgb(65, 12, 13);
+    background-color: rgb(221, 188, 160);
   }
 
   /* New CSS to apply border to the wrapper div */
   .nav-box {
-    border: 3px solid rgb(102, 41, 49);
+    border: 3px solid rgb(65, 12, 13);
     margin-top: 10px;
     padding: 12px;
+    margin-right: 10px;
+    margin-left: 0;
+    text-align: justify;
   }
 
 .nav-link.active:hover {
-  background-color: rgb(102, 41, 49);
-  color: rgb(224, 211, 172);
+  background-color: rgb(65, 12, 13);
+  color: rgb(221, 188, 160);
 }
 
+.message-box {
+    margin-top: 5px;
+    max-width: 300px;
+    padding: 5px;
+    font-size: large;
+    background-color: rgb(221, 188, 160);
+    border: 3px solid rgb(65, 12, 13);
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+
 .nav-link.active {
-    background-color: rgb(102, 41, 49);
-    color: white;
+    background-color: rgb(65, 12, 13);
+    color:rgb(221, 188, 160);
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -29,7 +44,7 @@
 }
 
 .nav-link.inactive {
-  color: rgb(102, 41, 49);
+  color: rgb(65, 12, 13);
 }
 
 .nav-link.inactive:hover {
@@ -41,8 +56,8 @@
     }
 
     .start-learning-btn:hover, #submit-btn:hover {
-        background-color: rgb(232, 179, 188);
-        color: rgb(102, 41, 49);
+        background-color: rgb(221, 188, 160);
+        color: rgb(65, 12, 13);
     }
 </style>
 
@@ -64,7 +79,7 @@
             <a class="nav-link inactive" href="/wine-terms?section=wine_types">Wine Types</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link inactive" href="/wine-terms?section=fullspectrum">Full Spectrum</a>
+            <a class="nav-link inactive" href="/wine-terms?section=fullspectrum">Spectrum</a>
             </li>
           <!-- Add more links as needed -->
         </ul>
@@ -77,8 +92,8 @@
 
 <style>
   body {
-    color: rgb(102, 41, 49);
-    background-color: #F2EFE1; 
+    color: rgb(65, 12, 13);
+    background-color: (65, 12, 13); 
     font-family: 'Times New Roman', Times, serif;
   }
 
@@ -106,11 +121,6 @@
 
   var urlParams = new URLSearchParams(window.location.search);
   var section = urlParams.get("section");
-
-  if (section == "white-spectrum" || section == "red-spectrum" || section == "redwhite-buffer") {
-    section = "wine_types";
-  }
-
   if (section) {
     $("a[href='/wine-terms?section=" + section + "']").removeClass("inactive").addClass("active");
   } else {
