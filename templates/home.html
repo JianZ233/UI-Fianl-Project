@@ -7,54 +7,90 @@
         font-weight: bold;
         margin-top: 20px;
     }
-
+    
     body {
-        color:rgb(102, 41, 49);
-        background-color: #F2EFE1; /* light red background */
+        color: rgb(102, 41, 49);
+        background-color: #F2EFE1;
+        /* light red background */
     }
-
+    
     .text {
         color: rgb(66, 67, 64);
     }
+    
     .view-details {
-    font-weight: bold;
-    background-color: transparent;
-    border: 1px solid rgb(145, 255, 27);
-    color: rgb(69, 124, 10);
-    transition: all 0.3s ease-in-out;
-}
-
-.view-details:hover {
-    background-color: rgb(145, 255, 27);
-    color: white;
-}
-
-.start-learning-btn {
-    background-color: rgb(102, 41, 49);
-    color: white;
-    border: none;
-}
-
-.start-learning-btn:hover {
-    background-color: rgb(232, 179, 188);
-    color: rgb(102, 41, 49);
-}
-
-.fact-card {
-    position: relative;
-    max-width: 100%;
-}
-.centered-fact-text {
-    position: center;
-    max-width: 100%;
-    background-color: maroon; /* Change the background color to maroon */
-    color: white;
-    border-radius: 5px;
-    padding: 10px;
-    text-align: center;
-    opacity: 0.9;
-}
-
+        font-weight: bold;
+        background-color: transparent;
+        border: 1px solid rgb(145, 255, 27);
+        color: rgb(69, 124, 10);
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .view-details:hover {
+        background-color: rgb(145, 255, 27);
+        color: white;
+    }
+    
+    .start-learning-btn {
+        background-color: rgb(102, 41, 49);
+        color: white;
+        border: none;
+    }
+    
+    .start-learning-btn:hover {
+        background-color: rgb(232, 179, 188);
+        color: rgb(102, 41, 49);
+    }
+    
+    .fact-card {
+        position: relative;
+        max-width: 100%;
+    }
+    
+    .centered-fact-text {
+        position: center;
+        max-width: 100%;
+        background-color: maroon;
+        /* Change the background color to maroon */
+        color: white;
+        border-radius: 5px;
+        padding: 10px;
+        text-align: center;
+        opacity: 0.9;
+    }
+    
+    * {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .box ul {
+        display: flex;
+        width: 100%;
+        height: 500px;
+        background-color: rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+    
+    .box ul li {
+        width: 160px;
+        height: 500px;
+        cursor: pointer;
+        transition: all 1s;
+    }
+    
+    .box ul li img {
+        height: 500px;
+    }
+    
+    .box ul:hover li {
+        width: 40px;
+    }
+    
+    .box ul li:hover {
+        width: 760px;
+    }
 </style>
 
 <div class="container text-center">
@@ -102,18 +138,43 @@
 </div> -->
 
 <!-- below is the temproy fix for now till i can work out the fancy verison  -->
-<div class="container text-center">
-    <!-- <div id="popularItems" class="row"></div> -->
+<!-- <div class="container text-center">
     <div id="factCard" class="fact-card">
         <img id="factImage" src="" alt="Fact Image" style="width:100%; position:relative;">
         <div id="factText" class="centered-fact-text"></div>
         <a href="/wine-terms" class="btn btn-primary mt-3 start-learning-btn" style="position:absolute; bottom:20px; left:50%; transform:translateX(-50%);">Start Learning</a>
+    </div> -->
+    <div class="box">
+        <ul>
+            <li>
+                <img src="static/pic/AppetizersChampagne.jpg" alt="red_wine_with_steak">
+                <div class="text">Red Wine</div>
+            </li>
+            <li>
+                <img src="static/pic/redwinebbq.webp" alt="red_wine_with_steak">
+                <div class="text">Red Wine</div>
+            </li>
+            <li>
+                <img src="static/pic/DessertWine.jpg" alt="red_wine_with_steak">
+                <div class="text">Red Wine</div>
+            </li>
+            <li>
+                <img src="static/pic/image-1719.webp" alt="red_wine_with_steak">
+                <div class="text">Red Wine</div>
+            </li>
+            <li>
+                <img src="static/pic/red-wine-with-fish.jpg" alt="red_wine_with_steak">
+                <div class="text">Red Wine</div>
+            </li>
+            <li>
+                <img src="static/pic/redwinesteak.jpg" alt="red_wine_with_steak">
+                <div class="text">Red Wine</div>
+            </li>
+        </ul>
     </div>
-    <!-- <div class="card" onclick="newFact()">
-        <img id="factImage" src="static/pic/image-1719.webp" alt="Fact Image">
-        <p id="factText">Click me for a fact!</p>
+    <div class="start">
+        <a href="/wine-terms" class="btn btn-primary mt-3 start-learning-btn" style="position:absolute; bottom:20px; left:50%; transform:translateX(-50%);">Start Learning</a>
     </div>
-    <a href="/wine-terms" class="btn btn-primary mt-3 start-learning-btn">Start Learning</a>  -->
 </div>
 
 <script src="{{ url_for('static', filename='actions.js') }}"></script>
