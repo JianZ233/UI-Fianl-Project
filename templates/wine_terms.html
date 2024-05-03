@@ -122,6 +122,10 @@
   var urlParams = new URLSearchParams(window.location.search);
   var section = urlParams.get("section");
   if (section) {
+    if (section === "basicspectrum") {
+      section = "fullspectrum";
+    }
+
     $("a[href='/wine-terms?section=" + section + "']").removeClass("inactive").addClass("active");
   } else {
     $("#body-navlink").removeClass("inactive").addClass("active");

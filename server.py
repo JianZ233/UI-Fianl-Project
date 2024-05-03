@@ -369,6 +369,10 @@ def food_pairings():
 def redwhite_buffer():
     return render_template('redwhite_buffer.html')
 
+@app.route('/fullspectrum')
+def spec_trans():
+    return render_template('spectrum_transition.html')
+
 @app.route('/red-spectrum')
 def redspec():
     return render_template('spectrum.html', data=red_spectrum)
@@ -377,7 +381,7 @@ def redspec():
 def whitespec():
     return render_template('spectrum.html', data=white_spectrum)
 
-@app.route('/fullspectrum')
+@app.route('/basicspectrum')
 def spectrum():
     return render_template('spectrum.html', data=basic_spectrum)
 
