@@ -78,6 +78,7 @@
         height: 500px;
         cursor: pointer;
         transition: all 1s;
+        position: relative;
     }
     
     .box ul li img {
@@ -91,6 +92,28 @@
     .box ul li:hover {
         width: 760px;
     }
+
+    .box ul li .text {
+        position: absolute;
+        bottom: 10px;  /* Adjust as needed */
+        width: 100%;
+        text-align: center;
+        color: white;  /* Make text color white or any contrasting color */
+        background-color: rgba(0, 0, 0, 0.5);  /* Semi-transparent background for better visibility */
+        padding: 5px 0;  /* Add some padding */
+        z-index: 10;  /* Ensure text is above the image */
+    }
+    .box ul li .tip {
+        position: absolute;
+        top: 50%;  /* Center vertically */
+        left: 50%;  /* Center horizontally */
+        transform: translate(-50%, -50%);  /* Align center of the div to the center of the li */
+        color: white;  /* Text color */
+        background-color: rgba(0, 0, 0, 0.7);  /* Darker background for the tip for visibility */
+        padding: 10px 20px;  /* Padding around the text */
+        border-radius: 10px;  /* Optional: rounded corners */
+        z-index: 5;  /* Lower than the hover text to maintain layer order */
+    }
 </style>
 
 <div class="container text-center">
@@ -98,44 +121,6 @@
     <p style="font-size: 1.2em; color: darkr;">Always feeling intimidated by the art of pairing wine and food? Wondering how anyone ever figures it out?</p>
     <p style="font-size: 1.2em; color: darkr;">You've come to the right spot!</p>
 </div>
-
-<!-- will keep work on it. but will place a temproy fix for now -->
-
-<!-- <div class="home_container">
-    <div class="content">
-        <div class="item" style="background-image: url('static/pic/redwinesteak.jpg')">
-            <div class="des">When in doubt, Champagne or sparkling wine can enhance almost any appetizer.</div>
-            <a href="/wine-terms" class="btn btn-primary mt-3 start-learning-btn">Start Learning</a>
-        </div>
-        <div class="item" style="background-image: url('static/pic/AppetizersChampagne.jpg')">
-            <div class="des">When in doubt, Champagne or sparkling wine can enhance almost any appetizer.</div>
-            <a href="/wine-terms" class="btn btn-primary mt-3 start-learning-btn">Start Learning</a>
-        </div>
-        <div class="item" style="background-image: url('static/pic/redwinebbq.webp')">
-            <div class="des">When in doubt, Champagne or sparkling wine can enhance almost any appetizer.</div>
-            <a href="/wine-terms" class="btn btn-primary mt-3 start-learning-btn">Start Learning</a>
-        </div>
-        <div class="item" style="background-image: url('static/pic/DessertWine.jpg')">
-            <div class="des">When in doubt, Champagne or sparkling wine can enhance almost any appetizer.</div>
-            <a href="/wine-terms" class="btn btn-primary mt-3 start-learning-btn">Start Learning</a>
-        </div>
-        <div class="item" style="background-image: url('static/pic/image-1719.webp')">
-            <div class="des">When in doubt, Champagne or sparkling wine can enhance almost any appetizer.</div>
-            <a href="/wine-terms" class="btn btn-primary mt-3 start-learning-btn">Start Learning</a>
-        </div>
-        <div class="item" style="background-image: url('static/pic/red-wine-with-fish.jpg')">
-            <div class="des">When in doubt, Champagne or sparkling wine can enhance almost any appetizer.</div>
-            <a href="/wine-terms" class="btn btn-primary mt-3 start-learning-btn">Start Learning</a>
-        </div>
-    </div>
-    <div class="buttons">
-        <div class="s_button">%lt;</div>
-        <div class="s_button">%gt;</div>
-    </div>
-    <h1 style="font-weight: bold; font-size: 35px;">Implement Randomly Displaying Fact Card</h1>
-    <div id="popularItems" class="row"></div>
-    <a href="/wine-terms" class="btn btn-primary mt-3 start-learning-btn">Start Learning</a>
-</div> -->
 
 <!-- below is the temproy fix for now till i can work out the fancy verison  -->
 <!-- <div class="container text-center">
@@ -150,7 +135,8 @@
     <ul>
         <li>
             <img src="static/pic/AppetizersChampagne.jpg" alt="red_wine_with_steak">
-            <div class="text">Red Wine</div>
+            <div class="text">Champagne</div>
+            <div class="tip">Pair with light wines</div>
         </li>
         <li>
             <img src="static/pic/redwinebbq.webp" alt="red_wine_with_steak">
