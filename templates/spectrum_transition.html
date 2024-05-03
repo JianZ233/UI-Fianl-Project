@@ -46,23 +46,28 @@
     }
 
     .term-subheader {
-      text-align: center;
+      text-align: left;
+      margin-left: 19%;
       font-family: 'Times New Roman', Times, serif;;
-      font-weight: bold;
+      font-weight: regular;
       color: rgb(102, 41, 49);
-      margin-top: 2%;
-      margin-bottom: 5%;
+      margin-top: 3%;
+      margin-bottom: 1%;
       font-size: 20px;
     }
 
     .one-liner {
       text-align: center;
       font-family: 'Times New Roman', Times, serif;;
-      font-weight: regular;
+      font-weight: bold;
       color: rgb(102, 41, 49);
       margin-top: 2%;
-      margin-bottom: 5%;
-      font-size: 14px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      font-size: 20px;
+      width: 70%;
+      border: 2px solid rgb(102, 41, 49);
+      margin-left: 15%;
     }
 
     p {
@@ -86,31 +91,34 @@
 
     body {
         background-color: #F2EFE1;
+        text-align: center;
     }
 
-    .frame {
-      margin-top: 5%;
-      width: 250px;
-      height: 250px;
-      display: inline-block;
-      border: 5px solid rgb(102, 41, 49);
-      position: relative;
-      object-fit: cover;
-    }
-  
-    .frame > img {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-    }
-    .start-learning-btn {
+    .frame-img {
+        margin-top: 0px;
+        margin-bottom: 2%;
+        width: 600px;
+        height: 120px;
+        display: inline-block;
+        border: 5px solid rgb(65, 12, 13);
+        position: relative;
+        object-fit: cover;
+      }
+    
+      .frame-img > img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+
+      .start-learning-btn {
       background-color: rgb(102, 41, 49);
       color: white;
       border: none;
@@ -120,7 +128,6 @@
       width: 300px;
       display: inline-block;
       text-align: center;
-      margin-bottom:5%;
     }
 
     .start-learning-btn:hover {
@@ -142,14 +149,24 @@
     </script>
 
     <h1 id="term-header">Wine Spectrums</h1>
-    <h2 class="term-subheader">Both red and white wines come in a spectrum of body and dryness.</h2>
+    <h2 class="term-subheader">Below are some common wines:</h2>
+    <div style="text-align:center">
+        <img  class="frame-img"
+        src="{{url_for('static', filename='pic/common_wines_red.png')}}" 
+        alt="Common Red Wines" />
+    </div>
+    <div style="text-align:center">
+        <img  class="frame-img"
+        src="{{url_for('static', filename='pic/common_wines_white.png')}}" 
+        alt="Common White Wines" />
+    </div>
+    <h2 class="one-liner">Both red and white wines come in a spectrum of body and dryness</h2>
       </div>
         <a class="nav-link inactive" href="/wine-terms?section=basicspectrum" style="text-align: center">
             <button class="start-learning-btn">
-              See Wine Spectrum
+              See Full Wine Spectrum
             </button>
         </a>
       </div>
-      <p class="one-liner">See a list of red and white wines within each category of <b>body (light to full)</b> and <b>dryness (dry to sweet)</b>.</p>
   </body>
 </html>
