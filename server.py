@@ -143,6 +143,7 @@ red_spectrum = {
 }
 
 white_spectrum = {
+    'type': 'basic_spectrum',
     'title': 'White Wines',
     'labeltop': 'Full',
     'labelright':'Sweet',
