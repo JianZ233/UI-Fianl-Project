@@ -65,9 +65,14 @@
       padding-top: 5px;
       padding-bottom: 5px;
       font-size: 20px;
-      width: 70%;
-      border: 2px solid rgb(102, 41, 49);
-      margin-left: 15%;
+    }
+
+    .btn-enclosure{
+        text-align: center;
+        width: 70%;
+        border: 2px solid rgb(102, 41, 49);
+        margin-left: 15%;
+        margin-top: 3%;
     }
 
     p {
@@ -160,13 +165,14 @@
         src="{{url_for('static', filename='pic/common_wines_white.png')}}" 
         alt="Common White Wines" />
     </div>
-    <h2 class="one-liner">Both red and white wines come in a spectrum of body and dryness</h2>
-      </div>
-        <a class="nav-link inactive" href="/wine-terms?section=basicspectrum" style="text-align: center">
+
+    <div class="btn-enclosure">
+        <h2 class="one-liner">Both red and white wines come in a spectrum of body and dryness</h2>
+        <a class="nav-link inactive" href="/wine-terms?section=basicspectrum" style="text-align: center; margin-bottom: 15px;">
             <button class="start-learning-btn">
-              See Full Wine Spectrum
+            See Full Wine Spectrum
             </button>
         </a>
-      </div>
+    </div>
   </body>
 </html>
