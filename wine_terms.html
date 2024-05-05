@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+  .nav-bar {
+    color: rgb(65, 12, 13);
+    background-color: rgb(224, 211, 172);
+  }
+
+  /* New CSS to apply border to the wrapper div */
+  .nav-box {
+    font-size: 20px;
+    border: 3px solid rgb(65, 12, 13);
+    margin-top: 10px;
+    padding: 12px;
+    background-color: rgb(224, 211, 172);
+  }
+
+  /* Adjusted CSS for nav-link and nav-link.active */
+  .nav-link, .nav-link.active {
+    background-color: transparent;
+    color: rgb(65, 12, 13);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 10px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  /* Adjusted CSS for .nav-link:hover */
+  .nav-link:hover {
+    background-color: rgb(65, 12, 13);
+    color: rgb(221, 188, 160);
+  }
+
+  .nav-link.active {
+    background-color: rgb(65, 12, 13);
+    color: rgb(221, 188, 160);
+  }
+
+  .nav-link.active:hover {
+    background-color: rgb(65, 12, 13);
+    color: rgb(221, 188, 160);
+  }
+
+  .nav-link.inactive {
+    color: rgb(65, 12, 13);
+  }
+
+  .nav-link.inactive:hover {
+    background-color: transparent;
+    opacity: 1;
+    color: rgb(65, 12, 13);
+    border: 2px solid rgb(65, 12, 13);
+  }
+
+  .start-learning-btn.disabled {
+  background-color: lightgray;
+  cursor: not-allowed;
+  }
+
+  .start-learning-btn:hover, #submit-btn:hover {
+      background-color: rgb(221, 188, 160);
+      color: rgb(65, 12, 13);
+  }
+</style>
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Apply classes pl-0 (padding-left: 0) and ml-auto (margin-left: auto) -->
+    <div class="col-2 pl-0 ml-auto">
+      <!-- Apply the border to this wrapper div -->
+      <div class="nav-box" style="background-color:  rgb(224, 211, 172);">
+        <h2 id="nav-title" style="padding-top: 20px; padding-left: 10px; font-family: 'Times New Roman', Times, serif; font-weight: bold;"> Wine Terms</h2>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a id="body-navlink" class="nav-link inactive" href="/wine-terms?section=body">Body</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link inactive" href="/wine-terms?section=dryness">Dryness</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link inactive" href="/wine-terms?section=wine_types">Wine Types</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link inactive" href="/wine-terms?section=fullspectrum">Spectrum</a>
+            </li>
+          <!-- Add more links as needed -->
+        </ul>
+      </div>
+    </div>
+    <!-- Main Content Area -->
+    <div class="col-lg-10" id="main-content"></div>
+  </div>
+</div>
+
+<style>
+  body {
+    color: rgb(65, 12, 13);
+    background-color: (65, 12, 13); 
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+</style>
+
+<script>
+  function loadContent(url) {
+    $.get(url, function (html) {
+      $("#main-content").html(html); // Call the function to set up event listenersgit
+    }).fail(function (error) {
+      console.error("Error loading content: ", error);
+    });
+  }
+
+  $(document).ready(function () {
+    var urlParams = new URLSearchParams(window.location.search);
+    var section = urlParams.get("section");
+    if (section) {
+      console.log("hello");
+      loadContent(section);
+    } else {
+      loadContent("body");
+    }
+  });
+
+  var urlParams = new URLSearchParams(window.location.search);
+  var section = urlParams.get("section");
+  if (section) {
+    if (section === "basicspectrum") {
+      section = "fullspectrum";
+    }
+
+    $("a[href='/wine-terms?section=" + section + "']").removeClass("inactive").addClass("active");
+  } else {
+    $("#body-navlink").removeClass("inactive").addClass("active");
+  }
+
+</script>
+
+{% endblock %}
