@@ -254,7 +254,7 @@
               <div style="margin-top:-35px"> 
                 <img id="topleft-img" class="frame">
               </div>
-              <div class="btncontain" style="margin-top:-35px;">
+              <div class="btncontain" style="margin-top:0px;">
                 <div id="topleft"></div>
                 <div id="topleft2"></div>
               </div>
@@ -264,7 +264,7 @@
               <div style="text-align:right; margin-top:-60px;">
                 <img id="topright-img" class="frame">
               </div>
-              <div class="btncontain" style="margin-top:-35px;">
+              <div class="btncontain" style="margin-top:0px;">
                 <div id="topright">
                 </div>
                 <div id="topright2">
@@ -275,14 +275,14 @@
           <div class="row">
             <div class="col-6 col3">
               <div class="label2" id="bottom">{{data.labelleft}}</div>
-              <div class="btncontain" style="margin-top: 35px; justify-content: flex-start;">
+              <div class="btncontain" style="margin-top: -15px;">
                 <div id="bottomleft">
                 </div>
                 <div id="bottomleft2">
                 </div>
               </div>
               <div>
-                <img id="bottomleft-img" class="frame" style="margin-top: -290px">
+                <img id="bottomleft-img" class="frame" style="margin-top: 0px">
               </div>
             </div>
             <div class="col-6 col4 position-relative">
@@ -290,14 +290,14 @@
                 {{data.labelright}}
               </div>
               <br />
-              <div class="btncontain" style="margin-top:35px; justify-content: flex-start;">
+              <div class="btncontain" style="margin-top:-15px;">
                 <div id="bottomright">
                 </div>
                 <div id="bottomright2">
                 </div>
               </div>
               <div style="text-align:right;">
-                <img id="bottomright-img" class="frame"  style="margin-top: -290px">
+                <img id="bottomright-img" class="frame"  style="margin-top: 0px">
               </div>
               <div class="label4 position-absolute bottom-0" id="left">
                 {{data.labelbottom}}
@@ -307,7 +307,7 @@
         </div>
       </div>
       
-      <div style="text-align: right; margin-top: 7%">
+      <div style="text-align: right; margin-top: 3%">
       
       <button class="start-learning-btn">
       </button>
@@ -318,15 +318,14 @@
 
     <style>
       .col-6 {
-        height: 350px;
+        height: 320px;
       }
 
       .btncontain {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center; /* Center horizontally */
-        height: 100%; /* Ensure the container takes up the full height of the column */
+        height: 50%; /* Ensure the container takes up the full height of the column */
       }
 
       /* Only show left and bottom borders for the first column */
