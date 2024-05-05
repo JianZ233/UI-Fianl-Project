@@ -35,6 +35,8 @@
         background-color: rgb(65, 12, 13);
         color: rgb(221, 188, 160);
         border: none;
+        font-size: x-large;
+        padding: 15px 30px;
     }
     
     .start-learning-btn:hover {
@@ -114,27 +116,21 @@
         border-radius: 10px;  /* Optional: rounded corners */
         z-index: 5;  /* Lower than the hover text to maintain layer order */
     }
+    
+    .start {
+        position: relative;
+    }
 </style>
 
 <div class="container text-center">
-    <h1 class="title text" style="font-size: 3em; color: rgb(65, 12, 13);">Welcome to Wine and Dine</h1>
-    <p style="font-size: 1.2em; color: darkr;">Always feeling intimidated by the art of pairing wine and food? Wondering how anyone ever figures it out?</p>
-    <p style="font-size: 1.2em; color: darkr;">You've come to the right spot!</p>
+    <p style="font-size: 50px; color:  rgb(65, 12, 13); padding-top: 30px;">Ready to elevate your wining and dining experience?</p>
+    <p style="font-size: 35px; color:  rgb(65, 12, 13); padding-bottom: 20px;">Learn the secrets of perfect wine and food pairing so <span style="font-weight: bold;">you</span> can pair with ease!</p>
 </div>
-
-<!-- below is the temproy fix for now till i can work out the fancy verison  -->
-<!-- <div class="container text-center">
-    <div id="factCard" class="fact-card">
-        <img id="factImage" src="" alt="Fact Image" style="width:100%; position:relative;">
-        <div id="factText" class="centered-fact-text"></div>
-        <a href="/wine-terms" class="btn btn-primary mt-3 start-learning-btn" style="position:absolute; bottom:20px; left:50%; transform:translateX(-50%);">Start Learning</a>
-    </div> 
-</div> -->
 
 <div class="box">
     <ul>
         <li>
-            <img src="static/pic/appetizer_and_Champagne.jpeg" alt="red_wine_with_steak">
+            <img src="static/pic/AppetizersChampagne.jpg" alt="red_wine_with_steak">
             <div class="text">Champagne</div>
             <div class="tip">Pair with light wines</div>
         </li>
@@ -161,7 +157,7 @@
     </ul>
 </div>
 <div class="start">
-    <a href="/wine-terms" class="btn btn-primary mt-3 start-learning-btn" style="position:absolute; bottom:20px; left:50%; transform:translateX(-50%);">Start Learning</a>
+    <a href="/wine-terms" class="btn btn-primary mt-3 start-learning-btn" style="position:absolute; bottom:-110px; left:50%; transform:translateX(-50%); font-size: xx-large;">Get Started</a>
 </div>
 
 <script src="{{ url_for('static', filename='actions.js') }}"></script>

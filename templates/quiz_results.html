@@ -18,6 +18,7 @@
         text-decoration: none;
         margin: 0 auto;
         width: 15%;
+        font-size: 20px;
         display: block; /* Make buttons block-level */
     }
 
@@ -44,14 +45,14 @@
     <h1 style="font-size: 2.5em; font-weight: bold; padding-top: 20px;">Quiz Results</h1>
     <p style="padding-top: 20px; padding-bottom:10px; font-size:22px;">You answered <b>{{ score }}</b> out of <b>{{ total }}</b> questions correctly!</p>
     <div class="group">
-        <p style="padding-top: 10px;"><b>Do you want to review any sections?</b></p>
+        <p style="padding-top: 10px; font-size: 20px;"><b>Do you want to review any sections?</b></p>
         <div style="padding-top: -15px; padding-bottom: 5px;">
             <a href="/wine-terms" class="btn btn-primary mt-3 start-learning-btn">Wine Terms</a>
             <a href="/food-pairings" class="btn btn-primary mt-3 start-learning-btn">Food Pairings</a>
             <a href="/quiz-start" class="btn btn-primary mt-3 start-learning-btn">Retake the Quiz</a>
         </div>
     </div>
-    <p style="padding-top: 20px;">Thank you for Wining and Dining!</p>
+    <p style="padding-top: 20px; margin-bottom: 5px; font-size: 20px;">Enjoy your pairing!</p>
     <img src="{{ url_for('static', filename='pic/Homepage_Wine_Pairing.jpg') }}" alt="Wine Pairing" style="width: 40%; margin: 20px auto;">
 </div>
 {% endblock %}
