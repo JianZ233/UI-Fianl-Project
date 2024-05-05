@@ -38,17 +38,18 @@
     }
 
     #term-header {
+      font-size: 40px;
+      margin-bottom: 40px;
       text-align: center;
       font-family: 'Times New Roman', Times, serif;;
-      font-weight: bolder;
       color: rgb(65, 12, 13);
-      margin-top: 5%;
+      margin-top: 3%;
     }
 
     .term-subheader {
+      font-size: 40px;
       text-align: center;
       font-family: 'Times New Roman', Times, serif;;
-      font-weight: bold;
       color: rgb(65, 12, 13);
       margin-top: 2%;
       margin-bottom: 5%;
@@ -112,22 +113,24 @@
     border-radius: 5px;
     text-align: center;
   }
-    .start-learning-btn {
-      background-color: rgb(65, 12, 13);
-      color: rgb(221, 188, 160);
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      border-radius: 5px;
-      width: 300px;
-      display: inline-block;
-      text-align: center;
-    }
+  .start-learning-btn {
+    background-color: rgb(65, 12, 13);
+    margin-top: -100px;
+    color: rgb(221, 188, 160);
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 350px;
+    display: inline-block;
+    text-align: center;
+    font-size: 20px; /* Adjust font size here */
+  }
 
-    .start-learning-btn:hover {
-      background-color: rgb(221, 188, 160);
-      color: rgb(65, 12, 13);
-    }
+  .start-learning-btn:hover {
+    background-color: rgb(221, 188, 160);
+    color: rgb(65, 12, 13);
+  }
     
 </style>
 
@@ -142,7 +145,7 @@
         .catch(error => console.error('Error loading content: ', error));
     }
     </script>
-    <h1 id="term-header">Basic Wine Types</h1>
+    <h1 id="term-header">What are the two basic types of wine?</h1>
     <div class="row">
       <div class="col-md-6" style="text-align:center;">
         <img
@@ -150,14 +153,14 @@
           src="{{ url_for('static', filename='pic/Wine_types_red.jpg') }}"
           alt="Red Wine"
         />
-        <h2 class="term-subheader">Red Wine</h2>
-        <h3 class="one-liner">Dark and Tart</h3>
-        <p class="left-text">
-          Red wine, with its rich, velvety texture and complex flavors, offers a
+        <h2 class="term-subheader" style="font-size: 40px; margin-top: 30px;">Red Wine</h2>
+        <h3 class="one-liner" style="font-size: 30px;"><strong>Dark</strong> and <strong>Tart</strong></h3>
+        <p class="left-text" style="font-size: 20px;">
+          Red wine, with its <strong>rich, velvety texture</strong> and complex flavors, offers a
           sensorial journey that captivates wine enthusiasts worldwide. Crafted
           from dark grape varieties like Cabernet Sauvignon and Merlot, red wine
-          embodies a spectrum of tastes, from the robust notes of ripe berries
-          and cherries to the subtle nuances of earthy undertones and spices.
+          embodies a spectrum of tastes, from the <strong>robust notes of ripe berries
+          and cherries</strong> to the subtle nuances of <strong>earthy undertones and spices</strong>.
         </p>
       </div>
       <div class="col-md-6" style="text-align:center;">
@@ -166,20 +169,20 @@
           src="{{ url_for('static', filename='pic/Wine_types_white.jpg') }}"
           alt="White Wine"
         />
-        <h2 class="term-subheader">White Wine</h2>
-        <h3 class="one-liner">Light and Citrusy</h3>
-        <p class="left-text">
-          White wine enchants with its crisp, refreshing character and vibrant
-          fruit-forward flavors. Derived from green or yellow grapes like
+        <h2 class="term-subheader" style="font-size: 40px; margin-top: 30px;">White Wine</h2>
+        <h3 class="one-liner" style="font-size: 30px;"><strong>Light</strong> and <strong>Citrusy</strong></h3>
+        <p class="left-text" style="font-size: 20px;">
+          White wine enchants with its <strong>crisp, refreshing character</strong> and vibrant
+        <strong>fruit-forward flavors</strong>. Derived from green or yellow grapes like
           Chardonnay and Sauvignon Blanc, white wine presents a symphony of
-          citrus notes, apple, and pear, complemented by delicate floral aromas.
+        <strong>citrus notes, apple, and pear</strong>, complemented by <strong>delicate floral aromas</strong>.
         </p>
       </div>
     </div>
-    <div style="text-align: right; margin-top: 7%; margin-bottom: 5%;">
+    <div style="text-align: right; margin-top: 3%; margin-bottom: 5%;">
       <a href="/wine-terms?section=fullspectrum">
     <button class="start-learning-btn">
-      Learn about the Wine Spectrum >
+      Learn about the Wine Spectrum
     </button>
   </a>
     </div>

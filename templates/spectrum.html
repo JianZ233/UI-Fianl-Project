@@ -60,22 +60,22 @@
       margin: auto;
     }
     .start-learning-btn {
-      background-color: rgb(65, 12, 13);
-      color: rgb(221, 188, 160);
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      border-radius: 5px;
-      width: 400px;
-      display: inline-block;
-      text-align: center;
-      margin-bottom: 5%;
-    }
+    background-color: rgb(65, 12, 13);
+    color: rgb(221, 188, 160);
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 500px;
+    display: inline-block;
+    text-align: center;
+    font-size: 20px; /* Adjust font size here */
+  }
 
-    .start-learning-btn:hover {
-      background-color: rgb(221, 188, 160);
-      color: rgb(65, 12, 13);
-    }
+  .start-learning-btn:hover {
+    background-color: rgb(221, 188, 160);
+    color: rgb(65, 12, 13);
+  }
     .message-box {
     margin-top: 5px;
     max-width: 300px;
@@ -223,11 +223,11 @@
     var section = urlParams.get("section");
     console.log("type:", data.type)
     if (data.type == "basic_spectrum") {
-      $(".start-learning-btn").text("Now, learn about how to pair wine with food! >");
+      $(".start-learning-btn").text("Now, learn about how to pair wine with food!");
       $(".start-learning-btn").attr("onclick", "window.location.href='/food-pairings-summary'");
     }
     else {
-      $(".start-learning-btn").text("After learning about all the pairings, take the quiz! >");
+      $(".start-learning-btn").text("After learning about all the pairings, take the quiz!");
       $(".start-learning-btn").attr("onclick", "window.location.href='/quiz-start'");
     }
     
