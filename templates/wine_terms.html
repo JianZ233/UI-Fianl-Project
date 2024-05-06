@@ -27,6 +27,7 @@
     display: block;
     margin-bottom: 10px;
     transition: background-color 0.3s, color 0.3s;
+    font-size: 22px;
   }
 
   /* Adjusted CSS for .nav-link:hover */
@@ -47,6 +48,7 @@
 
   .nav-link.inactive {
     color: rgb(65, 12, 13);
+    font-size: 22px;
   }
 
   .nav-link.inactive:hover {
@@ -128,7 +130,7 @@
   var urlParams = new URLSearchParams(window.location.search);
   var section = urlParams.get("section");
   if (section) {
-    if (section === "basicspectrum") {
+    if (section === "basicspectrum" || section === "red-spectrum" || section === "white-spectrum") {
       section = "fullspectrum";
     }
 

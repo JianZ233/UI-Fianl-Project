@@ -94,7 +94,7 @@ wines={
     'Ruby Port':{
         'wine_name':'Ruby Port',
         'wine_type':'Red',
-        'wine_desc':'A red wine traditionally enjoyed as a dessert wine with notes of plum, chocolate, raisin, black cherry. <b> Best with savory desserts or stnky cheeses </b>'
+        'wine_desc':'A red wine traditionally enjoyed as a dessert wine with notes of plum, chocolate, raisin, black cherry. <b> Best with savory desserts or stinky cheeses </b>'
     },
     'Pinot Noir':{
         'wine_name':'Pinot Noir',
@@ -121,6 +121,7 @@ wines={
 
 
 red_spectrum = {
+    'type': 'red_spectrum',
     'title': 'Red Wines',
     'labeltop': 'Full',
     'labelright':'Sweet',
@@ -141,6 +142,7 @@ red_spectrum = {
 }
 
 white_spectrum = {
+    'type': 'white_spectrum',
     'title': 'White Wines',
     'labeltop': 'Full',
     'labelright':'Sweet',
