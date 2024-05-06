@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Quiz - My Website{% endblock %}
+{% block title %}Quiz{% endblock %}
 {% block content %}
 <style>
     body {
@@ -84,6 +84,7 @@
     .button-container {
     text-align: center;
     margin: 20px; /* Adjust this value as needed */
+    display: flexbox;
     }
 
 </style>
@@ -106,7 +107,7 @@
             </div>
         </div>
         <div class="button-container">
-            <button id="submit-btn" class="btn btn-primary mt-3 start-learning-btn" onclick="submitAnswer()" disabled>Submit</button>
+            <button id="submit-btn" style"justify-content:center;" class="btn btn-primary mt-3 start-learning-btn" onclick="submitAnswer()" disabled>Submit</button>
         </div>
     </div>
 </div>
