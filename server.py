@@ -20,7 +20,7 @@ quiz_data = {
                   "options": ["Sauvignon Blanc", "Shiraz", "Merlot"]
                   },
     "question3": {"question": "Pear goat cheese salad", 
-                  "answer": "Riesling", 
+                  "answer": "Sauvignon Blanc", 
                   "image": "Pear_goat_cheese_salad.jpg", 
                   "explanation": "Explanation for question 3.",
                   "options": ["Riesling", "Pinot Noir", "Sauvignon Blanc"]
