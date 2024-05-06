@@ -77,6 +77,18 @@
     background-color: rgb(221, 188, 160);
     color: rgb(65, 12, 13);
   }
+
+  .start-learning-btn.secondary {
+    background-color: transparent;
+    color: rgb(65, 12, 13);
+    border: 2px solid rgb(65, 12, 13);
+  }
+
+  .start-learning-btn.secondary:hover {
+    background-color: rgb(65, 12, 13);
+    color: rgb(221, 188, 160);
+  }
+
     .message-box {
     margin-top: 5px;
     max-width: 300px;
@@ -230,8 +242,9 @@
     else {
       $(".start-learning-btn").text("After learning about all the pairings, take the quiz!");
       $(".start-learning-btn").attr("onclick", "window.location.href='/quiz-start'");
+      // Make the button secondary to avoid users clicking before reading and starting the quiz
+      $(".start-learning-btn").addClass("secondary");
     }
-    
     });
 
 
@@ -256,7 +269,7 @@
               <div style="margin-top:-35px"> 
                 <img id="topleft-img" class="frame">
               </div>
-              <div class="btncontain" style="margin-top:0px;">
+              <div class="btncontain" style="margin-top:75px;">
                 <div id="topleft"></div>
                 <div id="topleft2"></div>
               </div>
@@ -266,7 +279,7 @@
               <div style="text-align:right; margin-top:-60px;">
                 <img id="topright-img" class="frame">
               </div>
-              <div class="btncontain" style="margin-top:0px;">
+              <div class="btncontain" style="margin-top:75px;">
                 <div id="topright">
                 </div>
                 <div id="topright2">
@@ -277,14 +290,14 @@
           <div class="row">
             <div class="col-6 col3">
               <div class="label2" id="bottom">{{data.labelleft}}</div>
-              <div class="btncontain" style="margin-top: -15px;">
+              <div class="btncontain" style="margin-top: 15px;">
                 <div id="bottomleft">
                 </div>
                 <div id="bottomleft2">
                 </div>
               </div>
               <div>
-                <img id="bottomleft-img" class="frame" style="margin-top: 0px">
+                <img id="bottomleft-img" class="frame" style="margin-top: -35px">
               </div>
             </div>
             <div class="col-6 col4 position-relative">
@@ -292,14 +305,14 @@
                 {{data.labelright}}
               </div>
               <br />
-              <div class="btncontain" style="margin-top:-15px;">
+              <div class="btncontain" style="margin-top:15px;">
                 <div id="bottomright">
                 </div>
                 <div id="bottomright2">
                 </div>
               </div>
               <div style="text-align:right;">
-                <img id="bottomright-img" class="frame"  style="margin-top: 0px">
+                <img id="bottomright-img" class="frame"  style="margin-top: -35px">
               </div>
               <div class="label4 position-absolute bottom-0" id="left">
                 {{data.labelbottom}}
