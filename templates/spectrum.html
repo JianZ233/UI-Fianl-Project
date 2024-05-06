@@ -22,7 +22,6 @@
 
   <style>
     .title {
-        font-family: Arial, Helvetica, sans-serif;
         font-weight: bolder;
         color: rgb(65, 12, 13);
         margin-top: 3%;
@@ -67,6 +66,8 @@
     cursor: pointer;
     border-radius: 5px;
     width: 500px;
+    margin-top: 15px;
+    margin-bottom: 5%;
     display: inline-block;
     text-align: center;
     font-size: 20px; /* Adjust font size here */
@@ -240,7 +241,8 @@
     <div class="container">
       <div class="row" style="margin-top: 30px; margin-left: 20px; margin-left: 0px;">
         <div class="col-3" id="popup">
-          <h2 class ="title" style="font-family:'Times New Roman', Times, serif; margin-right: 150px;">{{data.title}}</h2>
+          <h2 class ="title" style="margin-right: 150px;">{{data.title}}</h2>
+          <p>Click on a wine name to learn more about it!</p>
           <p style="margin-top: 20px;margin-bottom: 3px;"><span style="color: rgb(151, 59, 72);">■</span> = Red Wine</p>
           <p><span style="color: rgb(224, 211, 172)">■</span> = White Wine</p>
           <div class="highlight-border">

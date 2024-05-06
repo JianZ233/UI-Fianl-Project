@@ -41,7 +41,6 @@
       font-size: 40px;
       margin-bottom: 40px;
       text-align: center;
-      font-family: 'Times New Roman', Times, serif;;
       color: rgb(65, 12, 13);
       margin-top: 3%;
     }
@@ -49,16 +48,15 @@
     .term-subheader {
       font-size: 40px;
       text-align: center;
-      font-family: 'Times New Roman', Times, serif;;
       color: rgb(65, 12, 13);
       margin-top: 2%;
       margin-bottom: 5%;
       font-size: 20px;
+      font-weight: bold;
     }
 
     .one-liner {
       text-align: center;
-      font-family: 'Times New Roman', Times, serif;;
       font-weight: regular;
       color:rgb(65, 12, 13);
       margin-top: 2%;
@@ -68,12 +66,10 @@
 
     .left-text {
       margin-left: 5%;
-      font-family: 'Times New Roman', Times, serif;;
     }
 
     .right-text {
       margin-right: 5%;
-      font-family: 'Times New Roman', Times, serif;
     }
 
     body {
@@ -145,7 +141,7 @@
         .catch(error => console.error('Error loading content: ', error));
     }
     </script>
-    <h1 id="term-header">What are the two basic types of wine?</h1>
+    <h1 id="term-header"><b>What are the two basic types of wine?</b></h1>
     <div class="row">
       <div class="col-md-6" style="text-align:center;">
         <img
@@ -153,9 +149,9 @@
           src="{{ url_for('static', filename='pic/Wine_types_red.jpg') }}"
           alt="Red Wine"
         />
-        <h2 class="term-subheader" style="font-size: 40px; margin-top: 30px;">Red Wine</h2>
-        <h3 class="one-liner" style="font-size: 30px;"><strong>Dark</strong> and <strong>Tart</strong></h3>
-        <p class="left-text" style="font-size: 20px;">
+        <h2 class="term-subheader" style="font-size: 32px; margin-top: 30px;">Red Wine</h2>
+        <h3 class="one-liner" style="font-size: 22px;"><strong>Dark</strong> and <strong>Tart</strong></h3>
+        <p class="left-text" style="font-size: 18px;">
           Red wine, with its <strong>rich, velvety texture</strong> and complex flavors, offers a
           sensorial journey that captivates wine enthusiasts worldwide. Crafted
           from dark grape varieties like Cabernet Sauvignon and Merlot, red wine
@@ -169,9 +165,9 @@
           src="{{ url_for('static', filename='pic/Wine_types_white.jpg') }}"
           alt="White Wine"
         />
-        <h2 class="term-subheader" style="font-size: 40px; margin-top: 30px;">White Wine</h2>
-        <h3 class="one-liner" style="font-size: 30px;"><strong>Light</strong> and <strong>Citrusy</strong></h3>
-        <p class="left-text" style="font-size: 20px;">
+        <h2 class="term-subheader" style="font-size: 32px; margin-top: 30px;">White Wine</h2>
+        <h3 class="one-liner" style="font-size: 22px;"><strong>Light</strong> and <strong>Citrusy</strong></h3>
+        <p class="left-text" style="font-size: 18px;">
           White wine enchants with its <strong>crisp, refreshing character</strong> and vibrant
         <strong>fruit-forward flavors</strong>. Derived from green or yellow grapes like
           Chardonnay and Sauvignon Blanc, white wine presents a symphony of
