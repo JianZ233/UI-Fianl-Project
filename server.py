@@ -8,34 +8,34 @@ app.secret_key = 'nXK8vpGjZXPr9rAz5qY-1w'
 current_id = 0
 quiz_data = {
     "question1": {"question": "Halibut with creamy sauce", 
-                  "answer": "Sauvignon Blanc", 
+                  "answer": "Chardonnay", 
                   "image": "Halibut_with_cream_sauce.jpg", 
                   "explanation": "Explanation for question 1.",
                   "options": ["Sauvignon Blanc", "Chardonnay", "Pinot Grigio"]
                   },
     "question2": {"question": "Beef lasagna", 
-                  "answer": "Chianti", 
+                  "answer": "Shiraz", 
                   "image": "Beef_lasagna.jpg", 
                   "explanation": "With its roots deeply entrenched in Italian tradition, this red elixir harmonizes seamlessly with the robust tomato-based sauces and the succulent richness of beef enveloped within the layers of lasagna.",
-                  "options": ["Sauvignon Blanc", "Chianti", "Cabernet Sauvignon"]
+                  "options": ["Sauvignon Blanc", "Shiraz", "Merlot"]
                   },
     "question3": {"question": "Pear goat cheese salad", 
-                  "answer": "Sauvignon Blanc", 
+                  "answer": "Riesling", 
                   "image": "Pear_goat_cheese_salad.jpg", 
                   "explanation": "Explanation for question 3.",
-                  "options": ["Sauvignon Blanc", "Pinot Noir", "Rosé"]
+                  "options": ["Riesling", "Pinot Noir", "Sauvignon Blanc"]
                   },
     "question4": {"question": "Parmesan cheese and crackers", 
-                  "answer": "Chianti Classico", 
+                  "answer": "Ruby Port", 
                   "image": "Cheese_and_crackers.jpg", 
                   "explanation": "Explanation for question 4.",
-                  "options": ["Chardonnay", "Prosecco", "Chianti Classico"]
+                  "options": ["Chardonnay", "Ruby Port", "Vin Santo"]
                   },
-    "question5": {"question": "salted caramel toffee bark", 
-                  "answer": "Ruby Port", 
-                  "image": "Salted_caramel_toffee_bark.jpg", 
+    "question5": {"question": "Fruit Pizza Cookies", 
+                  "answer": "Vin Santo", 
+                  "image": "fruit_based_desserts.jpg", 
                   "explanation": "Explanation for question 5.",
-                  "options": ["Ruby Port", "Moscato d'Asti", "Late Harvest Riesling"]
+                  "options": ["Ruby Port", "Pinot Grigio", "Riesling"]
                   },
     # Add more questions and answers here
 }
@@ -43,18 +43,16 @@ quiz_data = {
 # Define additional options, each will be a wine and descriptor
 # descriptor should have dry, full body, etc.
 additional_options = {
-    "Chianti": {"explanation": "Chianti's bold character and robust flavors of ripe red fruit and earthiness make it ideal for hearty dishes, but its strength may overshadow delicate flavors and might not pair well with light seafood or delicate salads."},
+    "Chardonnay": {"explanation": "Full-bodied white wine that is smooth and subtly oaked, usually with notes of vanilla and butter."},
     "Cabernet Sauvignon": {"explanation": "Cabernet Sauvignon's full body and rich dark fruit flavors complement savory dishes, but its robust nature can overwhelm lighter fare, so it's not the best choice for delicate fish or subtle dishes."},
-    "Pinot Grigio": {"explanation": "Pinot Grigio's crisp acidity and refreshing citrus notes offer versatility, pairing well with various dishes, yet its subtle flavors may be overshadowed by intensely flavored fare, such as heavily spiced dishes or very rich, creamy sauces."},
-    "Sauvignon Blanc": {"explanation": "Sauvignon Blanc's zesty citrus aromas and vibrant acidity make it perfect for fresh salads and seafood, though its lightness may not stand up to heavier dishes like red meats or creamy pastas."},
-    "Pinot Noir": {"explanation": "Pinot Noir's silky texture and elegant red fruit flavors pair well with dishes balancing sweetness and savory elements, but its medium body may lack the intensity for bolder flavors and might not be the best choice for heavily spiced or heavily sauced dishes."},
-    "Rosé": {"explanation": "Rosé's delicate hue and fruity aromas offer a refreshing drinking experience, complementing light, summery fare, yet its delicate nature may be overshadowed by richer dishes or strong-flavored foods."},
-    "Chardonnay": {"explanation": "Chardonnay's rich texture and vibrant flavors of ripe fruits and toasted oak make it perfect for creamy dishes, though its oak aging can overpower delicate flavors, so it's not the best choice for subtle seafood or light salads."},
-    "Prosecco": {"explanation": "Prosecco's effervescence and fruity aromas provide a refreshing palate cleanse, ideal for light appetizers or as an aperitif, yet it may lack the complexity for more substantial dishes and may not pair well with heavily spiced foods or very rich dishes."},
-    "Chianti Classico": {"explanation": "Chianti Classico's vibrant acidity and fruity flavors pair excellently with classic Italian cuisine, striking a perfect balance of acidity and richness, but it may not be the best choice for very spicy dishes or overly sweet desserts."},
-    "Ruby Port": {"explanation": "Ruby Port's luscious sweetness and intense flavors make it a luxurious indulgence, perfect for pairing with rich desserts and savory cheeses, but it might overwhelm lighter dishes or delicate flavors."},
-    "Moscato d'Asti": {"explanation": "Moscato d'Asti's delicate sweetness and floral aromas make it a delightful choice for pairing with fresh fruit, light desserts, or enjoying on its own, but it may not pair well with very savory or spicy dishes."},
-    "Late Harvest Riesling": {"explanation": "Late Harvest Riesling's opulent sweetness and vibrant acidity make it a perfect match for rich desserts or pungent cheeses, but it might not be the best choice for very light or delicate dishes."}
+    "Pinot Grigio": {"explanation": "Light-bodied, dry, white wine usually crisp, with citrus fruit, apples and a hint of spice. Best with lighter and fresher flavors."},
+    "Sauvignon Blanc": {"explanation": "Light, crisply dry, herbal, and fragrant white wine, that usually has a mellow color and a high acidity to add to its sense of refreshment."},
+    "Pinot Noir": {"explanation": "Light-bodied red wine that is dry, with bright acidity and has complex flavors that include cherry, raspberry, mushroom and forest floor, plus vanilla and baking spice when aged in French oak. Best with mushrooms and roasted meats"},
+    "Shiraz": {"explanation": "Full, red, rich, bold with aromatic notes of smoke, pepper spice, plum, leather, licorice, chocolate, and black fruit. Best with red meat"},
+    "Merlot": {"explanation": "Full and dry red wine that usually has a fruit-forward, velvety, rich, and oaky taste. Best with roasted vegetables or lean beed"},
+    "Ruby Port": {"explanation": "A red wine traditionally enjoyed as a dessert wine with notes of plum, chocolate, raisin, black cherry. Best with savory desserts or stnky cheeses"},
+    "Vin Santo": {"explanation": "A full-bodied, typically very sweet white dessert wine with aromas of hazelnut, caramel, honey, tropical fruit, perfume and dried apricot. Best with fruit based desserts"},
+    "Riesling": {"explanation": "This sweet, aromatic white wine offers primary fruit aromas of orchard fruits like nectarine, apricot, honey-crisp apple, and pear. Best with spicy foods and creamy sauces"}
 }
 
 wines={
@@ -249,10 +247,6 @@ vegetables = {
 def index():
     return render_template('home.html')
 
-# @app.route('/learn')
-# def learn():
-#     return
-
 @app.route('/quiz-start')
 def quiz_start():
     session['total_questions'] = 5
@@ -282,35 +276,6 @@ def quiz():
 
     return render_template('quiz.html', question=current_question, options=options_with_explanations)
 
-    # questions = list(quiz_data.keys())
-
-    # # Ensure there are enough questions available
-    # if len(questions) < 10:
-    #     return "Not enough questions available for the quiz."
-
-    # # Randomly select 10 unique questions
-    # selected_questions = []
-    # while len(selected_questions) < 5:
-    #     question = random.choice(questions)
-    #     if question not in selected_questions:
-    #         selected_questions.append(question)
-
-    # # Generate random options for each selected question
-    # random_options = {}
-    # options = []
-    # for question in selected_questions:
-    #     correct_answer = quiz_data[question]
-    #     c = correct_answer['answer']
-    #     options = random.sample(additional_options, 2)
-    #     options.append(c)
-    #     random.shuffle(options)
-    #     random_options[question] = options
-
-    # # Select the current question from the selected_questions
-    # current_question = selected_questions[0]
-
-    # return render_template('quiz.html', current_question=quiz_data[current_question], current_options=random_options[current_question])
-
 @app.route('/check-answer', methods=['POST'])
 def check_answer():
 
@@ -336,14 +301,6 @@ def check_answer():
             options=[{'option': opt, 'explanation': additional_options[opt]['explanation']} for opt in next_question['options']],
             correct=correct
         )
-
-    # user_answer = request.form['answer']
-    # correct_answer = request.form['correct_answer']
-    # explanation = request.form['explanation']
-
-    # is_correct = user_answer == correct_answer
-
-    # return jsonify({'user_answer': user_answer, 'correct_answer': correct_answer, 'explanation': explanation, 'is_correct': is_correct})
 
 @app.route('/quiz-results')
 def quiz_results():
@@ -409,20 +366,6 @@ def dryness():
 def wine_types():
     return render_template('wine_types.html')
 
-# # check navbar in examples from lecture
-# @app.route('/terms')
-# def terms():
-#     return
- 
-# @app.route('/types')
-# def types():
-
-#     return
-
-# @app.route('/pairings')
-# def types():
-
-#     return
 
 if __name__ == '__main__':
     app.run(debug=True)
