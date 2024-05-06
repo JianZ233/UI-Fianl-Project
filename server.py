@@ -35,7 +35,7 @@ quiz_data = {
                   "answer": "Vin Santo", 
                   "image": "fruit_based_desserts.jpg", 
                   "explanation": "Explanation for question 5.",
-                  "options": ["Ruby Port", "Pinot Grigio", "Riesling"]
+                  "options": ["Vin Santo", "Pinot Grigio", "Riesling"]
                   },
     # Add more questions and answers here
 }
