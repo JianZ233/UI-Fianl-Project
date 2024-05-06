@@ -10,7 +10,7 @@
     
     body {
         color: rgb(65, 12, 13);
-        background-color: rgb(255,255,255);
+        background-color: rgb(255, 255, 255);
         /* light red background */
     }
     
@@ -94,29 +94,60 @@
     .box ul li:hover {
         width: 760px;
     }
-
+    
     .box ul li .text {
         position: absolute;
-        bottom: 10px;  /* Adjust as needed */
-        width: 100%;
+        bottom: 10px;/* Adjust as needed */
+        /* width: 100%; */
+        width: 756px;
         text-align: center;
-        color: rgb(221, 188, 160);  /* Make text color white or any contrasting color */
-        background-color: rgb(65, 12, 13);  /* Semi-transparent background for better visibility */
-        padding: 5px 0;  /* Add some padding */
-        z-index: 10;  /* Ensure text is above the image */
-    }
-    .box ul li .tip {
-        position: absolute;
-        top: 50%;  /* Center vertically */
-        left: 50%;  /* Center horizontally */
-        transform: translate(-50%, -50%);  /* Align center of the div to the center of the li */
-        color: rgb(221, 188, 160);  /* Text color */
-        background-color: rgb(65, 12, 13);  /* Darker background for the tip for visibility */
-        padding: 10px 20px;  /* Padding around the text */
-        border-radius: 10px;  /* Optional: rounded corners */
-        z-index: 5;  /* Lower than the hover text to maintain layer order */
+        color: rgb(221, 188, 160);/* Make text color white or any contrasting color */
+        background-color: rgb(65, 12, 13);/* Semi-transparent background for better visibility */
+        padding: 5px 0;/* Add some padding */
+        z-index: 10;/* Ensure text is above the image */
     }
     
+    .box ul li .tip {
+        position: absolute;
+        top: 50%;/* Center vertically */
+        left: 50%;/* Center horizontally */
+        transform: translate(-50%, -50%);/* Align center of the div to the center of the li */
+        color: rgb(221, 188, 160);/* Text color */
+        background-color: rgb(65, 12, 13);/* Darker background for the tip for visibility */
+        padding: 10px 20px;/* Padding around the text */
+        border-radius: 10px;/* Optional: rounded corners */
+        z-index: 5;/* Lower than the hover text to maintain layer order */
+    }
+    
+    .start {
+        position: relative;
+    }
+    
+    .text {
+        width: 756px;
+    }
+    
+    .text_1 {
+        color: rgb(255, 255, 255); /*font color*/
+        font-size: larger;
+        position: absolute;
+        top: 43%;
+        left: 10%;
+        width: 600px;
+        border-radius: 10px;
+        background-color: rgb(65, 12, 13);/*backgound*/
+        padding: 10px 20px;
+        text-align: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 2s, visibility 0s 2s;
+    }
+    
+    .fa:hover .text_1 {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 2s;
+    }
     .start {
         position: relative;
     }
@@ -130,29 +161,49 @@
 <div class="box">
     <ul>
         <li>
-            <img src="static/pic/DessertWine.jpg" alt="red_wine_with_steak">
-            <div class="text">Red Wine</div>
+            <div style="position: relative;" class="fa">
+                <img src="static/pic/DessertWine.jpg" alt="red_wine_with_steak">
+                <div class="text_1">Rich desserts find their match in sweet, fortified wines like Ruby Port.</div>
+            </div>
+            <div class="text">Ruby Port</div>
         </li>
         <li>
-            <img src="static/pic/redwinebbq.jpg" alt="red_wine_with_steak">
-            <div class="text">Red Wine</div>
+            <div style="position: relative;" class="fa">
+                <img src="static/pic/redwinebbq.webp" alt="red_wine_with_steak">
+                <div class="text_1">Rosé isn't just for summer; it can elevate the flavors of barbecue dishes year-round.</div>
+            </div>
+            <div class="text">Rosé</div>
         </li>
         <li>
-            <img src="static/pic/appetizer_and_champagne.jpg" alt="red_wine_with_steak">
+            <div style="position: relative;" class="fa">
+                <img src="static/pic/appetizer_and_champagne.jpeg" alt="red_wine_with_steak">
+                <div class="text_1">When in doubt, Champagne can enhance almost any appetizer.</div>
+            </div>
             <div class="text">Champagne</div>
-            <!-- <div class="tip">Pair with light wines</div> -->
         </li>
         <li>
-            <img src="static/pic/image-1719.jpg" alt="red_wine_with_steak">
-            <div class="text">Red Wine</div>
+            <div style="position: relative;" class="fa">
+                <img src="static/pic/image-1719.webp" alt="red_wine_with_steak">
+                <div class="text_1">Bold red wines can stand up to hearty vegetarian dishes like mushroom risotto.</div>
+            </div>
+
+            <div class="text">Chianti</div>
         </li>
         <li>
-            <img src="static/pic/redwinesteak.jpg" alt="red_wine_with_steak">
-            <div class="text">Red Wine</div>
+            <div style="position: relative;" class="fa">
+                <img src="static/pic/redwinesteak.jpg" alt="red_wine_with_steak">
+                <div class="text_1">For a classic pairing, try Cabernet Sauvignon with a juicy steak.</div>
+            </div>
+
+            <div class="text">Cabernet Sauvignon</div>
         </li>
         <li>
-            <img src="static/pic/red-wine-with-fish.jpg" alt="red_wine_with_steak">
-            <div class="text">Red Wine</div>
+            <div style="position: relative;" class="fa">
+                <img src="static/pic/red-wine-with-fish.jpg" alt="red_wine_with_steak">
+                <div class="text_1">Not all seafood have to pair with white wine</div>
+            </div>
+
+            <div class="text">Pinot Noir</div>
         </li>
     </ul>
 </div>
