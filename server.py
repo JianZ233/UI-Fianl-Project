@@ -25,11 +25,11 @@ quiz_data = {
                   "explanation": "Explanation for question 3.",
                   "options": ["Riesling - white, sweet, aromatic", "Pinot Noir - red, light-bodied, dry", "Sauvignon Blanc - white, light-bodied, dry"]
                   },
-    "question4": {"question": "Parmesan Cheese and Crackers", 
-                  "answer": "Ruby Port - red, full-bodied, sweet", 
-                  "image": "Cheese_and_crackers.jpg", 
+    "question4": {"question": "Mushroom Risotto", 
+                  "answer": "Pinot Noir - red, light-bodied, dry", 
+                  "image": "image-1719.webp", 
                   "explanation": "Explanation for question 4.",
-                  "options": ["Chardonnay - white, full-bodied, dry", "Ruby Port - red, full-bodied, sweet", "Vin Santo - white, full-bodied, sweet"]
+                  "options": ["Chardonnay - white, full-bodied, dry", "Pinot Noir - red, light-bodied, dry", "Vin Santo - white, full-bodied, sweet"]
                   },
     "question5": {"question": "Fruit Pizza Cookies", 
                   "answer": "Vin Santo - white, full-bodied, sweet", 
@@ -44,7 +44,7 @@ answer_data = {
     "Chardonnay - white, full-bodied, dry": "Chardonnay pairs well because its citrusy notes and subtle oakiness complement the creamy sauce and delicate flavor of the flaky fish, unlike Pinot Grigio and Sauvignon Blanc, which pair better with lighter dishes.",
     "Shiraz - red, full-bodied, dry": "Shiraz harmonizes seamlessly with the robust tomato-based sauces and the herbaceous richness of beef. Although Merlot is a good alternative, the dark fruit flavours and peppery spice profile of the Shiraz compliments the herbs and spiciness of the dish best.",
     "Sauvignon Blanc - white, light-bodied, dry": "Sauvignon Blanc's crisp acidity and fruity aromas complement the sweetness of pears and the tanginess of goat cheese, creating a refreshing and balanced flavor profile. The Riesling would have been too sweet and the Pinot Noir pair better with red meat.",
-    "Ruby Port - red, full-bodied, sweet": "The nutty and salty flavors of Parmesan cheese find a delightful companion in the rich sweetness and complex flavors of Ruby Port, creating a harmonious pairing that elevates both elements.",
+    "Pinot Noir - red, light-bodied, dry": "Pinot Noir pairs well with the earthy flavors of mushrooms and the creamy texture of risotto. Its light body and bright acidity complement the dish without overpowering it, whereas Vin Santo would have been too sweet and Chardonnay too heavy.",
     "Vin Santo - white, full-bodied, sweet": "Vin Santo's fruit-like sweetness and nutty undertones complement the fruit pizza cookies, providing a delightful contrast and enhancing the dessert's overall enjoyment. Whereas, Pinot Grigio and Riesling would have been too light for the sweet and rich dessert."
 }
 
@@ -171,7 +171,7 @@ wines_food={
     'Pinot Noir':{
         'wine_name':'Pinot Noir',
         'wine_type':'Red',
-        'wine_desc':' Light-bodied red wine that is dry, with bright acidity. <b> Best with mushrooms and roasted meats.</b>'
+        'wine_desc':' Light-bodied red wine that is dry, with bright acidity. <b> Best with mushrooms, roasted meats, and flaky seafood.</b>'
     },
     'Pinot Grigio':{
         'wine_name':'Pinot Grigio',
