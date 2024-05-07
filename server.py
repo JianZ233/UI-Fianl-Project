@@ -17,7 +17,7 @@ quiz_data = {
                   "answer": "Shiraz - red, full-bodied, dry", 
                   "image": "Beef_lasagna.jpg", 
                   "explanation": "With its roots deeply entrenched in Italian tradition, this red elixir harmonizes seamlessly with the robust tomato-based sauces and the succulent richness of beef enveloped within the layers of lasagna.",
-                  "options": ["Sauvignon Blanc - white, light-bodied, dry", "Shiraz - red, full-bodied, dry", "Merlot - red, full-bodied, dry"]
+                  "options": ["Sauvignon Blanc - white, light-bodied, dry", "Shiraz - red, full-bodied, dry", "Pinot Noir - red, light-bodied, dry"]
                   },
     "question3": {"question": "Pear Goat Cheese Salad", 
                   "answer": "Sauvignon Blanc - white, light-bodied, dry", 
@@ -42,7 +42,7 @@ quiz_data = {
 
 answer_data = {
     "Chardonnay - white, full-bodied, dry": "Chardonnay pairs well because its citrusy notes and subtle oakiness complement the creamy sauce and delicate flavor of the flaky fish, unlike Pinot Grigio and Sauvignon Blanc, which pair better with lighter dishes.",
-    "Shiraz - red, full-bodied, dry": "Shiraz harmonizes seamlessly with the robust tomato-based sauces and the herbaceous richness of beef. Although Merlot is a good alternative, the dark fruit flavours and peppery spice profile of the Shiraz compliments the herbs and spiciness of the dish best.",
+    "Shiraz - red, full-bodied, dry": "Shiraz harmonizes seamlessly with the robust tomato-based sauces and the herbaceous richness of beef. The dark fruit flavours and peppery spice profile of the Shiraz compliments the herbs and spiciness of the dish best out of the 3.",
     "Sauvignon Blanc - white, light-bodied, dry": "Sauvignon Blanc's crisp acidity and fruity aromas complement the sweetness of pears and the tanginess of goat cheese, creating a refreshing and balanced flavor profile. The Riesling would have been too sweet and the Pinot Noir pair better with red meat.",
     "Pinot Noir - red, light-bodied, dry": "Pinot Noir pairs well with the earthy flavors of mushrooms and the creamy texture of risotto. Its light body and bright acidity complement the dish without overpowering it, whereas Vin Santo would have been too sweet and Chardonnay too heavy.",
     "Vin Santo - white, full-bodied, sweet": "Vin Santo's fruit-like sweetness and nutty undertones complement the fruit pizza cookies, providing a delightful contrast and enhancing the dessert's overall enjoyment. Whereas, Pinot Grigio and Riesling would have been too light for the sweet and rich dessert."
