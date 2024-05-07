@@ -8,51 +8,59 @@ app.secret_key = 'nXK8vpGjZXPr9rAz5qY-1w'
 current_id = 0
 quiz_data = {
     "question1": {"question": "Halibut with creamy sauce", 
-                  "answer": "Chardonnay", 
+                  "answer": "Chardonnay - white, full-bodied, dry", 
                   "image": "Halibut_with_cream_sauce.jpg", 
                   "explanation": "Explanation for question 1.",
-                  "options": ["Sauvignon Blanc", "Chardonnay", "Pinot Grigio"]
+                  "options": ["Sauvignon Blanc - white, light-bodied, dry", "Chardonnay - white, full-bodied, dry", "Pinot Grigio - white, light-bodied, dry"]
                   },
     "question2": {"question": "Beef lasagna", 
-                  "answer": "Shiraz", 
+                  "answer": "Shiraz - red, full-bodied, dry", 
                   "image": "Beef_lasagna.jpg", 
                   "explanation": "With its roots deeply entrenched in Italian tradition, this red elixir harmonizes seamlessly with the robust tomato-based sauces and the succulent richness of beef enveloped within the layers of lasagna.",
-                  "options": ["Sauvignon Blanc", "Shiraz", "Merlot"]
+                  "options": ["Sauvignon Blanc - white, light-bodied, dry", "Shiraz - red, full-bodied, dry", "Merlot - red, full-bodied, dry"]
                   },
     "question3": {"question": "Pear goat cheese salad", 
-                  "answer": "Sauvignon Blanc", 
+                  "answer": "Sauvignon Blanc - white, light-bodied, dry", 
                   "image": "Pear_goat_cheese_salad.jpg", 
                   "explanation": "Explanation for question 3.",
-                  "options": ["Riesling", "Pinot Noir", "Sauvignon Blanc"]
+                  "options": ["Riesling - white, sweet, aromatic", "Pinot Noir - red, light-bodied, dry", "Sauvignon Blanc - white, light-bodied, dry"]
                   },
     "question4": {"question": "Parmesan cheese and crackers", 
-                  "answer": "Ruby Port", 
+                  "answer": "Ruby Port - red, full-bodied, sweet", 
                   "image": "Cheese_and_crackers.jpg", 
                   "explanation": "Explanation for question 4.",
-                  "options": ["Chardonnay", "Ruby Port", "Vin Santo"]
+                  "options": ["Chardonnay - white, full-bodied, dry", "Ruby Port - red, full-bodied, sweet", "Vin Santo - white, full-bodied, sweet"]
                   },
     "question5": {"question": "Fruit Pizza Cookies", 
-                  "answer": "Vin Santo", 
+                  "answer": "Vin Santo - white, full-bodied, sweet", 
                   "image": "fruit_based_desserts.jpg", 
                   "explanation": "Explanation for question 5.",
-                  "options": ["Vin Santo", "Pinot Grigio", "Riesling"]
+                  "options": ["Vin Santo - white, full-bodied, sweet", "Pinot Grigio - white, light-bodied, dry", "Riesling - white, sweet, aromatic"]
                   },
     # Add more questions and answers here
+}
+
+answer_data = {
+    "Chardonnay - white, full-bodied, dry": "Chardonnay pairs well with seafood dishes like halibut because its citrusy notes and subtle oakiness complement the creamy texture and delicate flavor of the fish, enhancing the overall dining experience.",
+    "Shiraz - red, full-bodied, dry": "With its roots deeply entrenched in Italian tradition, this red elixir harmonizes seamlessly with the robust tomato-based sauces and the succulent richness of beef enveloped within the layers of lasagna.",
+    "Sauvignon Blanc - white, light-bodied, dry": "Sauvignon Blanc's crisp acidity and fruity aromas complement the sweetness of pears and the tanginess of goat cheese, creating a refreshing and balanced flavor profile.",
+    "Ruby Port - red, full-bodied, sweet": "The nutty and salty flavors of Parmesan cheese find a delightful companion in the rich sweetness and complex flavors of Ruby Port, creating a harmonious pairing that elevates both elements.",
+    "Vin Santo - white, full-bodied, sweet": "Vin Santo's honeyed sweetness and nutty undertones complement the fruity and decadent flavors of fruit pizza cookies, providing a delightful contrast and enhancing the dessert's overall enjoyment."
 }
 
 # Define additional options, each will be a wine and descriptor
 # descriptor should have dry, full body, etc.
 additional_options = {
-    "Chardonnay": {"explanation": "Full-bodied white wine that is smooth and subtly oaked, usually with notes of vanilla and butter."},
-    "Cabernet Sauvignon": {"explanation": "Cabernet Sauvignon's full body and rich dark fruit flavors complement savory dishes, but its robust nature can overwhelm lighter fare, so it's not the best choice for delicate fish or subtle dishes."},
-    "Pinot Grigio": {"explanation": "Light-bodied, dry, white wine usually crisp, with citrus fruit, apples and a hint of spice. Best with lighter and fresher flavors."},
-    "Sauvignon Blanc": {"explanation": "Light, crisply dry, herbal, and fragrant white wine, that usually has a mellow color and a high acidity to add to its sense of refreshment."},
-    "Pinot Noir": {"explanation": "Light-bodied red wine that is dry, with bright acidity and has complex flavors that include cherry, raspberry, mushroom and forest floor, plus vanilla and baking spice when aged in French oak. Best with mushrooms and roasted meats"},
-    "Shiraz": {"explanation": "Full, red, rich, bold with aromatic notes of smoke, pepper spice, plum, leather, licorice, chocolate, and black fruit. Best with red meat"},
-    "Merlot": {"explanation": "Full and dry red wine that usually has a fruit-forward, velvety, rich, and oaky taste. Best with roasted vegetables or lean beed"},
-    "Ruby Port": {"explanation": "A red wine traditionally enjoyed as a dessert wine with notes of plum, chocolate, raisin, black cherry. Best with savory desserts or stnky cheeses"},
-    "Vin Santo": {"explanation": "A full-bodied, typically very sweet white dessert wine with aromas of hazelnut, caramel, honey, tropical fruit, perfume and dried apricot. Best with fruit based desserts"},
-    "Riesling": {"explanation": "This sweet, aromatic white wine offers primary fruit aromas of orchard fruits like nectarine, apricot, honey-crisp apple, and pear. Best with spicy foods and creamy sauces"}
+    "Chardonnay - white, full-bodied, dry": {"explanation": "Full-bodied white wine that is smooth and subtly oaked, usually with notes of vanilla and butter."},
+    "Cabernet Sauvignon - red, full-bodied, dry": {"explanation": "Cabernet Sauvignon's full body and rich dark fruit flavors complement savory dishes, but its robust nature can overwhelm lighter fare, so it's not the best choice for delicate fish or subtle dishes."},
+    "Pinot Grigio - white, light-bodied, dry": {"explanation": "Light-bodied, dry, white wine usually crisp, with citrus fruit, apples and a hint of spice. Best with lighter and fresher flavors."},
+    "Sauvignon Blanc - white, light-bodied, dry": {"explanation": "Light, crisply dry, herbal, and fragrant white wine, that usually has a mellow color and a high acidity to add to its sense of refreshment."},
+    "Pinot Noir - red, light-bodied, dry": {"explanation": "Light-bodied red wine that is dry, with bright acidity and has complex flavors that include cherry, raspberry, mushroom and forest floor, plus vanilla and baking spice when aged in French oak. Best with mushrooms and roasted meats."},
+    "Shiraz - red, full-bodied, dry": {"explanation": "Full, red, rich, bold with aromatic notes of smoke, pepper spice, plum, leather, licorice, chocolate, and black fruit. Best with red meat."},
+    "Merlot - red, full-bodied, dry": {"explanation": "Full and dry red wine that usually has a fruit-forward, velvety, rich, and oaky taste. Best with roasted vegetables or lean beef."},
+    "Ruby Port - red, full-bodied, sweet": {"explanation": "A red wine traditionally enjoyed as a dessert wine with notes of plum, chocolate, raisin, black cherry. Best with savory desserts or stinky cheeses."},
+    "Vin Santo - white, full-bodied, sweet": {"explanation": "A full-bodied, typically very sweet white dessert wine with aromas of hazelnut, caramel, honey, tropical fruit, perfume and dried apricot. Best with fruit based desserts."},
+    "Riesling - white, sweet, aromatic": {"explanation": "This sweet, aromatic white wine offers primary fruit aromas of orchard fruits like nectarine, apricot, honey-crisp apple, and pear. Best with spicy foods and creamy sauces."}
 }
 
 wines={
@@ -286,13 +294,18 @@ def check_answer():
     selected_option = data['answer']
     correct_answer = session['selected_questions'][session['current_index']]['answer']
     
+    print("correct:", correct_answer)
+    print("Selected:", selected_option)
+    
     if selected_option == correct_answer:
         correct=True
         session['score'] += 1
+
+    print("correct bool: ", correct)
     
     session['current_index'] += 1
     if session['current_index'] >= session['total_questions']:
-        return jsonify(endQuiz=True, correctAnswer=correct_answer, correct=correct)
+        return jsonify(endQuiz=True, correctAnswer=correct_answer, correct=correct, explanation = answer_data[correct_answer])
     else:
         next_question = session['selected_questions'][session['current_index']]
         return jsonify(
@@ -301,7 +314,8 @@ def check_answer():
             question=next_question['question'],
             image=next_question['image'],
             options=[{'option': opt, 'explanation': additional_options[opt]['explanation']} for opt in next_question['options']],
-            correct=correct
+            correct=correct,
+            explanation = answer_data[correct_answer]
         )
 
 @app.route('/quiz-results')
