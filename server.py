@@ -67,6 +67,70 @@ wines={
     'Chardonnay':{
         'wine_name':'Chardonnay',
         'wine_type':'White',
+        'wine_desc':'Full-bodied and dry white wine that is <b>creamy, smooth and subtly oaked</b>, usually with notes of vanilla and butter.'
+    },
+    'Cabernet Sauvignon':{
+        'wine_name':'Cabernet Sauvignon',
+        'wine_type':'Red',
+        'wine_desc':'Full and dry red wine that is <b>rich and acidic</b>. It tends to showcase currants, cherry, and brambly berry liqueur, and, if it\'s been aged in new oak, aromas, and flavors of vanilla and chocolate.'
+    },
+    'Sauvignon Blanc':{
+        'wine_name':'Sauvignon Blanc',
+        'wine_type':'White',
+        'wine_desc':'<b>Light, crisply dry, herbal, and fragrant</b> white wine, that usually has a mellow color and a <b>high acidity</b> to add to its sense of refreshment.'
+    },
+    'Lambrusco di Sorbara':{
+        'wine_name':'Lambrusco di Sorbara',
+        'wine_type':'Red',
+        'wine_desc': 'A <b>light and floral red wine</b> that is dry but has aromas of orange blossom, mandarin orange, cherries, violets, and watermelon.'
+    },
+    'Vin Santo':{
+        'wine_name':'Vin Santo',
+        'wine_type':'White',
+        'wine_desc':'A full-bodied, typically very sweet white dessert wine, <b>almost fruit-like</b>, with aromas of hazelnut, caramel, honey, tropical fruit, perfume and dried apricot.'
+    },
+    'Dornfelder':{
+        'wine_name':'Dornfelder',
+        'wine_type':'Red',
+        'wine_desc':'A full-bodied, sweet red wine that is <b>heavy and rich</b>, with delicious flavor of cherries, red berries and plums.'    
+    },
+    'Riesling':{
+        'wine_name':'Riesling',
+        'wine_type':'White',
+        'wine_desc':'This <b>sweet, light, and refreshing</b> white wine offers primary aromas of orchard fruits like nectarine, apricot, honey-crisp apple, and pear.'
+    },
+    'Ruby Port':{
+        'wine_name':'Ruby Port',
+        'wine_type':'Red',
+        'wine_desc':'A red wine traditionally enjoyed as a dessert wine, that is <b>savoury and tangy</b>, with notes of plum, chocolate, raisin, black cherry.'
+    },
+    'Pinot Noir':{
+        'wine_name':'Pinot Noir',
+        'wine_type':'Red',
+        'wine_desc':' Light-bodied red wine that is dry, with bright acidity and has complex flavors that include cherry, raspberry, mushroom and forest floor, plus vanilla and baking spice when aged in French oak. <b> Best with mushrooms and roasted meats </b>'
+    },
+    'Pinot Grigio':{
+        'wine_name':'Pinot Grigio',
+        'wine_type':'White',
+        'wine_desc':'Light-bodied, dry, white wine usually crisp, with citrus fruit, apples and a hint of spice. <b> Best with lighter and fresher flavors </b>'
+    },
+    'Merlot':{
+        'wine_name':'Merlot',
+        'wine_type': 'Red',
+        'wine_desc':'Full and dry red wine that usually has a fruit-forward, velvety, rich, and oaky taste. <b> Best with roasted vegetables or lean beed </b>'
+    },
+    'Shiraz':{
+        'wine_name':'Shiraz',
+        'wine_type': 'Red',
+        'wine_desc': 'Full, red, rich, bold with aromatic notes of smoke, pepper spice, plum, leather, licorice, chocolate, and black fruit. <b> Best with red meat</b>'
+    }
+
+}
+
+wines_food={
+    'Chardonnay':{
+        'wine_name':'Chardonnay',
+        'wine_type':'White',
         'wine_desc':'Full-bodied white wine that is smooth and subtly oaked, usually with notes of vanilla and butter. <b> Best with mild foods </b> '
     },
     'Cabernet Sauvignon':{
@@ -201,10 +265,10 @@ seafood = {
     'labelright':'Flaky',
     'labelbottom':'Acidic',
     'labelleft':'Not Flaky',
-    'topright': wines['Chardonnay'],
-    'topleft': wines['Sauvignon Blanc'],
-    'bottomright2': wines['Pinot Noir'],
-    'bottomleft': wines['Pinot Grigio'],
+    'topright': wines_food['Chardonnay'],
+    'topleft': wines_food['Sauvignon Blanc'],
+    'bottomright2': wines_food['Pinot Noir'],
+    'bottomleft': wines_food['Pinot Grigio'],
     'imgtopright': 'seafood_moreflaky_creamy.jpg',
     'imgtopleft': 'seafood_lessflaky_creamy.jpg',
     'imgbottomright': 'seafood_moreflaky_acidic.jpg',
@@ -219,10 +283,10 @@ meat = {
     'labelright':'Bloody',
     'labelbottom':'Acidic',
     'labelleft':'Less Bloody',
-    'topright': wines['Merlot'],
-    'topleft': wines['Chardonnay'],
-    'bottomright': wines['Shiraz'],
-    'bottomleft': wines['Sauvignon Blanc'],
+    'topright': wines_food['Merlot'],
+    'topleft': wines_food['Chardonnay'],
+    'bottomright': wines_food['Shiraz'],
+    'bottomleft': wines_food['Sauvignon Blanc'],
     'imgtopright': 'meat_red_creamy.jpg',
     'imgtopleft': 'meat_white_creamy.jpg',
     'imgbottomright': 'meat_red_acidic.jpg',
@@ -239,10 +303,10 @@ vegetables = {
     'labelright':'Sweet',
     'labelbottom':'Acidic',
     'labelleft':'Spicy',
-    'topright': wines['Pinot Noir'],
-    'topleft': wines['Sauvignon Blanc'],
-    'bottomright': wines['Riesling'],
-    'bottomleft': wines['Chardonnay'],
+    'topright': wines_food['Pinot Noir'],
+    'topleft': wines_food['Sauvignon Blanc'],
+    'bottomright': wines_food['Riesling'],
+    'bottomleft': wines_food['Chardonnay'],
     'imgtopright': 'vegetable_sweet_creamy.jpg',
     'imgtopleft': 'vegetable_spicy_creamy.jpg',
     'imgbottomright': 'vegetable_sweet_acidic.jpg',
