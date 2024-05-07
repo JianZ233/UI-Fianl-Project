@@ -35,7 +35,7 @@ quiz_data = {
                   "answer": "Vin Santo - white, full-bodied, sweet", 
                   "image": "fruit_based_desserts.jpg", 
                   "explanation": "Explanation for question 5.",
-                  "options": ["Vin Santo - white, full-bodied, sweet", "Pinot Grigio - white, light-bodied, dry", "Riesling - white, light-bodied, sweet"]
+                  "options": ["Vin Santo - white, full-bodied, sweet", "Pinot Grigio - white, light-bodied, dry", "Riesling - white, sweet, aromatic"]
                   },
     # Add more questions and answers here
 }
