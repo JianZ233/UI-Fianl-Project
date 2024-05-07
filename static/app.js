@@ -56,6 +56,13 @@ function submitAnswer() {
             messageElement.innerText = data.correct ? 'Correct!' : 'Incorrect!';
             messageElement.style.color = data.correct ? 'green' : 'red';
 
+            const explanationText = document.createElement('exp');
+            explanationText.innerText = data.explanation;
+            explanationText.style.color = data.correct ? 'green' : 'red';
+            
+            const explanationContainer = document.getElementById('explanation');
+            explanationContainer.appendChild(explanationText);
+
             // Show next question or results button
             const buttonContainer = document.getElementById('answer-form');
             const actionButton = document.createElement('button');
@@ -70,10 +77,6 @@ function submitAnswer() {
             buttonContainer.appendChild(actionButton);
             
         })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Error processing your answer, please try again.');
-        });
         
         // Remove 'clicked' class and onclick attribute from all options
         document.querySelectorAll('.option').forEach(btn => {
@@ -84,7 +87,6 @@ function submitAnswer() {
         alert("Please select an option before submitting."); // Alert if no option is selected
     }
 }
-
 
 function markClicked(option) {
     // Remove 'clicked' class from previously clicked options
@@ -115,6 +117,10 @@ function loadQuestion(data) {
 
     const buttonContainer = document.getElementById('answer-form');
     buttonContainer.innerHTML = ''; // Clear existing buttons
+    
+    const explanationText = document.getElementById('explanation');
+    explanationText.innerText = '';
+    explanationText.style.color = '';
 
     // Hide the message element
     const messageElement = document.getElementById('message');
@@ -128,7 +134,7 @@ function loadQuestion(data) {
         button.innerText = option.option;
         buttonContainer.appendChild(button);
 
-        const explanation = document.createElement('div');
+        const explanation = document.createElement('exp');
         explanation.className = 'explanation';
         explanation.id = 'explanation-' + index;
         explanation.style.display = 'none';
