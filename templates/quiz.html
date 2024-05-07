@@ -5,6 +5,7 @@
     body {
         background-color: rgb(255, 255, 255);
         color: rgb(65, 12, 13);
+        font-size: 20px;
     }
     .quiz-container {
         display: flex;
@@ -95,6 +96,7 @@
         <div class="image-container">
             <img src="{{ url_for('static', filename='pic/' + question['image']) }}" alt="Question Image" style="max-width: 50%; height: auto;">
             <div id="message" style="margin: 5px;"></div>
+            <div id="explanation" style="margin: 5px;"></div>
             <div id="answer-form">
                 {% for option in options %}
                 <button type="button" class="option" onclick="markClicked(this)">
