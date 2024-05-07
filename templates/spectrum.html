@@ -239,11 +239,11 @@
       $(".start-learning-btn").attr("onclick", "window.location.href='/food-pairings-summary'");
     }
     else if (data.type == "red_spectrum") {
-      $(".start-learning-btn").text("Learn the white wine spectrum");
+      $(".start-learning-btn").text("Learn the White Wine spectrum");
       $(".start-learning-btn").attr("onclick", "window.location.href='/wine-terms?section=white-spectrum'");
     }
     else if (data.type == "white_spectrum"){
-      $(".start-learning-btn").text("See the full wine spectrum");
+      $(".start-learning-btn").text("See the full spectrum");
       $(".start-learning-btn").attr("onclick", "window.location.href='/wine-terms?section=basicspectrum'");
     }
     else {
@@ -262,11 +262,12 @@
       <div class="row" style="margin-top: 30px; margin-left: 20px; margin-left: 0px;">
         <div class="col-3" id="popup">
           <h2 class ="title" style="margin-right: 150px;">{{data.title}}</h2>
-          <p>Click on a wine name to learn more about it!</p>
+          <p style="font-size: 20px;">Click on a wine name to learn more about it!</p>
           <p style="margin-top: 20px;margin-bottom: 3px;"><span style="color: rgb(151, 59, 72);">■</span> = Red Wine</p>
           <p><span style="color: rgb(224, 211, 172)">■</span> = White Wine</p>
           <div class="highlight-border">
             <h3 id="winename"></h3>
+            <p id="winecategory"></p>
             <div id="winedesc"></div>
           </div>
         </div>
