@@ -60,7 +60,7 @@ additional_options = {
     "Merlot - red, full-bodied, dry": {"explanation": "Full and dry red wine that usually has a fruit-forward, velvety, rich, and oaky taste. Best with roasted vegetables or lean beef."},
     "Ruby Port - red, full-bodied, sweet": {"explanation": "A red wine traditionally enjoyed as a dessert wine with notes of plum, chocolate, raisin, black cherry. Best with savory desserts or stinky cheeses."},
     "Vin Santo - white, full-bodied, sweet": {"explanation": "A full-bodied, typically very sweet white dessert wine with aromas of hazelnut, caramel, honey, tropical fruit, perfume and dried apricot. Best with fruit based desserts."},
-    "Riesling - white, light-bodied, sweet": {"explanation": "This light-bodied, sweet, aromatic white wine offers primary fruit aromas of orchard fruits like nectarine, apricot, honey-crisp apple, and pear. Best with spicy foods and creamy sauces."}
+    "Riesling - white, sweet, aromatic": {"explanation": "This light-bodied, sweet, aromatic white wine offers primary fruit aromas of orchard fruits like nectarine, apricot, honey-crisp apple, and pear. Best with spicy foods and creamy sauces."}
 }
 
 wines={
