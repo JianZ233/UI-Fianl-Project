@@ -338,12 +338,8 @@ def quiz():
     
     current_question = session['selected_questions'][session['current_index']]
     correct_option = current_question['answer']
-    options = [correct_option]  # Start with the correct answer
+    options = current_question['options'][:] # Start with the correct answer
 
-    while len(options) < 3:  #three options
-        potential_option = random.choice(list(additional_options.keys()))
-        if potential_option not in options:
-            options.append(potential_option)
     random.shuffle(options)
 
     # Get explanations for each option
