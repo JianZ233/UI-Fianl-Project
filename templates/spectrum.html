@@ -88,7 +88,7 @@
     color: rgb(221, 188, 160);
   }
 
-    .message-box {
+  .message-box {
     margin-top: 5px;
     max-width: 300px;
     padding: 5px;
@@ -263,8 +263,8 @@
         <div class="col-3" id="popup">
           <h2 class ="title" style="margin-right: 150px;">{{data.title}}</h2>
           <p style="font-size: 20px;">Click on a wine name to learn more about it!</p>
-          <p style="margin-top: 20px;margin-bottom: 3px;"><span style="color: rgb(151, 59, 72);">■</span> = Red Wine</p>
-          <p><span style="color: rgb(224, 211, 172)">■</span> = White Wine</p>
+          <p style="margin-top: 20px;margin-bottom: 3px; font-size: 18px;"><span style="color: rgb(151, 59, 72);">■</span> = Red Wine</p>
+          <p style="font-size: 18px;"><span style="color: rgb(224, 211, 172)">■</span> = White Wine</p>
           <div class="highlight-border">
             <h3 id="winename"></h3>
             <p id="winecategory"></p>
@@ -283,7 +283,7 @@
               </div>
             </div>
             <div class="col-6 col2">
-              <div class="label1" id="top">{{data.labeltop}}</div>
+              <div class="label1" style="font-size: 18px; font-weight: bold;" id="top">{{data.labeltop}}</div>
               <div style="text-align:right; margin-top:-60px;">
                 <img id="topright-img" class="frame">
               </div>
@@ -297,7 +297,7 @@
           </div>
           <div class="row">
             <div class="col-6 col3">
-              <div class="label2" id="bottom">{{data.labelleft}}</div>
+              <div class="label2" style="font-size: 18px; font-weight: bold;" id="bottom">{{data.labelleft}}</div>
               <div class="btncontain" style="margin-top: 15px;">
                 <div id="bottomleft">
                 </div>
@@ -309,7 +309,7 @@
               </div>
             </div>
             <div class="col-6 col4 position-relative">
-              <div class="label3 position-absolute end-0" id="right">
+              <div class="label3 position-absolute end-0" style="font-size: 18px; font-weight: bold;"  id="right">
                 {{data.labelright}}
               </div>
               <br />
@@ -322,7 +322,7 @@
               <div style="text-align:right;">
                 <img id="bottomright-img" class="frame"  style="margin-top: -35px">
               </div>
-              <div class="label4 position-absolute bottom-0" id="left">
+              <div class="label4 position-absolute bottom-0" style="font-size: 18px; font-weight: bold;" id="left">
                 {{data.labelbottom}}
               </div>
             </div>
@@ -384,7 +384,8 @@
         background-color: rgb(224, 211, 172);
         margin:15px
         margin-top: 0px;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
+        font-size: 20px;
       }
 
       body {
@@ -403,7 +404,8 @@
       .darkred-bg {
         color: rgb(241, 233, 208);
         background-color: rgb(151, 59, 72);
-        margin-bottom: 15px;
+        margin-bottom: 10px;
+        font-size: 18px;
       }
     </style>
   </body>
