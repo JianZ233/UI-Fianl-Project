@@ -4,7 +4,7 @@ window.onload = function() {
         loop: true,
         effect: 'fade',
         autoplay: {
-            delay: 3000,
+            delay: 3000, //slide stwich time in ms
             disableOnInteraction: true,
         },
         pagination: {
